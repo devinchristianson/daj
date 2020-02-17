@@ -159,6 +159,68 @@ REQ-1:
 
 REQ-2:
 
+etc...
+
+REQ-1: The system shall operate on major web browsers.
+
+REQ-2: The system shall allow input from a keyboard.
+
+REQ-3: The system shall allow input from MIDI instruments.
+
+REQ-4: The system shall detect chords that the user is playing.
+
+REQ-5: The system shall display the name of a chord that the user is playing.
+
+REQ-6: The system shall display the tonic of an input chord.
+
+REQ-7: The system shall suggest chord prograssions to the user based on the chord they are playing.
+
+REQ-8: The system shall suggest chord progressions to the user based on a chosen chord.
+
+REQ-9: The system shall display played chords on a music staff.
+
+REQ-10: The system shall display played chords on a fretboard.
+
+REQ-11: The system shall allow the user to save chord progressions.
+
+REQ-12: The system shall display the key that a detected chord is in.
+
+REQ-13: The system shall play a chosen chord progression on a loop.
+
+REQ-14: The system shall allow a user to play melodies over a progression loop.
+
+REQ-15: The system shall have a metronome.
+
+REQ-16: The system shall allow the user to play looped drum patterns with their input.
+
+REQ-17: The system shall allow the user to change the octave.
+
+REQ-18: The system shall be compatible with mobile devices.
+
+REQ-19: The system shall display notes on ledger lines.
+
+REQ-20: The system shall allow the user to change the ledger clef.
+
+REQ-21: The system shall allow the user to import settings.
+
+REQ-22: The system shall allow the user to report bugs.
+
+REQ-23: The system shall implement sight reading excercises.
+
+REQ-24: The system shall implement chord detection excercises.
+
+REQ-25: The system shall display songs with similar chord progressions to the selected progression.
+
+REQ-26: The system shall display chord progressions from uploaded files.
+
+REQ-27: The system shall suggest chords close to a chord that is incorrectly played.
+
+REQ-28: The system shall give the user access to music theory lessons.
+
+REQ-29: The system shall adopt a color scheme that is easy to use in the dark.
+
+REQ-30: The system shall display statistics for a user in training excercises.
+
 ## 4.2System Feature 2 (and so on)
 
 # 5.Other Nonfunctional Requirements
