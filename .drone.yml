@@ -10,7 +10,7 @@ steps:
     - apk add --no-cache curl bash netcat-openbsd git
     - /bin/sh
     - cd ./docs/markdown/
-    - ./../../.drone/convert.sh
+    - ./../../.drone/convert_markdown_pdf.sh
     - git remote rm origin
     - git remote add origin git@github.com:devinchristianson/daj.git
   - name: commit push pdfs
@@ -20,7 +20,7 @@ steps:
       branch: ${DRONE_BRANCH}
       commit: true
       commit_message: "[CI SKIP] push pdf docs"
-      key:
+      ssh_key:
         from_secret: deploy_key
 services:
   - name: convert
