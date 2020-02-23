@@ -63,25 +63,41 @@ Revision History
 
 
 
-# 1.Introduction
+# 1. Introduction
 
-## 1.1Purpose
+## 1.1 Purpose
 
-Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.
+​	This Software Requirements Specification documents the whole of revision 0.0.1 of the PolyChord application. This includes the base framework of PolyChord, as well as it's core features, such as the keyboard interface with synth capabilities, and basic chord recognition.
 
-## 1.2Document Conventions
+*Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.*
 
-Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.
+## 1.2 Document Conventions
 
-## 1.3Intended Audience and Reading Suggestions
+This has been left as I don't know what conventions will be needed or chosen in the following document. *Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.*
 
-Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.
+## 1.3 Intended Audience and Reading Suggestions
 
-## 1.4Product Scope
+​	This Software Requirements Specification is intended for developers, project managers,  and marketing staff. The document is laid out in a number of multi-part sections. 
 
-Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.
+​	The Overall Description section covers the product perspective, product functions, user types, operating environment and constraints, user documentation plans, assumptions and dependencies. The product functions, user types, operating environment and constraints, user documentation plans, and assumptions sub-sections are important reading for product managers, the product functions, operating environment and constraints, assumptions and dependencies are important reading for developers, and the product perspective, product functions, user types sub-sections are important reading for marketing staff. 
 
-## 1.5References
+​	The External Interface Requirements section covers the user Interfaces, hardware interfaces, and communications interfaces. All three sub-sections are important reading for project manager and developers, while the user interface sub-section is useful reading for the marketing department. 
+
+​	The System Features section covers the major features of PolyChord, and all its subsections are important reading for developers and project managers alike.
+
+The Other Non-Functional Requirements section covers the performance, safety, security, and software quality requirements, as well as any business requirements that may be in play. This is important for project managers and developers.
+
+*Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.*
+
+## 1.4 Product Scope
+
+​	PolyChord is a interactive music theory learning tool, that is designed to be more engaging and dynamic than more traditional music theory tools out there. What sets PolyChord apart is that it identifies chords as they are played, allowing the user more freedom than a traditional chord identification or learning tool. PolyChord is not intended to be a full-featured online synthesizer, nor is intended to be a fully-featured music theory learning classroom. PolyChord aims to be a supplement for these other resources, providing an easy way to re-enforce or refresh music theory know, or gain a working knowledge of basic music theory through experimentation. 
+
+*Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.*
+
+## 1.5 References
+
+***Fill in these references once they are made. We will likely refer to a minimum of the use case models document***
 
 List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
 
