@@ -101,35 +101,81 @@ The Other Non-Functional Requirements section covers the performance, safety, se
 
 List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
 
-# 2.Overall Description
+# 2. Overall Description
 
-## 2.1Product Perspective
+## 2.1 Product Perspective
 
-Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.
+PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product.
 
-## 2.2Product Functions
+***Not sure if we need more than this ^ here***
 
-Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.
+*Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.*
 
-## 2.3User Classes and Characteristics
+## 2.2 Product Functions
 
-Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.
+The major functions the product must perform, or allow the user to perform, are as follows:
 
-## 2.4Operating Environment
+- PolyChord must allow the user to play a piano-style synth via a keyboard or MIDI device input.
+- PolyChord must allow the user to play selected chord by name to be show/played.
+- PolyChord must display chords by name as they are played by the user.
+- PolyChord must allow the user to select a Chord progression to be show/played.
+- PolyChord must display chord progression suggestions based on the chords the user is playing, and the desired "feel" selected by the user.
 
-Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.
+*Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.*
 
-## 2.5Design and Implementation Constraints
+## 2.3 User Classes and Characteristics
 
-Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer\'s organization will be responsible for maintaining the delivered software).
+The general user classes and characteristics are as follows:
 
-## 2.6User Documentation
+- Casual User: This group of users is likely to experiment with many of the product features, but less likely to make wide or continued use of any of them. To maximize their user experience, all features must be as intuitive and straightforward to use as possible
 
-List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.
+- Beginner/Novice level of knowledge in music theory: This group of users is the most likely to use the chord play-back feature to learn new chords, and the chord recognition feature to practice chords. To maximize their user experience, the chord playback feature must not require any prior knowledge of music theory to use, and the chord recognition feature must be responsive. This level of user may also experiment with the chord progression suggestion tool, so that tool must be able to display the chords on a "piano roll" style output, as that is the type of output a user with this level of knowledge is most likely to use.
+- Intermediate level of knowledge in music theory: This group is the most likely to use the chord progression playback and progression suggestion tools, for both learning purposes as well as reference purposes, so the progressions must be based on the chords/key they are playing in, and the playback tool must provide the chords on a staff as well as "piano roll" style, as this level of user is more likely to make use of the "ledger-line" display than the "piano roll" display.
+- Advanced level of knowledge in music theory: This group is most likely to use PolyChord as a reference tool, in the event that they have forgotten a chord or chord progression, or just want to check their work. To maximize their user experience, all tools must be capable of "ledge-line" style output, as that is the type of output that they are the most comfortable with. This is also the level of user who is most likely to use a MIDI device for input, so MIDI input should be an option for all  keyboard-input type tools.
 
-## 2.7Assumptions and Dependencies
+*Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.*
 
-List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+## 2.4 Operating Environment
+
+​	PolyChord is a web application, and therefore is inherently fairly operating-system agnostic, and aims to support as many browsers as possible. For features other than Midi support, universal support of all modern browsers is trivial. For Midi support, only newer versions of Chrome, and Safari support web Midi natively, with some others requiring a 3rd party extension for Midi support. Unfortunately, due to the nature of the Midi API, there is not much PolyChord can do in this regard other than fail gracefully in the face of lack of Midi support, and continue functioning normally otherwise.
+
+*Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.*
+
+## 2.5 Design and Implementation Constraints
+
+​	There are few implementation constraints for the application as a whole, as it only has the standard requirements for a modern website, requirements that are met by all modern browsers. For Midi support specifically, there are a few implementation constraints. First, as mentioned in the previous sub-section, WebMidi is not supported on all modern browsers. Second, WebMidi has some inherent security concerns with "sysEx" webMidi calls. In using the WebMidi.js framework, the initial matter of disabling "sysEx" calls is taken for us, as it is disabled by default, though there are still further actions to mitigate this vulnerability: in order to satisfy the requirements of some modern browsers, and prevent man in the middle attacks that could erroneously enable "sysEx" calls, PolyChord must be served elusively over HTTPS. 
+
+**any regulations we need to mention here?**
+
+Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer\'s organization will be responsible for maintaining the delivered software).*
+
+## 2.6 User Documentation
+
+​	PolyChord's main documentation method is built-in tutorials, with the goal that the user-interface complexity is kept low enough that the built-in tutorials will be sufficient, and no further external documentation is needed. These tutorials will cover the usage basics for all major features of PolyChord, and a tutorial on how to enable and troubleshoot the MIDI device support that PolyChord provides. These tutorials will be both one-time tutorials when a user selects a feature for the first time, and will be able to be recalled within PolyChord's user 
+
+*List the user documentation components (such as user manuals, on-line help, and tutorials) that will be delivered along with the software. Identify any known user documentation delivery formats or standards.*
+
+## 2.7 Assumptions and Dependencies
+
+### Assumptions
+
+***not really sure what to put here, not something we've really discussed***
+
+### Dependencies
+
+#### Tone.js
+
+​	PolyChord relies on Tone.js for client-side sound synthesis and playback. Tone.js is a fairly popular, widely used framework for sound synthesis and modification on the client side, and is licensed under an MIT license, meaning that is free for all types of use, but provided without any functionality guarantees. Tone.js's popularity and wide adoption is the reason it was chosen over competitors, and it's use allows for much faster, more reliable development, when compared to writing the sound synthesis logic from scratch.
+
+#### WebMidi API
+
+​	PolyChord relies on the WebMIDI API specification for Midi support. This accepted Midi implemenation for web, and it has been widely adopted. WebMidi is supported in Chrome, and while it still does not have native support in FireFox, there are a number of extensions for FireFox, and there are plans to implement the API natively in FireFox in the future.
+
+#### WebMidi.js
+
+​	PolyChord relies on WebMidi.js for Midi support. WebMidi.js is a fairly popular framework for interacting with the WebMidi API at a higher level.
+
+*List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).*
 
 # 3.External Interface Requirements
 
@@ -157,15 +203,15 @@ This template illustrates organizing the functional requirements for the product
 
 Don\'t really say \"System Feature 1.\" State the feature name in just a few words.
 
-4.1.1 Description and Priority
+### 4.1.1 Description and Priority
 
 Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).
 
-4.1.2 Stimulus/Response Sequences
+### 4.1.2 Stimulus/Response Sequences
 
 List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.
 
-4.1.3 Functional Requirements
+### 4.1.3 Functional Requirements
 
 Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use \"TBD\" as a placeholder to indicate when necessary information is not yet available.
 
