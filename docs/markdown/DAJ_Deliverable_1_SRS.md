@@ -177,9 +177,9 @@ Describe any items or issues that will limit the options available to the develo
 
 *List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).*
 
-# 3.External Interface Requirements
+# 3. External Interface Requirements
 
-## 3.1User Interfaces
+## 3.1 User Interfaces
 
 PolyChord will have a Keyboard that will react to input from either a MIDI Keyboard or computer keyboard. There will also be a main menu containg tutorials in music theory and a chord explorer interface, options to save a chord progression or view saved chord progressions and all other core features.
 There will also be a seperate menu which allows for swapping between various samples such as "Piano", "Guitar", and "Drums" by the user clicking on the sample type or by typing in the corresponding sample name or index. This menu will also have an option to swap the octave that is being used by the piano in the case that they are using a computer keyboard.
@@ -187,29 +187,31 @@ There will also be a seperate menu which allows for swapping between various sam
 
 *Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.*
 
-## 3.2Hardware Interfaces
+## 3.2 Hardware Interfaces
 
 Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller.
 PolyChord will accept input from a MIDI Keyboard or computer keyboard using the https://github.com/djipco/webmidi webmidi API. Once the input has been interpreted PolyChord will display the notes on an on-screen keyboard and play the corresponding note through the user's computer. 
 
 *Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.*
 
-## 3.3Software Interfaces
+## 3.3 Software Interfaces
 
+PolyChord will be using the most recent tone.js (https://tonejs.github.io/) to play back music to the user including various types of samples and synths. It will take the inputs from the program after input has been taken in and parsed or when a user requests for a chord/chord progression to be played back to them. It handles tempo, notes, various sound samples, note durations and more that we will be using for PolyChord.
+The most recent webmidi.js (https://github.com/djipco/webmidi) will be used for the receiving of midi input. It works natively in Chrome, Opera, and Android, but can also work in Internet Explorer, Firefox ≤ v51, and Safari with some plugins from https://jazz-soft.net/ and https://cwilso.github.io/WebMIDIAPIShim/. This will allow for the use of any MIDI Controllers that a user may want to utilize.
 
 *Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.*
 
-## 3.4Communications Interfaces
+## 3.4 Communications Interfaces
 
-** Do we have any communication Interfaces to mention? **
+Polychord will work over http and https as it is a web application, but as of now will not need to communicate in any way other than the connection between the user and the server.
 
 *Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.*
 
-# 4.System Features
+# 4. System Features
 
 This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.
 
-## 4.1System Feature 1
+## 4.1 System Feature 1
 
 Don\'t really say \"System Feature 1.\" State the feature name in just a few words.
 
@@ -231,31 +233,31 @@ REQ-1:
 
 REQ-2:
 
-## 4.2System Feature 2 (and so on)
+## 4.2 System Feature 2 (and so on)
 
-# 5.Other Nonfunctional Requirements
+# 5. Other Nonfunctional Requirements
 
-## 5.1Performance Requirements
+## 5.1 Performance Requirements
 
 If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.
 
-## 5.2Safety Requirements
+## 5.2 Safety Requirements
 
 Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product\'s design or use. Define any safety certifications that must be satisfied.
 
-## 5.3Security Requirements
+## 5.3 Security Requirements
 
 Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
 
-## 5.4Software Quality Attributes
+## 5.4 Software Quality Attributes
 
 Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.
 
-## 5.5Business Rules
+## 5.5 Business Rules
 
 List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional requirements to enforce the rules.
 
-# 6.Other Requirements
+# 6. Other Requirements
 
 Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.
 
