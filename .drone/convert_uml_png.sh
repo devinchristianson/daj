@@ -15,7 +15,7 @@ do
   FNAME=$(echo $f | sed s/\.pu//g);
   # take action on each file. $f store current file name
   curl http://convertuml:8000/plantuml/png \
-    --data-binary \'@$f\' \
+    --data-binary "@$f" \
     -o ../assets/uml/$FNAME.png;
 curlexit=$?
 if [ $curlexit -ne 0 ]
