@@ -10,8 +10,8 @@ steps:
     - apk add --no-cache curl bash netcat-openbsd git
     - /bin/sh
     - cd ./docs/
-    - ./../.drone/convert_markdown_pdf.sh
     - ./../.drone/convert_uml_png.sh
+    - ./../.drone/convert_markdown_pdf.sh
     - git remote rm origin
     - git remote add origin git@github.com:devinchristianson/daj.git
   - name: commit push pdfs and uml pngs

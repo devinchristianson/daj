@@ -1,0 +1,15 @@
+@startuml
+left to right direction
+actor User
+rectangle PolyChord {
+User -- (1. Play keyboard)
+(1. Play keyboard) <.. (4. View Chord Progression) : <<extend>>
+(1. Play keyboard) <.. (3. View Chord) : <<extend>>
+(1. Play keyboard) <.. (2. View Note) : <<extend>>
+User -- (5. Change synth sound)
+User -- (6. Change octave)
+User -- (7. Change input method)
+(7. Change input method) <.. (9. Setup Midi Device) : <<extend>>
+User -- (8. Choose Chord Progression Feel)
+}
+@enduml
