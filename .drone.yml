@@ -4,17 +4,17 @@ type: docker
 name: default
 
 steps:
-  - name: convert pdf script
+  - name: convert pdf and uml
     image: alpine:latest 
     commands:
     - apk add --no-cache curl bash netcat-openbsd git
     - /bin/sh
     - cd ./docs/markdown/
     - ./../../.drone/convert_markdown_pdf.sh
-    - ./../../.drone/conver_uml_png.sh
+    - ./../../.drone/convert_uml_png.sh
     - git remote rm origin
     - git remote add origin git@github.com:devinchristianson/daj.git
-  - name: commit push pdfs
+  - name: commit push pdfs and uml pngs
     image: appleboy/drone-git-push
     settings:
       remote_name: origin
