@@ -4,8 +4,9 @@ while ! nc -z convertpdf 3000; do
   sleep 1;
 done
 echo "convert API is up"
-mkdir -p ../pdf;
-rm ../pdf/*
+mkdir -p ./pdf;
+rm ./pdf/*
+cd markdown
 shopt -s nullglob;
 for f in *.md
 do
