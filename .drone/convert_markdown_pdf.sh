@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Waiting on convert PDF API"
-while ! nc -z convert 3000; do
-  sleep 0.1;
+while ! nc -z convertpdf 3000; do
+  sleep 1;
 done
 echo "convert API is up"
 mkdir -p ../pdf;
@@ -23,7 +23,7 @@ do
   </body>
  </html>" > index.html;
 curl --request POST \
-    --url http://convert:3000/convert/markdown \
+    --url http://convertpdf:3000/convert/markdown \
     --header 'Content-Type: multipart/form-data' \
     --form files=@index.html \
     --form files=@$f \
