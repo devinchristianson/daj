@@ -11,6 +11,7 @@ steps:
     - /bin/sh
     - cd ./docs/markdown/
     - ./../../.drone/convert_markdown_pdf.sh
+    - ./../../.drone/conver_uml_png.sh
     - git remote rm origin
     - git remote add origin git@github.com:devinchristianson/daj.git
   - name: commit push pdfs
