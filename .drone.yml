@@ -26,7 +26,6 @@ steps:
 services:
   - name: convertpdf
     image: thecodingmachine/gotenberg:latest
-services:
   - name: convertuml
     image: yuzutech/kroki
 trigger:
