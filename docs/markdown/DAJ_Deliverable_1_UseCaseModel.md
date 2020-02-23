@@ -8,7 +8,7 @@
 
 #### Use Case model:
 
-![Piano Keyboard User Case Model](../assets/uml/pianokeyboardUserCase.png)
+![Piano Keyboard User Case Model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/pianokeyboardUserCase.png)
 
 #### Use Case Descriptions:
 
