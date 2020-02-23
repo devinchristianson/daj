@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Waiting on convert UML API"
-while ! nc -z convertuml 3000; do
+while ! nc -z convertuml 8000; do
   sleep 0.1;
 done
 echo "convert UML API is up"
