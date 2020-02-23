@@ -4,6 +4,7 @@ while ! nc -z convertuml 8000; do
   sleep 0.1;
 done
 echo "convert UML API is up"
+mkdir -p ../assets
 mkdir -p ../assets/uml;
 rm ../assets/uml/*
 shopt -s nullglob;
