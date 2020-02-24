@@ -131,7 +131,7 @@ The general user classes and characteristics are as follows:
 
 - Beginner/Novice level of knowledge in music theory: This group of users is the most likely to use the chord play-back feature to learn new chords, and the chord recognition feature to practice chords. To maximize their user experience, the chord playback feature must not require any prior knowledge of music theory to use, and the chord recognition feature must be responsive. This level of user may also experiment with the chord progression suggestion tool, so that tool must be able to display the chords on a "piano roll" style output, as that is the type of output a user with this level of knowledge is most likely to use.
 - Intermediate level of knowledge in music theory: This group is the most likely to use the chord progression playback and progression suggestion tools, for both learning purposes as well as reference purposes, so the progressions must be based on the chords/key they are playing in, and the playback tool must provide the chords on a staff as well as "piano roll" style, as this level of user is more likely to make use of the "ledger-line" display than the "piano roll" display.
-- Advanced level of knowledge in music theory: This group is most likely to use PolyChord as a reference tool, in the event that they have forgotten a chord or chord progression, or just want to check their work. To maximize their user experience, all tools must be capable of "ledge-line" style output, as that is the type of output that they are the most comfortable with. This is also the level of user who is most likely to use a MIDI device for input, so MIDI input should be an option for all  keyboard-input type tools.
+- Advanced level of knowledge in music theory: This group is most likely to use PolyChord as a reference tool, in the event that they have forgotten a chord or chord progression, or just want to check their work. To maximize their user experience, all tools must be capable of "ledger-line" style output, as that is the type of output that they are the most comfortable with. This is also the level of user who is most likely to use a MIDI device for input, so MIDI input should be an option for all  keyboard-input type tools.
 
 *Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.*
 
@@ -177,25 +177,37 @@ Describe any items or issues that will limit the options available to the develo
 
 *List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).*
 
-# 3.External Interface Requirements
+# 3. External Interface Requirements
 
-## 3.1User Interfaces
+## 3.1 User Interfaces
 
-Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.
+PolyChord will have a Keyboard that will react to input from either a MIDI Keyboard or computer keyboard. There will also be a main menu containg tutorials in music theory and a chord explorer interface, options to save a chord progression or view saved chord progressions and all other core features.
+There will also be a seperate menu which allows for swapping between various samples such as "Piano", "Guitar", and "Drums" by the user clicking on the sample type or by typing in the corresponding sample name or index. This menu will also have an option to swap the octave that is being used by the piano in the case that they are using a computer keyboard.
 
-## 3.2Hardware Interfaces
 
-Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
+*Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Define the software components for which a user interface is needed. Details of the user interface design should be documented in a separate user interface specification.*
 
-## 3.3Software Interfaces
+## 3.2 Hardware Interfaces
 
-Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
+Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller.
+PolyChord will accept input from a MIDI Keyboard or computer keyboard using the https://github.com/djipco/webmidi webmidi API. Once the input has been interpreted PolyChord will display the notes on an on-screen keyboard and play the corresponding note through the user's computer. 
 
-## 3.4Communications Interfaces
+*Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.*
 
-Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.
+## 3.3 Software Interfaces
 
-# 4.System Features
+PolyChord will be using the most recent tone.js (https://tonejs.github.io/) to play back music to the user including various types of samples and synths. It will take the inputs from the program after input has been taken in and parsed or when a user requests for a chord/chord progression to be played back to them. It handles tempo, notes, various sound samples, note durations and more that we will be using for PolyChord.
+The most recent webmidi.js (https://github.com/djipco/webmidi) will be used for the receiving of midi input. It works natively in Chrome, Opera, and Android, but can also work in Internet Explorer, Firefox ≤ v51, and Safari with some plugins from https://jazz-soft.net/ and https://cwilso.github.io/WebMIDIAPIShim/. This will allow for the use of any MIDI Controllers that a user may want to utilize.
+
+*Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.*
+
+## 3.4 Communications Interfaces
+
+Polychord will work over http and https as it is a web application, but as of now will not need to communicate in any way other than the connection between the user and the server.
+
+*Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.*
+
+# 4. System Features
 
 This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.
 
@@ -283,7 +295,6 @@ Priority: Low
 
 Stimulus:	User saves a chord progression.
 Response:	System prepares a file the user can download containing information about the chord progression.
-
 Stimulus:	User uploads a file they have downloaded from PolyChord.
 Response:	Systems determines what information is in the file and changes the website to the display contained in the file.
 
@@ -340,9 +351,9 @@ MSET-8: The system shall allow the user to change the octave.
 
 MSET-9: The system shall display notes on ledger lines.
 
-# 5.Other Nonfunctional Requirements
+# 5. Other Nonfunctional Requirements
 
-## 5.1Performance Requirements
+## 5.1 Performance Requirements
 
 PERF-1: The system shall recognize a chord within 2 seconds 99% of the time.
 
@@ -352,28 +363,28 @@ PERF-3: The system shall begin a file download within 1 second of a request 99% 
 
 PERF-4: The system shall correctly identify chords 99% of the time.
 
-## 5.2Safety Requirements
+## 5.2 Safety Requirements
 
 No safety requirements have been identified.
 
-## 5.3Security Requirements
+## 5.3 Security Requirements
 
 SEC-1: The system shall require all users to log in for all operations.
 
 SEC-2: The system shall not place identifying information into downloaded files.
 
-## 5.4Software Quality Attributes
+## 5.4 Software Quality Attributes
 
 Availability: The system should be available during school hours, so teachers can use it and in the evening, so people home from work can use it.
 Correctness: The system should correctly identify chords.
 Portability: The system should be available on different popular operating systems and web browsers.
 Usability: The system should be fully functional to a user without extensive training.
 
-## 5.5Business Rules
+## 5.5 Business Rules
 
 No business rules have been identified.
 
-# 6.Other Requirements
+# 6. Other Requirements
 
 Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.
 
