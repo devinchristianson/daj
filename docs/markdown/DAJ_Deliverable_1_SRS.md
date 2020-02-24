@@ -199,51 +199,179 @@ Describe the requirements associated with any communications functions required 
 
 This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.
 
-## 4.1System Feature 1
-
-Don\'t really say \"System Feature 1.\" State the feature name in just a few words.
+## 4.1 Website
 
 ### 4.1.1 Description and Priority
 
-Provide a short description of the feature and indicate whether it is of High, Medium, or Low priority. You could also include specific priority component ratings, such as benefit, penalty, cost, and risk (each rated on a relative scale from a low of 1 to a high of 9).
+PolyChord will provide a lightweight, multipurpose website that will work in major web browsers and a method for mobile users to use the system. With this feature, we can begin to implement other features.
+Priority: High
 
 ### 4.1.2 Stimulus/Response Sequences
 
-List the sequences of user actions and system responses that stimulate the behavior defined for this feature. These will correspond to the dialog elements associated with use cases.
+Not applicable
 
 ### 4.1.3 Functional Requirements
 
-Itemize the detailed functional requirements associated with this feature. These are the software capabilities that must be present in order for the user to carry out the services provided by the feature, or to execute the use case. Include how the product should respond to anticipated error conditions or invalid inputs. Requirements should be concise, complete, unambiguous, verifiable, and necessary. Use \"TBD\" as a placeholder to indicate when necessary information is not yet available.
+SITE-1: The system shall operate on major web browsers.
 
-Each requirement should be uniquely identified with a sequence number or a meaningful tag of some kind.
+SITE-2: The system shall be compatible with mobile devices.
 
-REQ-1:
+SITE-3: The system shall adopt a color scheme that is easy to use in the dark.
 
-REQ-2:
+## 4.2 Chords
 
-## 4.2System Feature 2 (and so on)
+### 4.2.1 Description and Priority
+
+Users will be able to play chords and have relevant information about it displayed. This is one of our primary features and can be implemented relatively early.
+Priority: High
+
+### 4.2.2 Stimulus/Response Sequences
+
+Stimulus:	User plays a chord.
+Response:	System looks up information about the chord and displays it.
+
+Stimulus: 	User plays a chord incorrectly.
+Response:	System looks up similar chords and displays which notes the user is not supposed to be playing.
+
+### 4.2.3 Functional Requirements
+
+CHRD-1: The system shall detect chords that the user is playing.
+
+CHRD-2: The system shall display the name of a chord that the user is playing.
+
+CHRD-3: The system shall display the tonic of an input chord.
+
+CHRD-4: The system shall display played chords on a music staff.
+
+CHRD-5: The system shall display played chords on a fretboard.
+
+CHRD-6: The system shall display the key that a detected chord is in.
+
+CHRD-7: The system shall suggest chords close to a chord that is incorrectly played.
+
+## 4.3 Progressions
+
+### 4.3.1 Description and Priority
+
+Users will be able to see various chord progressions based off of the chords they have played. This feature is one of our major features, but requires other features to be implemented first to function.
+Priority: Medium
+
+### 4.3.2 Stimulus/Response Sequences
+
+Stimulus: 	User plays chords.
+Repsonse: 	System finds progressions that contain those chords and displays those progressions.
+
+Stimulus:	User selects chords for playback.
+Response:	System finds progressions that contain those chords and displays those progressions.
+
+### 4.3.3 Functional Requirements
+
+PRGSN-1: The system shall suggest chord progressions to the user based on the chords they are playing.
+
+PRGSN-2: The system shall suggest chord progressions to the user based on selected chords.
+
+PRGSN-3: The system shall display songs with similar chord progressions to the selected progression.
+
+## 4.4 User Accounts
+
+### 4.4.1 Description and Priority
+
+Users will be able to create accounts to track statistics and save music loops and other settings. These are important to the system, but rely on all other aspects to be implemented first.
+Priority: Low
+
+### 4.4.2 Stimulus/Response Sequences
+
+Stimulus:	User saves a chord progression.
+Response:	System prepares a file the user can download containing information about the chord progression.
+
+Stimulus:	User uploads a file they have downloaded from PolyChord.
+Response:	Systems determines what information is in the file and changes the website to the display contained in the file.
+
+Stimulus:	User submits a bug report.
+Response:	System forwards the report to the developers.
+
+### 4.4.3 Functional Requirements
+
+ACCT-1: The system shall allow the user to save chord progressions.
+
+ACCT-2: The system shall allow the user to import settings.
+
+ACCT-3: The system shall allow the user to report bugs.
+
+ACCT-4: The system shall implement sight reading excercises.
+
+ACCT-5: The system shall implement chord detection excercises.
+
+ACCT-6: The system shall display chord progressions from uploaded files.
+
+ACCT-7: The system shall give the user access to music theory lessons.
+
+ACCT-8: The system shall display statistics for a user in training excercises.
+
+## 4.5 Musical Settings
+
+### 4.5.1 Description and Priority
+
+Users will be able to change the settings of aspects of the music to their liking, as well as input music notes using various methods. These features are important to the final product, but rely on many other aspects that will have to be implemented first.
+Priority: Medium
+
+### 4.5.2 Stimulus/Response Sequences
+
+Stimulus:	The user changes a setting.
+Response:	The system updates the display for the user and saves the current settings.
+
+### 4.5.3 Functional Requirements
+
+MSET-1: The system shall allow input from a keyboard.
+
+MSET-2: The system shall allow input from MIDI instruments.
+
+MSET-3: The system shall play a chosen chord progression on a loop.
+
+MSET-4: The system shall allow a user to play melodies over a progression loop.
+
+MSET-5: The system shall allow the user to change the ledger clef.
+
+MSET-6: The system shall have a metronome.
+
+MSET-7: The system shall allow the user to play looped drum patterns with their input.
+
+MSET-8: The system shall allow the user to change the octave.
+
+MSET-9: The system shall display notes on ledger lines.
 
 # 5.Other Nonfunctional Requirements
 
 ## 5.1Performance Requirements
 
-If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.
+PERF-1: The system shall recognize a chord within 2 seconds 99% of the time.
+
+PERF-2: The system shall display chord progressions within 3 seconds 99% of the time.
+
+PERF-3: The system shall begin a file download within 1 second of a request 99% of the time.
+
+PERF-4: The system shall correctly identify chords 99% of the time.
 
 ## 5.2Safety Requirements
 
-Specify those requirements that are concerned with possible loss, damage, or harm that could result from the use of the product. Define any safeguards or actions that must be taken, as well as actions that must be prevented. Refer to any external policies or regulations that state safety issues that affect the product\'s design or use. Define any safety certifications that must be satisfied.
+No safety requirements have been identified.
 
 ## 5.3Security Requirements
 
-Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
+SEC-1: The system shall require all users to log in for all operations.
+
+SEC-2: The system shall not place identifying information into downloaded files.
 
 ## 5.4Software Quality Attributes
 
-Specify any additional quality characteristics for the product that will be important to either the customers or the developers. Some to consider are: adaptability, availability, correctness, flexibility, interoperability, maintainability, portability, reliability, reusability, robustness, testability, and usability. Write these to be specific, quantitative, and verifiable when possible. At the least, clarify the relative preferences for various attributes, such as ease of use over ease of learning.
+Availability: The system should be available during school hours, so teachers can use it and in the evening, so people home from work can use it.
+Correctness: The system should correctly identify chords.
+Portability: The system should be available on different popular operating systems and web browsers.
+Usability: The system should be fully functional to a user without extensive training.
 
 ## 5.5Business Rules
 
-List any operating principles about the product, such as which individuals or roles can perform which functions under specific circumstances. These are not functional requirements in themselves, but they may imply certain functional requirements to enforce the rules.
+No business rules have been identified.
 
 # 6.Other Requirements
 
