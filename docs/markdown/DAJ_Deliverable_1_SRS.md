@@ -54,20 +54,11 @@ Table of Contents
 
 
 
-Revision History
-
-| Name | Date | Reason For Changes | Version |
-| --- | --- | --- | --- |
-|   |   |   |   |
-|   |   |   |   |
-
-
-
 # 1. Introduction
 
 ## 1.1 Purpose
 
-​	This Software Requirements Specification documents the whole of revision 0.0.1 of the PolyChord application. This includes the base framework of PolyChord, as well as it's core features, such as the keyboard interface with synth capabilities, and basic chord recognition.
+​	This Software Requirements Specification documents the whole of revision 0.0.1 of the PolyChord application. This includes the base framework of PolyChord, as well as it's core features, such as the keyboard interface with synth capabilities, and basic chord recognition. This document will be updated to include later revisions of PolyChord, which will expand on the above feature set, adding additional functionality that is important to our users, such as the ability to save and restore chords, download/upload MIDI files, and much more.
 
 *Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.*
 
@@ -105,9 +96,7 @@ List any other documents or Web addresses to which this SRS refers. These may in
 
 ## 2.1 Product Perspective
 
-PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product.
-
-***Not sure if we need more than this ^ here***
+PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product. The inspiration for PolyChord was the lack of music theory learning tools that were designed with the playing experience first: the majority of applications are either designed to be a reference tool, or designed to be a guided introduction to music theory. PolyChord aims to foster music theory through experimentation: the main interface for the application is a synthesizer, so it is easy and intuitive to play chords by ear and learn new chords from PolyChord's chord database.
 
 *Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.*
 
