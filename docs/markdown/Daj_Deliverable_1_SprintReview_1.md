@@ -35,3 +35,6 @@
  - Begin implementing the selection of a chord name to displaying its notes functionality.
 
 ### Scrum Review
+
+ - What went well: The group met twice a week regularly; everyone contributed ideas and helped direct the flow of the project in some meaningful way.
+ - What needs improvement: Often our scrum meetings exceeded an hour in length, although they're formally supposed to be around 15 minutes; they were used more as general development sessions than as quick meetings to clarify concerns and get everyone on the same page, and as a result they were a bit discursive and off-point at times. In the future, more effort should also be placed in concretely establishing roles rather than adopting the assign-yourself-to-what-you-want approach we took with this sprint, to make sure work is divided up more evenly. This will all be addressed for our following sprints.
