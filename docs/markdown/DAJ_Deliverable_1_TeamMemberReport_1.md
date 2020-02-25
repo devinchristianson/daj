@@ -61,13 +61,24 @@
 
 #### Current Role
 
+ -Development team
+
 #### Work Done
+
+ -SRS section 3 and part of section 2, User Story additions and modifications, found library to use for chord progressions
 
 #### Work to be Done
 
+ -Work as part of development team for the next sprint
+
 #### Issues Encountered
 
+ -flask was difficult to get working as I had Python 3.5 installed on my computer and it requires Python 3.6+
+User stories had issues with duplicates and wording after Deliverable 0
+
 #### Issues Resolved
+
+ - flask installation - had to screw around with some python references on my computer to get it resolved and it took a few hours.
 
 #### Deliverable Percentage
 
