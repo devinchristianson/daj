@@ -27,7 +27,7 @@
 
 #### Deliverable Percentage
 
- -5%
+ -10%
 
 ## Devin Christianson
 
@@ -57,6 +57,8 @@
 
 #### Deliverable Percentage
 
+ -25%
+
 ## Alexandre Feren
 
 #### Current Role
@@ -82,6 +84,8 @@ User stories had issues with duplicates and wording after Deliverable 0
 
 #### Deliverable Percentage
 
+ -10%
+
 ## Jeremy Thiboutot
 
 #### Current Role
@@ -106,7 +110,7 @@ User stories had issues with duplicates and wording after Deliverable 0
 
 #### Deliverable Percentage
 
- -10%
+ -17.5%
 
 ## Dawsin Blanchard
 
@@ -132,6 +136,8 @@ User stories had issues with duplicates and wording after Deliverable 0
 
 #### Deliverable Percentage
 
+ -20%
+
 ## Alexander Revello
 
 #### Current Role
@@ -156,3 +162,4 @@ User stories had issues with duplicates and wording after Deliverable 0
 
 #### Deliverable Percentage
 
+ -17.5%
