@@ -54,11 +54,20 @@ Table of Contents
 
 
 
+Revision History
+
+| Name | Date | Reason For Changes | Version |
+| --- | --- | --- | --- |
+|   |   |   |   |
+|   |   |   |   |
+
+
+
 # 1. Introduction
 
 ## 1.1 Purpose
 
-​	This Software Requirements Specification documents the whole of revision 0.0.1 of the PolyChord application. This includes the base framework of PolyChord, as well as it's core features, such as the keyboard interface with synth capabilities, and basic chord recognition. This document will be updated to include later revisions of PolyChord, which will expand on the above feature set, adding additional functionality that is important to our users, such as the ability to save and restore chords, download/upload MIDI files, and much more.
+​	This Software Requirements Specification documents the whole of revision 0.0.1 of the PolyChord application. This includes the base framework of PolyChord, as well as it's core features, such as the keyboard interface with synth capabilities, and basic chord recognition.
 
 *Identify the product whose software requirements are specified in this document, including the revision or release number. Describe the scope of the product that is covered by this SRS, particularly if this SRS describes only part of the system or a single subsystem.*
 
@@ -96,7 +105,9 @@ List any other documents or Web addresses to which this SRS refers. These may in
 
 ## 2.1 Product Perspective
 
-PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product. The inspiration for PolyChord was the lack of music theory learning tools that were designed with the playing experience first: the majority of applications are either designed to be a reference tool, or designed to be a guided introduction to music theory. PolyChord aims to foster music theory through experimentation: the main interface for the application is a synthesizer, so it is easy and intuitive to play chords by ear and learn new chords from PolyChord's chord database.
+PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product.
+
+***Not sure if we need more than this ^ here***
 
 *Describe the context and origin of the product being specified in this SRS. For example, state whether this product is a follow-on member of a product family, a replacement for certain existing systems, or a new, self-contained product. If the SRS defines a component of a larger system, relate the requirements of the larger system to the functionality of this software and identify interfaces between the two. A simple diagram that shows the major components of the overall system, subsystem interconnections, and external interfaces can be helpful.*
 
@@ -178,8 +189,8 @@ There will also be a seperate menu which allows for swapping between various sam
 
 ## 3.2 Hardware Interfaces
 
-Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller.
-PolyChord will accept input from a MIDI Keyboard or computer keyboard using the https://github.com/djipco/webmidi webmidi API. Once the input has been interpreted PolyChord will display the notes on an on-screen keyboard and play the corresponding note through the user's computer. 
+Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using keys from the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller. The top row will represent the black keys on a piano while the lower row will represent the white keys.
+PolyChord will accept input from a MIDI Keyboard or computer keyboard using the https://github.com/djipco/webmidi webmidi API. Once the input has been interpreted PolyChord will display the notes on an on-screen keyboard and play the corresponding note through the user's computer.
 
 *Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.*
 
@@ -187,12 +198,13 @@ PolyChord will accept input from a MIDI Keyboard or computer keyboard using the 
 
 PolyChord will be using the most recent tone.js (https://tonejs.github.io/) to play back music to the user including various types of samples and synths. It will take the inputs from the program after input has been taken in and parsed or when a user requests for a chord/chord progression to be played back to them. It handles tempo, notes, various sound samples, note durations and more that we will be using for PolyChord.
 The most recent webmidi.js (https://github.com/djipco/webmidi) will be used for the receiving of midi input. It works natively in Chrome, Opera, and Android, but can also work in Internet Explorer, Firefox ≤ v51, and Safari with some plugins from https://jazz-soft.net/ and https://cwilso.github.io/WebMIDIAPIShim/. This will allow for the use of any MIDI Controllers that a user may want to utilize.
+Polychord will also be utilizing the Hooktheory database of chord progressions that is documented at https://www.hooktheory.com/api/trends/docs to recognize what chords are likely to follow given a chord within the database and the preceding chords.
 
 *Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.*
 
 ## 3.4 Communications Interfaces
 
-Polychord will work over http and https as it is a web application, but as of now will not need to communicate in any way other than the connection between the user and the server.
+Polychord will work over http and https as it is a web application, and these are the standard protocols for websites at the time of this specification. As of now will not need to communicate in any way other than the connection between the user and the server. We will have an embedded survey on the website to submit bug reports so that we can improve PolyChord with help from our users. As of now, data synchronization and transfer speeds are of low priority since most of PolyChord's functionality will not require much active interaction between the user and server, and there are no large files to be loaded in with the website.
 
 *Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.*
 
