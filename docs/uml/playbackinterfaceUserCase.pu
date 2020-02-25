@@ -1,0 +1,11 @@
+@startuml
+left to right direction
+actor User
+rectangle PolyChord {
+User -- (10. Select Chord)
+User -- (11. Select Chord Progression)
+User -- (12. Change playback speed)
+User -- (13. Change playback view)
+User -- (14. Toggle playback)
+}
+@enduml
