@@ -30,17 +30,23 @@
 
 ## Alexandre Feren
 
-#### Current Role
+#### Current Role - 
+Development Team
 
-#### Work Done
+#### Work Done - 
+SRS section 3, User Story additions and revisions, found library for chord progression
 
-#### Work to be Done
+#### Work to be Done - 
 
-#### Issues Encountered
+#### Issues Encountered - 
+flask was difficult to get working as I had python 3.5 and it requires 3.6+.
+User story document had issues with duplicates and wording after Deliverable 0
 
-#### Issues Resolved
+#### Issues Resolved - 
+flask installation - had to screw around with some python references on my computer.
+fixed User story document
 
-#### Deliverable Percentage
+#### Deliverable Percentage - ≈14%
 
 ## Jeremy Thiboutot
 
