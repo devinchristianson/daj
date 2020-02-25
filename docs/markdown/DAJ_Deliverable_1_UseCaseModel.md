@@ -134,7 +134,7 @@ Play Keyboard:
 
 **Change input method**:
 
-- Change Input Method: 7
+- Use Case ID: 7
 
 - Relevant User Story IDs: 7, 31
 
@@ -154,7 +154,7 @@ Play Keyboard:
 
 **Choose Chord Progression Feel**:
 
-- Change Input Method: 8
+- Use Case ID: 8
 
 - Relevant User Story IDs: 16
 
@@ -174,7 +174,7 @@ Play Keyboard:
 
 ***Setup Midi device***:
 
-- Change Input Method: 9
+- Use Case ID: 9
 
 - Relevant User Story IDs: 7, 31
 
@@ -195,21 +195,110 @@ Play Keyboard:
 
 
 -------------------------------------------------------------------------------------------------------------------------------
-### Piano Keyboard
+### Playback Interface
 
 #### Use Case model:
 
-\<UML image\>
+![Playback Interface User Case Model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/playbackinterfaceUserCase.png)
 
 #### Use Case Descriptions:
 
-**<Use case name\>**:
+***Select Chord***:
 
-- Use Case ID:
-- Relevant User Story IDs:
-- Actors: 
-- Preconditions
-- User/System steps :
-  - Step 1:
-- Post-conditions 
-- Exceptions handled:
+- Use Case ID: 10
+
+- Relevant User Story IDs: 8
+
+- Actors: User
+
+- Preconditions: None.
+
+- Post-conditions: None.
+
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions | ### System Responses                    |
+| ---------------- | --------------------------------------- |
+| - Select chord   | - Switch playback to the selected chord |
+
+***Select Chord Progression***:
+
+- Use Case ID: 11
+
+- Relevant User Story IDs: 8
+
+- Actors: User
+
+- Preconditions: None.
+
+- Post-conditions: None.
+
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions           | ### System Responses                                |
+| -------------------------- | --------------------------------------------------- |
+| - Select chord progression | - Switch playback to the selected chord progression |
+
+***Change playback speed***:
+
+- Use Case ID: 12
+
+- Relevant User Story IDs: 8
+
+- Actors: User
+
+- Preconditions: None.
+
+- Post-conditions: None.
+
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                      | ### System Responses                                         |
+| ------------------------------------- | ------------------------------------------------------------ |
+| - Increase or decrease playback speed | - If playing: Modulate playback speed based on input<br />- If paused, update speed to be used when playback starts |
+
+***Change Playback View***:
+
+- Use Case ID: 13
+
+- Relevant User Story IDs: 8
+
+- Actors: User
+
+- Preconditions: None.
+
+- Post-conditions: None.
+
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                               | ### System Responses                                         |
+| ---------------------------------------------- | ------------------------------------------------------------ |
+| - Select Fretboard, Ledger, or Piano Roll view | - System changes current playback view to the one that the use selected |
+
+***Toggle Playback***:
+
+- Use Case ID: 13
+
+- Relevant User Story IDs: 8
+
+- Actors: User
+
+- Preconditions: None.
+
+- Post-conditions: None.
+
+- Exceptions handled: The user has not selected a chord or chord progression, the system will play a default C major chord.
+
+**Steps:**
+
+| ### User Actions               | ### System Responses                                         |
+| ------------------------------ | ------------------------------------------------------------ |
+| - Toggle the play/pause button | - If the system was already playing, stop<br />- If the system was not playing, start playback |
