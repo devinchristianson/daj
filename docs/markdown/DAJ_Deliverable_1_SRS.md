@@ -8,7 +8,7 @@
 
 Version 1.0 approved
 
-Prepared by author
+Prepared by Devin Christianson, Alexandre Feren, Alexander Revello, Dawsin Blanchard
 
 DAJ
 
@@ -73,7 +73,10 @@ Revision History
 
 ## 1.2 Document Conventions
 
-This has been left as I don't know what conventions will be needed or chosen in the following document. *Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.*
+​	All requirements stated in this SRS will be specified for the particular item ie. the priority of each specification will be explicitly stated for each requirement and will be sorted by priority. Each section will be bulleted, and subsections will be notated by the depth of the section with pound signs, so that a section will have 1, subsection 2, etc. Enumerations of specifications may be noted by either a - or by a corresponding numbering convention for priorities. Sections may be added removed or modified dependent on the changes in specification as development progresses.
+
+
+*Describe any standards or typographical conventions that were followed when writing this SRS, such as fonts or highlighting that have special significance. For example, state whether priorities  for higher-level requirements are assumed to be inherited by detailed requirements, or whether every requirement statement is to have its own priority.*
 
 ## 1.3 Intended Audience and Reading Suggestions
 
@@ -85,7 +88,7 @@ This has been left as I don't know what conventions will be needed or chosen in 
 
 ​	The System Features section covers the major features of PolyChord, and all its subsections are important reading for developers and project managers alike.
 
-The Other Non-Functional Requirements section covers the performance, safety, security, and software quality requirements, as well as any business requirements that may be in play. This is important for project managers and developers.
+​	The Other Non-Functional Requirements section covers the performance, safety, security, and software quality requirements, as well as any business requirements that may be in play. This is important for project managers and developers.
 
 *Describe the different types of reader that the document is intended for, such as developers, project managers, marketing staff, users, testers, and documentation writers. Describe what the rest of this SRS contains and how it is organized. Suggest a sequence for reading the document, beginning with the overview sections and proceeding through the sections that are most pertinent to each reader type.*
 
@@ -99,13 +102,13 @@ The Other Non-Functional Requirements section covers the performance, safety, se
 
 ***Fill in these references once they are made. We will likely refer to a minimum of the use case models document***
 
-List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
+​	List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
 
 # 2. Overall Description
 
 ## 2.1 Product Perspective
 
-PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product.
+​	PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product. We seek to make music theory intuitive and accessable to musicians of all levels while forusing on beginner to amateurs learning. We believe that the ability to search for chords and learn from playing is the most intuitive way to learn, and as such we want to facilitate this sort of learning
 
 ***Not sure if we need more than this ^ here***
 
@@ -113,7 +116,7 @@ PolyChord is intended to be a standalone music theory experimentation product, a
 
 ## 2.2 Product Functions
 
-The major functions the product must perform, or allow the user to perform, are as follows:
+​	The major functions the product must perform, or allow the user to perform, are as follows:
 
 - PolyChord must allow the user to play a piano-style synth via a keyboard or MIDI device input.
 - PolyChord must allow the user to play selected chord by name to be show/played.
@@ -125,7 +128,7 @@ The major functions the product must perform, or allow the user to perform, are 
 
 ## 2.3 User Classes and Characteristics
 
-The general user classes and characteristics are as follows:
+​	The general user classes and characteristics are as follows:
 
 - Casual User: This group of users is likely to experiment with many of the product features, but less likely to make wide or continued use of any of them. To maximize their user experience, all features must be as intuitive and straightforward to use as possible
 
@@ -147,7 +150,9 @@ The general user classes and characteristics are as follows:
 
 **any regulations we need to mention here?**
 
-Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer\'s organization will be responsible for maintaining the delivered software).*
+​	We will only be using sound that either has been sampled by our development team or that is free for public use to avoid any potential issues with copyright law. All of our libraries are free to use, and we will be adhering to the standards laid out in each for using the library to the best of our abilities.
+
+*Describe any items or issues that will limit the options available to the developers. These might include: corporate or regulatory policies; hardware limitations (timing requirements, memory requirements); interfaces to other applications; specific technologies, tools, and databases to be used; parallel operations; language requirements; communications protocols; security considerations; design conventions or programming standards (for example, if the customer\'s organization will be responsible for maintaining the delivered software).*
 
 ## 2.6 User Documentation
 
@@ -159,9 +164,15 @@ Describe any items or issues that will limit the options available to the develo
 
 ### Assumptions
 
-***not really sure what to put here, not something we've really discussed***
+​	PolyChord will assume that the users all have accepted the required extensions if they are using Internet Explorer or FireFox. It also assumes that the users are generally at a basic level of music theory knowledge, and would care to learn more.
 
 ### Dependencies
+
+​	PolyChord depends on a few extenal libraries and databases, notably Hooktheory, Tone.js, and WebMidi.js and the WebMidi API. 
+
+#### HookTheory API
+
+​	HookTheory is a database that has collected the chords and chord progressions of thousands of popular songs. This has been made accessable in the form of the Hooktheory API which we will be using to find the likely following chord progressions given the most recently played chord(s). This saves the effort of having to search through piles of songs on our own and doing analysis to find the likely following chord progressions given what we have.
 
 #### Tone.js
 
@@ -181,7 +192,7 @@ Describe any items or issues that will limit the options available to the develo
 
 ## 3.1 User Interfaces
 
-PolyChord will have a Keyboard that will react to input from either a MIDI Keyboard or computer keyboard. There will also be a main menu containg tutorials in music theory and a chord explorer interface, options to save a chord progression or view saved chord progressions and all other core features.
+​	PolyChord will have a Keyboard that will react to input from either a MIDI Keyboard or computer keyboard. There will also be a main menu containg tutorials in music theory and a chord explorer interface, options to save a chord progression or view saved chord progressions and all other core features.
 There will also be a seperate menu which allows for swapping between various samples such as "Piano", "Guitar", and "Drums" by the user clicking on the sample type or by typing in the corresponding sample name or index. This menu will also have an option to swap the octave that is being used by the piano in the case that they are using a computer keyboard.
 
 
@@ -189,14 +200,14 @@ There will also be a seperate menu which allows for swapping between various sam
 
 ## 3.2 Hardware Interfaces
 
-Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using keys from the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller. The top row will represent the black keys on a piano while the lower row will represent the white keys.
+​	Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using keys from the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller. The top row will represent the black keys on a piano while the lower row will represent the white keys.
 PolyChord will accept input from a MIDI Keyboard or computer keyboard using the https://github.com/djipco/webmidi webmidi API. Once the input has been interpreted PolyChord will display the notes on an on-screen keyboard and play the corresponding note through the user's computer.
 
 *Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.*
 
 ## 3.3 Software Interfaces
 
-PolyChord will be using the most recent tone.js (https://tonejs.github.io/) to play back music to the user including various types of samples and synths. It will take the inputs from the program after input has been taken in and parsed or when a user requests for a chord/chord progression to be played back to them. It handles tempo, notes, various sound samples, note durations and more that we will be using for PolyChord.
+​	PolyChord will be using the most recent tone.js (https://tonejs.github.io/) to play back music to the user including various types of samples and synths. It will take the inputs from the program after input has been taken in and parsed or when a user requests for a chord/chord progression to be played back to them. It handles tempo, notes, various sound samples, note durations and more that we will be using for PolyChord.
 The most recent webmidi.js (https://github.com/djipco/webmidi) will be used for the receiving of midi input. It works natively in Chrome, Opera, and Android, but can also work in Internet Explorer, Firefox ≤ v51, and Safari with some plugins from https://jazz-soft.net/ and https://cwilso.github.io/WebMIDIAPIShim/. This will allow for the use of any MIDI Controllers that a user may want to utilize.
 Polychord will also be utilizing the Hooktheory database of chord progressions that is documented at https://www.hooktheory.com/api/trends/docs to recognize what chords are likely to follow given a chord within the database and the preceding chords.
 
@@ -204,19 +215,19 @@ Polychord will also be utilizing the Hooktheory database of chord progressions t
 
 ## 3.4 Communications Interfaces
 
-Polychord will work over http and https as it is a web application, and these are the standard protocols for websites at the time of this specification. As of now will not need to communicate in any way other than the connection between the user and the server. We will have an embedded survey on the website to submit bug reports so that we can improve PolyChord with help from our users. As of now, data synchronization and transfer speeds are of low priority since most of PolyChord's functionality will not require much active interaction between the user and server, and there are no large files to be loaded in with the website.
+​	Polychord will work over http and https as it is a web application, and these are the standard protocols for websites at the time of this specification. As of now will not need to communicate in any way other than the connection between the user and the server. We will have an embedded survey on the website to submit bug reports so that we can improve PolyChord with help from our users. As of now, data synchronization and transfer speeds are of low priority since most of PolyChord's functionality will not require much active interaction between the user and server, and there are no large files to be loaded in with the website.
 
 *Describe the requirements associated with any communications functions required by this product, including e-mail, web browser, network server communications protocols, electronic forms, and so on. Define any pertinent message formatting. Identify any communication standards that will be used, such as FTP or HTTP. Specify any communication security or encryption issues, data transfer rates, and synchronization mechanisms.*
 
 # 4. System Features
 
-This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.
+​	This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.
 
 ## 4.1 Website
 
 ### 4.1.1 Description and Priority
 
-PolyChord will provide a lightweight, multipurpose website that will work in major web browsers and a method for mobile users to use the system. With this feature, we can begin to implement other features.
+​	PolyChord will provide a lightweight, multipurpose website that will work in major web browsers and a method for mobile users to use the system. With this feature, we can begin to implement other features.
 Priority: High
 
 ### 4.1.2 Stimulus/Response Sequences
@@ -235,7 +246,7 @@ SITE-3: The system shall adopt a color scheme that is easy to use in the dark.
 
 ### 4.2.1 Description and Priority
 
-Users will be able to play chords and have relevant information about it displayed. This is one of our primary features and can be implemented relatively early.
+​	Users will be able to play chords and have relevant information about it displayed. This is one of our primary features and can be implemented relatively early.
 Priority: High
 
 ### 4.2.2 Stimulus/Response Sequences
@@ -243,7 +254,7 @@ Priority: High
 Stimulus:	User plays a chord.
 Response:	System looks up information about the chord and displays it.
 
-Stimulus: 	User plays a chord incorrectly.
+Stimulus: User plays a chord incorrectly.
 Response:	System looks up similar chords and displays which notes the user is not supposed to be playing.
 
 ### 4.2.3 Functional Requirements
@@ -266,13 +277,13 @@ CHRD-7: The system shall suggest chords close to a chord that is incorrectly pla
 
 ### 4.3.1 Description and Priority
 
-Users will be able to see various chord progressions based off of the chords they have played. This feature is one of our major features, but requires other features to be implemented first to function.
+​	Users will be able to see various chord progressions based off of the chords they have played. This feature is one of our major features, but requires other features to be implemented first to function.
 Priority: Medium
 
 ### 4.3.2 Stimulus/Response Sequences
 
-Stimulus: 	User plays chords.
-Repsonse: 	System finds progressions that contain those chords and displays those progressions.
+Stimulus: User plays chords.
+Repsonse: System finds progressions that contain those chords and displays those progressions.
 
 Stimulus:	User selects chords for playback.
 Response:	System finds progressions that contain those chords and displays those progressions.
@@ -289,7 +300,7 @@ PRGSN-3: The system shall display songs with similar chord progressions to the s
 
 ### 4.4.1 Description and Priority
 
-Users will be able to create accounts to track statistics and save music loops and other settings. These are important to the system, but rely on all other aspects to be implemented first.
+​	Users will be able to create accounts to track statistics and save music loops and other settings. These are important to the system, but rely on all other aspects to be implemented first.
 Priority: Low
 
 ### 4.4.2 Stimulus/Response Sequences
@@ -324,7 +335,7 @@ ACCT-8: The system shall display statistics for a user in training excercises.
 
 ### 4.5.1 Description and Priority
 
-Users will be able to change the settings of aspects of the music to their liking, as well as input music notes using various methods. These features are important to the final product, but rely on many other aspects that will have to be implemented first.
+​	Users will be able to change the settings of aspects of the music to their liking, as well as input music notes using various methods. These features are important to the final product, but rely on many other aspects that will have to be implemented first.
 Priority: Medium
 
 ### 4.5.2 Stimulus/Response Sequences
@@ -366,7 +377,7 @@ PERF-4: The system shall correctly identify chords 99% of the time.
 
 ## 5.2 Safety Requirements
 
-No safety requirements have been identified.
+​	No safety requirements have been identified.
 
 ## 5.3 Security Requirements
 
@@ -383,20 +394,33 @@ Usability: The system should be fully functional to a user without extensive tra
 
 ## 5.5 Business Rules
 
-No business rules have been identified.
+​	No business rules have been identified.
 
 # 6. Other Requirements
 
-Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.
+There are currently no other requirements to be specified for the SRS of PolyChord.
+*Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.*
 
 Appendix A: Glossary
 
-Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a single project in each SRS.
+- SEC-i
+- PERF-i
+- MSET-i
+- ACCT-i
+- PRGSN-i
+- CHRD-i
+- SITE-i
+
+*Define all the terms necessary to properly interpret the SRS, including acronyms and abbreviations. You may wish to build a separate glossary that spans multiple projects or the entire organization, and just include terms specific to a single project in each SRS.*
 
 Appendix B: Analysis Models
 
-Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.
+*Optionally, include any pertinent analysis models, such as data flow diagrams, class diagrams, state-transition diagrams, or entity-relationship diagrams.*
 
 Appendix C: To Be Determined List
 
-Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.
+1. flask - Flask for Python 3.6+ will potentially be used in the future for development of the website, though for now is not being used as there is no immediate use
+2. chord sheet - This may be used as a database to look up chords and see if the chord being played is in this database, but we have not finalized our method of chord recognition as of yet.
+3. Surveymonkey embedded form - this is a tentative method for us to allow users of PolyChord to report bugs to our team, but our method of accepting forms has not yet been finalized.
+
+*Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.*
