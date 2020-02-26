@@ -1,4 +1,3 @@
-##
 
 # Software Requirements Specification
 
@@ -56,11 +55,11 @@ Table of Contents
 
 ## 1.1 Purpose
 
-​	This Software Requirements Specification documents the whole of revision 0.0.1 of the PolyChord application. This includes the base framework of PolyChord, as well as it's core features, such as the keyboard interface with synth capabilities, and basic chord recognition. This document will be updated to include later revisions of PolyChord, which will expand on the above feature set, adding additional functionality that is important to our users, such as the ability to save and restore chords, download/upload MIDI files, and much more.
+This Software Requirements Specification documents the whole of revision 0.0.1 of the PolyChord application. This includes the base framework of PolyChord, as well as it's core features, such as the keyboard interface with synth capabilities, and basic chord recognition. This document will be updated to include later revisions of PolyChord, which will expand on the above feature set, adding additional functionality that is important to our users, such as the ability to save and restore chords, download/upload MIDI files, and much more.
 
 ## 1.2 Document Conventions
 
-​	All requirements stated in this SRS will be specified for the particular item ie. the priority of each specification will be explicitly stated for each requirement and will be sorted by priority. Each section will be bulleted, and subsections will be notated by the depth of the section with pound signs, so that a section will have 1, subsection 2, etc. Enumerations of specifications may be noted by either a - or by a corresponding numbering convention for priorities. Sections may be added removed or modified dependent on the changes in specification as development progresses.
+All requirements stated in this SRS will be specified for the particular item, i,e, the priority of each specification will be explicitly stated for each requirement and will be sorted by priority. Each section will be bullet-ed, and subsections will be notated by the depth of the section with pound signs, so that a section will have 1, subsection 2, etc. Enumerations of specifications may be noted by either a - or by a corresponding numbering convention for priorities. Sections may be added removed or modified dependent on the changes in specification as development progresses.
 
 ## 1.3 Intended Audience and Reading Suggestions
 
@@ -80,17 +79,17 @@ Table of Contents
 
 ## 1.5 References
 
-​	This document depends on the Use Case model document, as that is where PolyChord's features are laid out in more detail, it terms of what the user interaction and system response looks like.
+This document depends on the Use Case model document, as that is where PolyChord's features are laid out in more detail, it terms of what the user interaction and system response looks like.
 
 # 2. Overall Description
 
 ## 2.1 Product Perspective
 
-​	PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product. The inspiration for PolyChord was the lack of music theory learning tools that were designed with the playing experience first: the majority of applications are either designed to be a reference tool, or designed to be a guided introduction to music theory. PolyChord aims to foster music theory through experimentation: the main interface for the application is a synthesizer, so it is easy and intuitive to play chords by ear and learn new chords from PolyChord's chord database.
+PolyChord is intended to be a standalone music theory experimentation product, and is not part of a larger system, or a descendant of an existing product. The inspiration for PolyChord was the lack of music theory learning tools that were designed with the playing experience first: the majority of applications are either designed to be a reference tool, or designed to be a guided introduction to music theory. PolyChord aims to foster music theory through experimentation: the main interface for the application is a synthesizer, so it is easy and intuitive to play chords by ear and learn new chords from PolyChord's chord database.
 
 ## 2.2 Product Functions
 
-​	The major functions the product must perform, or allow the user to perform, are as follows:
+The major functions the product must perform, or allow the user to perform, are as follows:
 
 - PolyChord must allow the user to play a piano-style synth via a keyboard or MIDI device input.
 - PolyChord must allow the user to play selected chord by name to be show/played.
@@ -100,7 +99,7 @@ Table of Contents
 
 ## 2.3 User Classes and Characteristics
 
-​	The general user classes and characteristics are as follows:
+The general user classes and characteristics are as follows:
 
 - Casual User: This group of users is likely to experiment with many of the product features, but less likely to make wide or continued use of any of them. To maximize their user experience, all features must be as intuitive and straightforward to use as possible
 
@@ -110,65 +109,67 @@ Table of Contents
 
 ## 2.4 Operating Environment
 
-​	PolyChord is a web application, and therefore is inherently fairly operating-system agnostic, and aims to support as many browsers as possible. For features other than Midi support, universal support of all modern browsers is trivial. For Midi support, only newer versions of Chrome, and Safari support web Midi natively, with some others requiring a 3rd party extension for Midi support. Unfortunately, due to the nature of the Midi API, there is not much PolyChord can do in this regard other than fail gracefully in the face of lack of Midi support, and continue functioning normally otherwise.
+PolyChord is a web application, and therefore is inherently fairly operating-system agnostic, and aims to support as many browsers as possible. For features other than Midi support, universal support of all modern browsers is trivial. For Midi support, only newer versions of Chrome, and Safari support web Midi natively, with some others requiring a 3rd party extension for Midi support. Unfortunately, due to the nature of the Midi API, there is not much PolyChord can do in this regard other than fail gracefully in the face of lack of Midi support, and continue functioning normally otherwise.
 
 ## 2.5 Design and Implementation Constraints
 
-​	There are few implementation constraints for the application as a whole, as it only has the standard requirements for a modern website, requirements that are met by all modern browsers. For Midi support specifically, there are a few implementation constraints. First, as mentioned in the previous sub-section, WebMidi is not supported on all modern browsers. Second, WebMidi has some inherent security concerns with "sysEx" webMidi calls. In using the WebMidi.js framework, the initial matter of disabling "sysEx" calls is taken for us, as it is disabled by default, though there are still further actions to mitigate this vulnerability: in order to satisfy the requirements of some modern browsers, and prevent man in the middle attacks that could erroneously enable "sysEx" calls, PolyChord must be served elusively over HTTPS. 
+There are few implementation constraints for the application as a whole, as it only has the standard requirements for a modern website, requirements that are met by all modern browsers. For Midi support specifically, there are a few implementation constraints. First, as mentioned in the previous sub-section, WebMidi is not supported on all modern browsers. Second, WebMidi has some inherent security concerns with "sysEx" webMidi calls. In using the WebMidi.js framework, the initial matter of disabling "sysEx" calls is taken for us, as it is disabled by default, though there are still further actions to mitigate this vulnerability: in order to satisfy the requirements of some modern browsers, and prevent man in the middle attacks that could erroneously enable "sysEx" calls, PolyChord must be served elusively over HTTPS. 
 
-​	PolyChord does plan to implement user accounts later in the development processes, so as that point approaches, research will need to be done on the rules and regulations that must be followed for the data we determine we need to collect. At this point, our goal is to collect as little information as we can from users, likely just an email to attach to the account, but since that has not yet been decided, it is hard to know exactly what regulation we will need to adhere to, though it is almost guarenteed we will at least comply with regulations such as GDPR and the California Consumer Privacy Act when handling user data.
+PolyChord does plan to implement user accounts later in the development processes, so as that point approaches, research will need to be done on the rules and regulations that must be followed for the data we determine we need to collect. At this point, our goal is to collect as little information as we can from users, likely just an email to attach to the account, but since that has not yet been decided, it is hard to know exactly what regulation we will need to adhere to, though it is almost guaranteed we will at least comply with regulations such as GDPR and the California Consumer Privacy Act when handling user data.
 
 ## 2.6 User Documentation
 
-​	PolyChord's main documentation method is built-in tutorials, with the goal that the user-interface complexity is kept low enough that the built-in tutorials will be sufficient, and no further external documentation is needed. These tutorials will cover the usage basics for all major features of PolyChord, and a tutorial on how to enable and troubleshoot the MIDI device support that PolyChord provides. These tutorials will be both one-time tutorials when a user selects a feature for the first time, and will be able to be recalled within PolyChord's user settings.
+PolyChord's main documentation method is built-in tutorials, with the goal that the user-interface complexity is kept low enough that the built-in tutorials will be sufficient, and no further external documentation is needed. These tutorials will cover the usage basics for all major features of PolyChord, and a tutorial on how to enable and troubleshoot the MIDI device support that PolyChord provides. These tutorials will be both one-time tutorials when a user selects a feature for the first time, and will be able to be recalled within PolyChord's user settings.
 
 ## 2.7 Assumptions and Dependencies
 
 ### Assumptions
 
-​	PolyChord will assume that the users all have accepted the required extensions if they are using Internet Explorer or FireFox. It also assumes that the users are generally at a basic level of music theory knowledge, and would care to learn more.
+PolyChord will assume that the users all have accepted the required extensions if they are using Internet Explorer or FireFox. It also assumes that the users are generally at a basic level of music theory knowledge, and would care to learn more.
 
 ### Dependencies
 
-​	PolyChord depends on a few extenal libraries and databases, notably Hooktheory, Tone.js, and WebMidi.js and the WebMidi API. 
+PolyChord depends on a few extenal libraries and databases, notably Hooktheory, Tone.js, and WebMidi.js and the WebMidi API. 
 
 #### HookTheory API
 
-​	HookTheory is a database that has collected the chords and chord progressions of thousands of popular songs. This has been made accessable in the form of the Hooktheory API which we will be using to find the likely following chord progressions given the most recently played chord(s). This saves the effort of having to search through piles of songs on our own and doing analysis to find the likely following chord progressions given what we have.
+HookTheory is a database that has collected the chords and chord progressions of thousands of popular songs. This has been made accessible in the form of the Hooktheory API which we will be using to find the likely following chord progressions given the most recently played chord(s). This saves the effort of having to search through piles of songs on our own and doing analysis to find the likely following chord progressions given what we have.
 
 #### Tone.js
 
-​	PolyChord relies on Tone.js for client-side sound synthesis and playback. Tone.js is a fairly popular, widely used framework for sound synthesis and modification on the client side, and is licensed under an MIT license, meaning that is free for all types of use, but provided without any functionality guarantees. Tone.js's popularity and wide adoption is the reason it was chosen over competitors, and it's use allows for much faster, more reliable development, when compared to writing the sound synthesis logic from scratch.
+PolyChord relies on Tone.js for client-side sound synthesis and playback. Tone.js is a fairly popular, widely used framework for sound synthesis and modification on the client side, and is licensed under an MIT license, meaning that is free for all types of use, but provided without any functionality guarantees. Tone.js's popularity and wide adoption is the reason it was chosen over competitors, and it's use allows for much faster, more reliable development, when compared to writing the sound synthesis logic from scratch.
 
 #### WebMidi API
 
-​	PolyChord relies on the WebMIDI API specification for Midi support. This accepted Midi implemenation for web, and it has been widely adopted. WebMidi is supported in Chrome, and while it still does not have native support in FireFox, there are a number of extensions for FireFox, and there are plans to implement the API natively in FireFox in the future.
+PolyChord relies on the WebMIDI API specification for Midi support. This accepted Midi implementation for web, and it has been widely adopted. WebMidi is supported in Chrome, and while it still does not have native support in FireFox, there are a number of extensions for FireFox, and there are plans to implement the API natively in FireFox in the future.
 
 #### WebMidi.js
 
-​	PolyChord relies on WebMidi.js for Midi support. WebMidi.js is a fairly popular framework for interacting with the WebMidi API at a higher level.
+PolyChord relies on WebMidi.js for Midi support. WebMidi.js is a fairly popular framework for interacting with the WebMidi API at a higher level.
 
 # 3. External Interface Requirements
 
 ## 3.1 User Interfaces
 
-​	PolyChord will have a Keyboard that will react to input from either a MIDI Keyboard or computer keyboard. There will also be a main menu containg tutorials in music theory and a chord explorer interface, options to save a chord progression or view saved chord progressions and all other core features.
-There will also be a seperate menu which allows for swapping between various samples such as "Piano", "Guitar", and "Drums" by the user clicking on the sample type or by typing in the corresponding sample name or index. This menu will also have an option to swap the octave that is being used by the piano in the case that they are using a computer keyboard.
+PolyChord will have a Keyboard that will react to input from either a MIDI Keyboard or computer keyboard. There will also be a main menu containing tutorials in music theory and a chord explorer interface, options to save a chord progression or view saved chord progressions and all other core features.
+There will also be a separate menu which allows for swapping between various samples such as "Piano", or "Guitar" by the user clicking on the sample type or by typing in the corresponding sample name or index. This menu will also have an option to swap the octave that is being used by the piano in the case that they are using a computer keyboard.
+
+![Current user interface](https://lh3.googleusercontent.com/eOVoxuWkoMSrOTSA90oAZ0jMjlKuKFsDj3RMIRf2G9ISAWK9quKDBrQX7JZie1tOPGsqf8FohltpQRt3LL-4=w3840-h1885-rw)
 
 ## 3.2 Hardware Interfaces
 
-​	Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using keys from the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller. The top row will represent the black keys on a piano while the lower row will represent the white keys.
+Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using keys from the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller. The top row will represent the black keys on a piano while the lower row will represent the white keys.
 PolyChord will accept input from a MIDI Keyboard or computer keyboard using the https://github.com/djipco/webmidi webmidi API. Once the input has been interpreted PolyChord will display the notes on an on-screen keyboard and play the corresponding note through the user's computer.
 
 ## 3.3 Software Interfaces
 
-​	PolyChord will be using the most recent tone.js (https://tonejs.github.io/) to play back music to the user including various types of samples and synths. It will take the inputs from the program after input has been taken in and parsed or when a user requests for a chord/chord progression to be played back to them. It handles tempo, notes, various sound samples, note durations and more that we will be using for PolyChord.
+PolyChord will be using the most recent tone.js (https://tonejs.github.io/) to play back music to the user including various types of samples and synths. It will take the inputs from the program after input has been taken in and parsed or when a user requests for a chord/chord progression to be played back to them. It handles tempo, notes, various sound samples, note durations and more that we will be using for PolyChord.
 The most recent webmidi.js (https://github.com/djipco/webmidi) will be used for the receiving of midi input. It works natively in Chrome, Opera, and Android, but can also work in Internet Explorer, Firefox ≤ v51, and Safari with some plugins from https://jazz-soft.net/ and https://cwilso.github.io/WebMIDIAPIShim/. This will allow for the use of any MIDI Controllers that a user may want to utilize.
 Polychord will also be utilizing the Hooktheory database of chord progressions that is documented at https://www.hooktheory.com/api/trends/docs to recognize what chords are likely to follow given a chord within the database and the preceding chords.
 
 ## 3.4 Communications Interfaces
 
-​	Polychord will work over http and https as it is a web application, and these are the standard protocols for websites at the time of this specification. As of now will not need to communicate in any way other than the connection between the user and the server. We will have an embedded survey on the website to submit bug reports so that we can improve PolyChord with help from our users. As of now, data synchronization and transfer speeds are of low priority since most of PolyChord's functionality will not require much active interaction between the user and server, and there are no large files to be loaded in with the website.
+Polychord will work over http and https as it is a web application, and these are the standard protocols for websites at the time of this specification. As of now will not need to communicate in any way other than the connection between the user and the server. We will have an embedded survey on the website to submit bug reports so that we can improve PolyChord with help from our users. As of now, data synchronization and transfer speeds are of low priority since most of PolyChord's functionality will not require much active interaction between the user and server, and there are no large files to be loaded in with the website.
 
 # 4. System Features
 
@@ -176,7 +177,7 @@ Polychord will also be utilizing the Hooktheory database of chord progressions t
 
 ### 4.1.1 Description and Priority
 
-​	PolyChord will provide a lightweight, multipurpose website that will work in major web browsers and a method for mobile users to use the system. With this feature, we can begin to implement other features.
+PolyChord will provide a lightweight, multipurpose website that will work in major web browsers and a method for mobile users to use the system. With this feature, we can begin to implement other features.
 Priority: High
 
 ### 4.1.2 Stimulus/Response Sequences
@@ -195,7 +196,7 @@ SITE-3: The system shall adopt a color scheme that is easy to use in the dark.
 
 ### 4.2.1 Description and Priority
 
-​	Users will be able to play chords and have relevant information about it displayed. This is one of our primary features and can be implemented relatively early.
+Users will be able to play chords and have relevant information about it displayed. This is one of our primary features and can be implemented relatively early.
 Priority: High
 
 ### 4.2.2 Stimulus/Response Sequences
@@ -216,7 +217,7 @@ CHRD-3: The system shall display the tonic of an input chord.
 
 CHRD-4: The system shall display played chords on a music staff.
 
-CHRD-5: The system shall display played chords on a fretboard.
+CHRD-5: The system shall display played chords on a fret-board.
 
 CHRD-6: The system shall display the key that a detected chord is in.
 
@@ -226,7 +227,7 @@ CHRD-7: The system shall suggest chords close to a chord that is incorrectly pla
 
 ### 4.3.1 Description and Priority
 
-​	Users will be able to see various chord progressions based off of the chords they have played. This feature is one of our major features, but requires other features to be implemented first to function.
+Users will be able to see various chord progressions based off of the chords they have played. This feature is one of our major features, but requires other features to be implemented first to function.
 Priority: Medium
 
 ### 4.3.2 Stimulus/Response Sequences
@@ -249,7 +250,7 @@ PRGSN-3: The system shall display songs with similar chord progressions to the s
 
 ### 4.4.1 Description and Priority
 
-​	Users will be able to create accounts to track statistics and save music loops and other settings. These are important to the system, but rely on all other aspects to be implemented first.
+Users will be able to create accounts to track statistics and save music loops and other settings. These are important to the system, but rely on all other aspects to be implemented first.
 Priority: Low
 
 ### 4.4.2 Stimulus/Response Sequences
@@ -284,7 +285,7 @@ ACCT-8: The system shall display statistics for a user in training excercises.
 
 ### 4.5.1 Description and Priority
 
-​	Users will be able to change the settings of aspects of the music to their liking, as well as input music notes using various methods. These features are important to the final product, but rely on many other aspects that will have to be implemented first.
+Users will be able to change the settings of aspects of the music to their liking, as well as input music notes using various methods. These features are important to the final product, but rely on many other aspects that will have to be implemented first.
 Priority: Medium
 
 ### 4.5.2 Stimulus/Response Sequences
@@ -326,7 +327,7 @@ PERF-4: The system shall correctly identify chords 99% of the time.
 
 ## 5.2 Safety Requirements
 
-​	No safety requirements have been identified.
+No safety requirements have been identified.
 
 ## 5.3 Security Requirements
 
@@ -343,7 +344,7 @@ Usability: The system should be fully functional to a user without extensive tra
 
 ## 5.5 Business Rules
 
-​	No business rules have been identified.
+No business rules have been identified.
 
 # 6. Other Requirements
 
