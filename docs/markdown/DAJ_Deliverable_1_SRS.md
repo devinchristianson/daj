@@ -147,6 +147,12 @@ PolyChord relies on the WebMIDI API specification for Midi support. This accepte
 
 PolyChord relies on WebMidi.js for Midi support. WebMidi.js is a fairly popular framework for interacting with the WebMidi API at a higher level.
 
+
+
+
+
+
+
 # 3. External Interface Requirements
 
 ## 3.1 User Interfaces
