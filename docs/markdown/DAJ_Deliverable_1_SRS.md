@@ -5,7 +5,7 @@
 
 # PolyChord
 
-Version 1.0 approved
+Version 0.0.1 approved
 
 Prepared by Devin Christianson, Alexandre Feren, Alexander Revello, Dawsin Blanchard
 
