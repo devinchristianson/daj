@@ -172,8 +172,6 @@ Polychord will also be utilizing the Hooktheory database of chord progressions t
 
 # 4. System Features
 
-​	This template illustrates organizing the functional requirements for the product by system features, the major services provided by the product. You may prefer to organize this section by use case, mode of operation, user class, object class, functional hierarchy, or combinations of these, whatever makes the most logical sense for your product.
-
 ## 4.1 Website
 
 ### 4.1.1 Description and Priority
@@ -350,12 +348,9 @@ Usability: The system should be fully functional to a user without extensive tra
 # 6. Other Requirements
 
 There are currently no other requirements to be specified for the SRS of PolyChord.
-*Define any other requirements not covered elsewhere in the SRS. This might include database requirements, internationalization requirements, legal requirements, reuse objectives for the project, and so on. Add any new sections that are pertinent to the project.*
 
 Appendix A: To Be Determined List
 
 1. flask - Flask for Python 3.6+ will potentially be used in the future for development of the website, though for now is not being used as there is no immediate use
 2. chord sheet - This may be used as a database to look up chords and see if the chord being played is in this database, but we have not finalized our method of chord recognition as of yet.
 3. Surveymonkey embedded form - this is a tentative method for us to allow users of PolyChord to report bugs to our team, but our method of accepting forms has not yet been finalized.
-
-*Collect a numbered list of the TBD (to be determined) references that remain in the SRS so they can be tracked to closure.*
