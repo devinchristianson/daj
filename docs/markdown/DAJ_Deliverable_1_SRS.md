@@ -154,7 +154,7 @@ PolyChord relies on WebMidi.js for Midi support. WebMidi.js is a fairly popular 
 PolyChord will have a Keyboard that will react to input from either a MIDI Keyboard or computer keyboard. There will also be a main menu containing tutorials in music theory and a chord explorer interface, options to save a chord progression or view saved chord progressions and all other core features.
 There will also be a separate menu which allows for swapping between various samples such as "Piano", or "Guitar" by the user clicking on the sample type or by typing in the corresponding sample name or index. This menu will also have an option to swap the octave that is being used by the piano in the case that they are using a computer keyboard.
 
-![Current user interface](https://lh3.googleusercontent.com/eOVoxuWkoMSrOTSA90oAZ0jMjlKuKFsDj3RMIRf2G9ISAWK9quKDBrQX7JZie1tOPGsqf8FohltpQRt3LL-4=w3840-h1885-rw)
+![Current user interface](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/polyChordUI0.png)
 
 ## 3.2 Hardware Interfaces
 
