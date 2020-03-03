@@ -1,5 +1,5 @@
 //create synth
-const poly = new Tone.PolySynth(4, Tone.Synth, {
+const poly = new Tone.PolySynth(10, Tone.Synth, {
   oscillator: {
     type: "triangle"
   }
@@ -13,8 +13,48 @@ for (i = 0; i < temp.length; i++) {
   pianoKeycodes.push(temp[i].dataset.keycode);
 }
 
+//-- keyboard controller logic --
 //keeps track of which keys are currently pressed
 const keysPressed = [];
+
+//-- parse chords csv --
+//create array to hold chord information
+const chords = [];
+//begin parse of the chord file
+Papa.parse("chords.csv", {
+  delimiter: ",",
+  header: true,
+  download: true,
+  comments: "#",
+
+  //processing for each line
+  step: function(results) {
+    //- interval processing -
+    //parse intervals into an array
+    var intervals = Papa.parse(results.data.intervals, {
+      delimiter: "-"
+    }).data[0];
+    //mudolo intervals by 12 to fix compound intervals
+    intervals = intervals.map(e => e % 12);
+    //remove duplicates by transforming into a set
+    intervals = new Set(intervals);
+    //store processed intervals
+    results.data.intervals = intervals;
+
+    //push result of parse to chords array
+    chords.push(results.data);
+
+    //log errors if encountered
+    if (results.errors != "") {
+      console.log(results.errors);
+    }
+  },
+  
+  //log confirmation upon completion
+  complete: function() {
+    console.log("Chord Parsing Complete");
+  }
+});
 
 //add listener for key presses to trigger notes
 document.addEventListener("keydown", e => playNote(e.keyCode.toString()));
@@ -36,7 +76,7 @@ function playNote(keycode) {
       //play note
       poly.triggerAttack(key.dataset.note + key.dataset.octave);
       //display note/chord being played
-      getChord();
+      document.querySelector(".currentNote").innerHTML = getChord();
     }
   }
 }
@@ -46,7 +86,7 @@ function stopNote(keycode) {
   //only trigger on valid keys
   if (pianoKeycodes.includes(keycode)) {
     //remove key from pressed
-    keysPressed.splice(keysPressed.indexOf(keycode), 1)
+    keysPressed.splice(keysPressed.indexOf(keycode), 1);
     //get respective key from keycode
     var key = document.querySelector(".key[data-keycode=\"" + keycode + "\"]");
     //remove playing transform from respective key
@@ -54,108 +94,82 @@ function stopNote(keycode) {
     //release note
     poly.triggerRelease(key.dataset.note + key.dataset.octave);
     //display note/chord being played
-    getChord();
+    document.querySelector(".currentNote").innerHTML = getChord();
   }
 }
 
+//gets the currently playing chord; returns blank on no match
 function getChord() {
   //get all playing keys
   var keys = document.querySelectorAll(".key.playing");
-  //get indicies of playing notes
+
+  //if less than 2 keys there is no chord, return blank
+  if (keys.length < 2) {
+    return "";
+  }
+
+  //get bass note (lowest playing note)
+  var bass = keys[0].dataset.note;
+  //get indicies of currently playing notes
   var indicies = [];
   for (i = 0; i < keys.length; i++) {
     indicies.push(keys[i].dataset.pos);
   }
-  //get intervals between indicies
-  var intervals = [];
-  for (i = 0; i < (indicies.length - 1); i++) {
-    intervals.push(indicies[i+1] - indicies[i]);
+
+  //test every note as a potential root in order
+  for (i = 0; i < keys.length; i++) {
+    //set current root to test
+    var root = i;
+
+    //get intervals of all notes from root; stored as a set
+    let intervals = new Set();
+    for (j = 0; j < indicies.length; j++) {
+      //get interval between root and current note
+      //if current note is < root shift it an octave up for calculations
+      if ((indicies[j] % 12) < (indicies[root] % 12)) {
+        var interval = Math.abs(((indicies[j] % 12) + 12) - (indicies[root] % 12));
+      }
+      else {
+        var interval = Math.abs((indicies[j] % 12) - (indicies[root] % 12));
+      }
+      //mudolo to remove compound intervals
+      interval = interval % 12;
+      //add interval to set of intervals
+      intervals.add(interval);
+    }
+
+    //loop through every chord in the chord db
+    for (j = 0; j < chords.length; j++) {
+      //if match found return chord
+      if (chordEq(chords[j].intervals, intervals)) {
+        //add root note and notation to chord display
+        var chord = keys[root].dataset.note + chords[j].notation;
+        //if bass note is different from the root add it
+        if (bass != keys[root].dataset.note) {
+          chord += "\\" + bass;
+        }
+
+        return chord
+      }
+    }
   }
-
-  //switch based on number of notes being played
-  switch (keys.length) {
-    //3 notes
-    case 3:
-      checkChord3(keys, intervals);
-      break;
-
-    //4 notes
-    case 4:
-      checkChord4(keys, intervals);
-      break;
-
-    default:
-      document.querySelector(".currentNote").innerHTML = "";
-      break;
-  }
+  
+  //nothing found; return blank
+  return "";
 }
 
-//checks which three note chord is being played
-function checkChord3(keys, intervals) {
-  //major
-  if (intervals[0] == 4 && intervals[1] == 3) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "maj";
+//function to check equality between chords
+function chordEq(set1, set2) {
+  //if sizes of the size of notes don't match return false
+  if (set1.size != set2.size) {
+    return false;
   }
-
-  //minor
-  else if (intervals[0] == 3 && intervals[1] == 4) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "min";
+  //if sets contain different values return false
+  for (let value of set1) {
+    if(!set2.has(value)) {
+      return false;
+    }
   }
-
-  //augmented
-  else if (intervals[0] == 4 && intervals[1] == 4) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "aug";
-  }
-
-  //diminished
-  else if (intervals[0] == 3 && intervals[1] == 3) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "dim";
-  }
-
-  //no match
-  else {
-    document.querySelector(".currentNote").innerHTML = "";
-  }
-}
-
-//checks which 4 note chord is being played
-function checkChord4(keys, intervals) {
-  //dominant 7th
-  if (intervals[0] == 4 && intervals[1] == 3 && intervals[2] == 3) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "7";
-  }
-
-  //major 7th
-  else if (intervals[0] == 4 && intervals[1] == 3 && intervals[2] == 4) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "maj7";
-  }
-
-  //minor 7th
-  else if (intervals[0] == 3 && intervals[1] == 4 && intervals[2] == 3) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "min7";
-  }
-
-  //half diminished 7th
-  else if (intervals[0] == 3 && intervals[1] == 3 && intervals[2] == 4) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "half-dim7";
-  }
-
-  //diminished 7th
-  else if (intervals[0] == 3 && intervals[1] == 3 && intervals[2] == 3) {
-    var root = keys[0].dataset.note;
-    document.querySelector(".currentNote").innerHTML = root + "dim7";
-  }
-
-  //no match
-  else {
-    document.querySelector(".currentNote").innerHTML = "";
-  }
+  //all checks passed; return true
+  return true;
 }
