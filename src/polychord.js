@@ -60,7 +60,33 @@ Papa.parse("chords.csv", {
 document.addEventListener("keydown", e => playNote(e.keyCode.toString()));
 //add listener for key releases to release notes
 document.addEventListener("keyup", e => stopNote(e.keyCode.toString()));
-
+//global var to hold state of mouse
+var mouseDown = false;
+//add listener for mouseup that sets mousedown=up and stops play
+document.addEventListener("mouseup", function(e) {
+  mouseDown = false;
+  mouseHandlerStop(e);
+});
+//add listener for mousedown that sets mousedown=true and starts play
+document.addEventListener("mousedown", function(e) {
+  mouseDown = true;
+  mouseHandlerPlay(e);
+});
+//add listener for mouseover and mouseout
+document.addEventListener("mouseover", e => mouseHandlerPlay(e));
+document.addEventListener("mouseout", e => mouseHandlerStop(e));
+//wrapper for playNote to check for mouseDown and null condition
+function mouseHandlerPlay(mouseEvent) {
+  if(mouseDown && mouseEvent.target.getAttribute('data-keycode') != null) {
+    playNote(mouseEvent.target.getAttribute('data-keycode').toString())
+  }
+}
+//wrapper for stopNote to check for null condition
+function mouseHandlerStop(mouseEvent) {
+  if(mouseEvent.target.getAttribute('data-keycode') != null) {
+    stopNote(mouseEvent.target.getAttribute('data-keycode').toString())
+  }
+}
 //plays the note corresponding  to the keycode of e
 function playNote(keycode) {
   //only trigger on valid keys
