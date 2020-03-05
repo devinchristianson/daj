@@ -67,6 +67,7 @@ h2 {
   display: block;
   box-sizing: border-box;
   z-index: 2;
+  cursor: default;
 }
 
 /* applies to white keys */  
@@ -127,6 +128,13 @@ h2 {
   bottom: 7px;
   transition: opacity .3s;
   font-size: 20px;
+  /*to stop legend from getting highlighted on click/drag*/
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* show legend on hoever */
