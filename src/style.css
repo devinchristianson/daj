@@ -128,6 +128,8 @@ h2 {
   bottom: 7px;
   transition: opacity .3s;
   font-size: 20px;
+  /*Ignore mouse events over this*/
+  pointer-events: none;
   /*to stop legend from getting highlighted on click/drag*/
   -webkit-touch-callout: none;
   -webkit-user-select: none;
