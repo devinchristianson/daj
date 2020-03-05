@@ -87,6 +87,9 @@ function mouseHandlerStop(mouseEvent) {
     stopNote(mouseEvent.target.getAttribute('data-keycode').toString())
   }
 }
+//touch support
+document.addEventListener("touchstart", e => startNote(e.target.getAttribute('data-keycode').toString()));
+document.addEventListener("touchend", e => stopNote(e.target.getAttribute('data-keycode').toString()));
 //plays the note corresponding  to the keycode of e
 function playNote(keycode) {
   //only trigger on valid keys
