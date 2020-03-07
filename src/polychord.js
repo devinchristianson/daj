@@ -8,10 +8,19 @@ const poly = new Tone.PolySynth(10, Tone.Synth, {
 //get all keys
 var temp = document.querySelectorAll(".key");
 //create array of valid key inputs
+
+var keyboardLookup = {"87": "C#4", "83": "D4"};
+keyboardLookup["69"] = "D#4";
 var pianoKeycodes = [];
 for (i = 0; i < temp.length; i++) {
-  pianoKeycodes.push(temp[i].dataset.keycode);
+	//Object.assign(pianoKeycodes, {temp[i].dataset.keycode.toString(): temp[i].dataset.note.toString()})
+	pianoKeycodes[temp[i].dataset.keycode.toString()] = temp[i].dataset.note.toString();
+	//pianoKeys.assign(
+  //pianoKeycodes.push(keyboardLookup[temp[i].dataset.keycode]);
 }
+
+
+var midiAccess = null;
 
 //-- keyboard controller logic --
 //keeps track of which keys are currently pressed
@@ -57,24 +66,28 @@ Papa.parse("chords.csv", {
 });
 
 //add listener for key presses to trigger notes
-document.addEventListener("keydown", e => playNote(e.keyCode.toString()));
+document.addEventListener("keydown", e => playNote(pianoKeycodes[e.keyCode.toString()]));
 //add listener for key releases to release notes
-document.addEventListener("keyup", e => stopNote(e.keyCode.toString()));
+document.addEventListener("keyup", e => stopNote(pianoKeycodes[e.keyCode.toString()]));
 
 //plays the note corresponding  to the keycode of e
 function playNote(keycode) {
+	console.log(keycode);
   //only trigger on valid keys
+  //keycode = 65;
   if (pianoKeycodes.includes(keycode)) {
     //dont trigger if key is already pressed
     if (!keysPressed.includes(keycode)) {
       //push keycode to pressed
       keysPressed.push(keycode);
       //get respective key from keycode
-      var key = document.querySelector(".key[data-keycode=\"" + keycode + "\"]");
+      //var key = document.querySelector(".key[data-keycode=\"" + keycode + "\"]");
+	  var key = document.querySelector(".key[data-note=\"" + keycode + "\"]");
+	  console.log(key);
       //add playing transform to respective note
       key.classList.add("playing");
       //play note
-      poly.triggerAttack(key.dataset.note + key.dataset.octave);
+      poly.triggerAttack(key.dataset.note);
       //display note/chord being played
       document.querySelector(".currentNote").innerHTML = getChord();
     }
@@ -88,11 +101,12 @@ function stopNote(keycode) {
     //remove key from pressed
     keysPressed.splice(keysPressed.indexOf(keycode), 1);
     //get respective key from keycode
-    var key = document.querySelector(".key[data-keycode=\"" + keycode + "\"]");
+    //var key = document.querySelector(".key[data-keycode=\"" + keycode + "\"]");
+	var key = document.querySelector(".key[data-note=\"" + keycode + "\"]");
     //remove playing transform from respective key
     key.classList.remove("playing");
     //release note
-    poly.triggerRelease(key.dataset.note + key.dataset.octave);
+    poly.triggerRelease(key.dataset.note);
     //display note/chord being played
     document.querySelector(".currentNote").innerHTML = getChord();
   }
@@ -102,6 +116,7 @@ function stopNote(keycode) {
 function getChord() {
   //get all playing keys
   var keys = document.querySelectorAll(".key.playing");
+  console.log(keys);
 
   //if less than 2 keys there is no chord, return blank
   if (keys.length < 2) {
@@ -173,3 +188,53 @@ function chordEq(set1, set2) {
   //all checks passed; return true
   return true;
 }
+
+function _connect() {
+    if(window.navigator && 'function' === typeof window.navigator.requestMIDIAccess) {
+        window.navigator.requestMIDIAccess().then(onMidiInit, onMidiReject);
+		console.log("connected to midi");
+    } else {
+        throw 'No Web MIDI support';
+    }
+}
+
+function onMidiInit(midi){
+	midiAccess = midi;
+	//input = midiAccess.inputs[0];
+	
+	for (var input of midiAccess.inputs.values()) {
+		    input.onmidimessage = getMIDIMessage; // assigned listening function
+	}
+	
+	//input.addListener('noteon', "all",
+    //function (e) {
+      //console.log("Received 'noteon' message (" + e.note.name + e.note.octave + ").");
+    //});
+}
+
+function getMIDIMessage(message) {
+	//console.log(message);
+		  var command = message.data[0];
+		  var key = midiToKey(message.data[1]);
+		  var velocity = (message.data.length > 2) ? message.data[2] : 0;
+		  if (velocity == 0) {
+		    command = 128;
+		  }
+		  if(command == 144){
+			playNote(key);
+		  }
+		  else if(command == 128){
+			  stopNote(key);
+		  }
+		}
+		
+		function midiToKey(midinum) {
+		  var note = ["C", "CS", "D", "DS", "E", "F", "FS", "G", "GS", "A", "AS", "B", "C0", "CS0", "D0", "DS0", "E0", "F0", "FS0", "G0", "GS0", "A0", "AS0", "B0", "C1", "CS1", "D1", "DS1", "E1", "F1", "FS1", "G1", "GS1", "A1", "AS1", "B1", "C2", "CS2", "D2", "DS2", "E2", "F2", "FS2", "G2", "GS2", "A2", "AS2", "B2", "C3", "CS3", "D3", "DS3", "E3", "F3", "FS3", "G3", "GS3", "A3", "AS3", "B3", "C4", "CS4", "D4", "DS4", "E4", "F4", "FS4", "G4", "GS4", "A4", "AS4", "B4", "C5", "CS5", "D5", "DS5", "E5", "F5", "FS5", "G5", "GS5", "A5", "AS5", "B5", "C6", "CS6", "D6", "DS6", "E6", "F6", "FS6", "G6", "GS6", "A6", "AS6", "B6", "C7", "CS7", "D7", "DS7", "E7", "F7", "FS7", "G7", "GS7", "A7", "AS7", "B7", "C8"];
+		  return note[midinum];
+		}
+
+function onMidiReject(){
+	console.log("no midi");
+}
+
+_connect();
