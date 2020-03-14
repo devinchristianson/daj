@@ -1,0 +1,28 @@
+@startuml
+actor User
+participant PianoGUI
+participant Client
+participant ChordDB
+activate User
+activate PianoGUI
+User -> PianoGUI: select pianoKey
+activate Client
+PianoGUI -> Client: play note
+Client -> PianoGUI: highlight pianoKey
+alt more than 2 notes playing
+Client -> ChordDB: check playingNotes
+alt Chord Match found
+ChordDB -> Client: matching chord
+Client -> PianoGUI: display chord
+PianoGUI -> User: show chord
+else else
+ChordDB -> Client: no match
+Client -> PianoGUI: display no match
+PianoGUI -> User: show no match
+end
+Client -> PianoGUI: display no match
+PianoGUI -> User: show no match
+end
+deactivate PianoGUI
+deactivate User
+@enduml
