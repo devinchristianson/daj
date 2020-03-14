@@ -1,0 +1,10 @@
+@startuml
+left to right direction
+actor User
+rectangle PolyChord {
+User -- (15. Learn Theory)
+User -- (16. Practice Theory)
+User -- (17. Download Progression)
+User -- (18. Upload Progression)
+}
+@enduml
