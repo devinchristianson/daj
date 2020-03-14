@@ -50,7 +50,8 @@ RUN apt-get update \
 
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
-RUN pip install Flask
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 USER $USERNAME
 
 
