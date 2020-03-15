@@ -18,35 +18,43 @@ Table of Contents
 | Table of Contents        ii |
 | --- |
 | Revision History        ii |
-|                 1 |
+|                 2  |
 | 1.1        Purpose        |
 | 1.2        Document Conventions        |
-| 1.3        Intended Audience and Reading Suggestions        |
+| 1.3        Intended Audience and Reading Suggestions        |                 3  |
 | 1.4        Product Scope        |
 | 1.5        References        |
-|                 2 |
 | 2.1        Product Perspective        |
+|                 4  |
 | 2.2        Product Functions        |
 | 2.3        User Classes and Characteristics        |
 | 2.4        Operating Environment        |
+|                 5  |
 | 2.5        Design and Implementation Constraints        |
 | 2.6        User Documentation        |
 | 2.7        Assumptions and Dependencies        |
-|                 3 |
+|                 7 |
 | 3.1        User Interfaces        |
 | 3.2        Hardware Interfaces        |
 | 3.3        Software Interfaces        |
+|                 8 |
 | 3.4        Communications Interfaces        |
-|                 4 |
-| 4.1        System Feature 1        |
-| 4.2        System Feature 2 (and so on)        |
-|                5 |
+| 4.1        Website        |
+|                 9 |
+| 4.2        Chords        |
+| 4.3        Progressions |
+|                 10|
+| 4.4        User Accounts |
+| 4.5        Musical Settings |
+|                 11|
 | 5.1        Performance Requirements        |
 | 5.2        Safety Requirements        |
 | 5.3        Security Requirements        |
 | 5.4        Software Quality Attributes        |
+|                 12|
 | 5.5        Business Rules        |
-|                6 |
+|                 13|
+| 6          Other Requiremente
 | Appendix A: To Be Determined List        6           |
 
 
@@ -96,6 +104,7 @@ The major functions the product must perform, or allow the user to perform, are 
 - PolyChord must display chords by name as they are played by the user.
 - PolyChord must allow the user to select a Chord progression to be show/played.
 - PolyChord must display chord progression suggestions based on the chords the user is playing, and the desired "feel" selected by the user.
+- PolyChord must have a tutorial for basic chords and music theory ideas.
 
 ## 2.3 User Classes and Characteristics
 
@@ -104,7 +113,9 @@ The general user classes and characteristics are as follows:
 - Casual User: This group of users is likely to experiment with many of the product features, but less likely to make wide or continued use of any of them. To maximize their user experience, all features must be as intuitive and straightforward to use as possible
 
 - Beginner/Novice level of knowledge in music theory: This group of users is the most likely to use the chord play-back feature to learn new chords, and the chord recognition feature to practice chords. To maximize their user experience, the chord playback feature must not require any prior knowledge of music theory to use, and the chord recognition feature must be responsive. This level of user may also experiment with the chord progression suggestion tool, so that tool must be able to display the chords on a "piano roll" style output, as that is the type of output a user with this level of knowledge is most likely to use.
+
 - Intermediate level of knowledge in music theory: This group is the most likely to use the chord progression playback and progression suggestion tools, for both learning purposes as well as reference purposes, so the progressions must be based on the chords/key they are playing in, and the playback tool must provide the chords on a staff as well as "piano roll" style, as this level of user is more likely to make use of the "ledger-line" display than the "piano roll" display.
+
 - Advanced level of knowledge in music theory: This group is most likely to use PolyChord as a reference tool, in the event that they have forgotten a chord or chord progression, or just want to check their work. To maximize their user experience, all tools must be capable of "ledger-line" style output, as that is the type of output that they are the most comfortable with. This is also the level of user who is most likely to use a MIDI device for input, so MIDI input should be an option for all  keyboard-input type tools.
 
 ## 2.4 Operating Environment
@@ -194,6 +205,8 @@ SITE-2: The system shall be compatible with mobile devices.
 
 SITE-3: The system shall adopt a color scheme that is easy to use in the dark.
 
+SITE-4: The system shall use flask 1.1.1 with Python 3.6+ to run.
+
 ## 4.2 Chords
 
 ### 4.2.1 Description and Priority
@@ -224,6 +237,8 @@ CHRD-5: The system shall display played chords on a fret-board.
 CHRD-6: The system shall display the key that a detected chord is in.
 
 CHRD-7: The system shall suggest chords close to a chord that is incorrectly played.
+
+CHRD-8: The system shall have a dataset of chord intervals to identify chords.
 
 ## 4.3 Progressions
 
@@ -282,6 +297,8 @@ ACCT-6: The system shall display chord progressions from uploaded files.
 ACCT-7: The system shall give the user access to music theory lessons.
 
 ACCT-8: The system shall display statistics for a user in training excercises.
+
+ACCT-9: The system shall allow users to delete their accounts.
 
 ## 4.5 Musical Settings
 
@@ -354,6 +371,4 @@ There are currently no other requirements to be specified for the SRS of PolyCho
 
 Appendix A: To Be Determined List
 
-1. flask - Flask for Python 3.6+ will potentially be used in the future for development of the website, though for now is not being used as there is no immediate use
-2. chord sheet - This may be used as a database to look up chords and see if the chord being played is in this database, but we have not finalized our method of chord recognition as of yet.
 3. Surveymonkey embedded form - this is a tentative method for us to allow users of PolyChord to report bugs to our team, but our method of accepting forms has not yet been finalized.
