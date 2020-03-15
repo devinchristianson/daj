@@ -1,0 +1,6 @@
+# Add 'code' to any changes within 'src' folder or any subfolders
+code:
+  - src/**/*
+ # Add 'code' to any changes docs 'example' folder or any subfolders
+docs:
+  - docs/**/*
