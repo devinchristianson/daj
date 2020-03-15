@@ -118,6 +118,11 @@ function playNote(keycode) {
 				//increment octave if in a reasonable range
 				temp.dataset.octave = String(parseInt(temp.dataset.octave) + 1);
 			}
+      for (i = 0; i < pianoKeycodes.length; i++){
+        keysPressed.splice(keysPressed.indexOf(pianoKeycodes[i]), 1);
+        var key = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
+        poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) - 1));
+      }
     }
   }
   else if (keycode == 189){
@@ -129,6 +134,11 @@ function playNote(keycode) {
 				//decrement octave if in a reasonable range
 				temp.dataset.octave = String(parseInt(temp.dataset.octave) - 1);
 			}
+			for (i = 0; i < pianoKeycodes.length; i++){
+        keysPressed.splice(keysPressed.indexOf(pianoKeycodes[i]), 1);
+        var key = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
+        poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) + 1));
+      }
     }
   }
 }
@@ -145,10 +155,7 @@ function stopNote(keycode) {
     key.classList.remove("playing");
     //release note
     poly.triggerRelease(key.dataset.note + key.dataset.octave);
-		//fix for octave switching, removing will make note persist if held when switching octave
-    poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) + 1));
-    poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) - 1));
-		//display note/chord being played
+    //display note/chord being played
     document.querySelector(".currentNote").innerHTML = getChord();
   }
 }
