@@ -5,20 +5,17 @@ participant Client
 participant ChordDB
 activate User
 activate PianoGUI
-User -> PianoGUI: select pianoKey
+User -> PianoGUI: select key
 activate Client
-PianoGUI -> Client: play note
-Client -> PianoGUI: highlight pianoKey
-alt more than 2 notes playing
-Client -> ChordDB: check playingNotes
-alt Chord Match found
-ChordDB -> Client: matching chord
+PianoGUI -> Client: play key
+Client -> PianoGUI: highlight key
+alt if keys playing > 2
+alt if chord match found
 Client -> PianoGUI: display chord
-PianoGUI -> User: show chord
+PianoGUI -> User: chord name
 else else
-ChordDB -> Client: no match
 Client -> PianoGUI: display no match
-PianoGUI -> User: show no match
+PianoGUI -> User: no match
 end
 Client -> PianoGUI: display no match
 PianoGUI -> User: show no match
