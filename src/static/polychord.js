@@ -121,6 +121,7 @@ function playNote(keycode) {
   }
   else if (keycode == 189){
 		octaveDown()
+
   }
 }
 
@@ -136,7 +137,7 @@ function stopNote(keycode) {
     key.classList.remove("playing");
     //release note
     poly.triggerRelease(key.dataset.note + key.dataset.octave);
-		//display note/chord being played
+    //display note/chord being played
     document.querySelector(".currentNote").innerHTML = getChord();
   }
 }
