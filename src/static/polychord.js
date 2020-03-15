@@ -80,6 +80,14 @@ function mouseHandlerPlay(mouseEvent) {
   if(mouseDown && mouseEvent.target.getAttribute('data-keycode') != null) {
     playNote(mouseEvent.target.getAttribute('data-keycode').toString());
   }
+	else if (mouseDown){
+		if (mouseEvent.target.textContent == "Octave Up"){
+			octaveUp()
+		}
+		else if (mouseEvent.target.textContent == "Octave Down"){
+			octaveDown()
+		}
+	}
 }
 //wrapper for stopNote to check for null condition
 function mouseHandlerStop(mouseEvent) {
@@ -109,37 +117,11 @@ function playNote(keycode) {
     }
   }
 	else if (keycode == 187){
-    //incement octave using "=" if in a reasonable range
-		if(parseInt(document.querySelector(".key[data-keycode=\"" + pianoKeycodes[0] + "\"]").dataset.octave) < 8){
-			for (i = 0; i < pianoKeycodes.length; i++){
-				//get data for respective note
-				temp = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
-				//console.log(temp.dataset.octave[0])
-				//increment octave if in a reasonable range
-				temp.dataset.octave = String(parseInt(temp.dataset.octave) + 1);
-			}
-      for (i = 0; i < pianoKeycodes.length; i++){
-        keysPressed.splice(keysPressed.indexOf(pianoKeycodes[i]), 1);
-        var key = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
-        poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) - 1));
-      }
-    }
+		octaveUp()
   }
   else if (keycode == 189){
-		//decrement octave using "-" if in a reasonable range
-		if (parseInt(document.querySelector(".key[data-keycode=\"" + pianoKeycodes[0] + "\"]").dataset.octave) > 0){
-			for (i = 0; i < pianoKeycodes.length; i++){
-				//get data for respective note
-				temp = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
-				//decrement octave if in a reasonable range
-				temp.dataset.octave = String(parseInt(temp.dataset.octave) - 1);
-			}
-			for (i = 0; i < pianoKeycodes.length; i++){
-        keysPressed.splice(keysPressed.indexOf(pianoKeycodes[i]), 1);
-        var key = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
-        poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) + 1));
-      }
-    }
+		octaveDown()
+
   }
 }
 
@@ -158,6 +140,42 @@ function stopNote(keycode) {
     //display note/chord being played
     document.querySelector(".currentNote").innerHTML = getChord();
   }
+}
+
+function octaveUp(){
+	//decrement octave using "-" if in a reasonable range
+	if (parseInt(document.querySelector(".key[data-keycode=\"" + pianoKeycodes[0] + "\"]").dataset.octave) < 8){
+		for (i = 0; i < pianoKeycodes.length; i++){
+			//get data for respective note
+			temp = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
+			//decrement octave if in a reasonable range
+			temp.dataset.octave = String(parseInt(temp.dataset.octave) + 1);
+		}
+		for (i = 0; i < pianoKeycodes.length; i++){
+			keysPressed.splice(keysPressed.indexOf(pianoKeycodes[i]), 1);
+			var key = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
+			key.classList.remove("playing");
+			poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) - 1));
+		}
+	}
+}
+
+function octaveDown(){
+	//decrement octave using "-" if in a reasonable range
+	if (parseInt(document.querySelector(".key[data-keycode=\"" + pianoKeycodes[0] + "\"]").dataset.octave) > 0){
+		for (i = 0; i < pianoKeycodes.length; i++){
+			//get data for respective note
+			temp = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
+			//decrement octave if in a reasonable range
+			temp.dataset.octave = String(parseInt(temp.dataset.octave) - 1);
+		}
+		for (i = 0; i < pianoKeycodes.length; i++){
+			keysPressed.splice(keysPressed.indexOf(pianoKeycodes[i]), 1);
+			var key = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
+			key.classList.remove("playing");
+			poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) + 1));
+		}
+	}
 }
 
 //gets the currently playing chord; returns blank on no match
