@@ -251,7 +251,78 @@ Play Keyboard:
 | ------------------------------ | ------------------------------------------------------------ |
 | - Toggle the play/pause button | - If the system was already playing, stop<br />- If the system was not playing, start playback |
 
+-------------------------------------------------------------------------------------------------------------------------------
+### Playback Peripherals
 
+#### Use Case model:
+
+![Playback Peripherals User Case Model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/playbackperipheralUserCase.png)
+
+#### Use Case Descriptions:
+
+***Learn Theory***:
+
+- Use Case ID: 15
+- Relevant User Story IDs: TODO
+- Actors: User
+- Related Use Cases: None
+- Preconditions: None.
+- Success Post-conditions: System displays theory lessons
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions | ### System Responses                    |
+| ---------------- | --------------------------------------- |
+| 1. Select Learn Theory   | 2. Display theory lessons |
+
+***Practice Theory***:
+
+- Use Case ID: 16
+- Relevant User Story IDs: TODO
+- Actors: User
+- Related Use Cases: None
+- Preconditions: None.
+- Success Post-conditions: System displays theory excercises
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions           | ### System Responses                                |
+| -------------------------- | --------------------------------------------------- |
+| 1. Select Practice Theory | 2. Display theory excercises |
+
+***Download Progression***:
+
+- Use Case ID: 17
+- Relevant User Story IDs: TODO
+- Actors: User
+- Related Use Cases: None
+- Preconditions: Selected progression is not empty
+- Success Post-conditions: User downloads file containing a progression.
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                      | ### System Responses                                         |
+| ------------------------------------- | ------------------------------------------------------------ |
+| 1. Select download progression<br /> 4. Save file | 2. Create corresponding file<br /> 3. Send file to User |
+
+***Upload Progression***:
+
+- Use Case ID: 18
+- Relevant User Story IDs: TODO
+- Actors: User
+- Related Use Cases: None
+- Preconditions: None.
+- Success Post-conditions: System displays uploaded chord progression
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                               | ### System Responses                                         |
+| ---------------------------------------------- | ------------------------------------------------------------ |
+| 1. User selects upload progression<br /> 2. User uploads file<br /><br /><br /> 4. Play progression | <br /><br /> 3a. Recieve file<br /> 3b. Verify file<br /> 3c. Display progression |
 
 -------------------------------------------------------------------------------------------------------------------------------
 
