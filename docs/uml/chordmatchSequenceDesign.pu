@@ -1,0 +1,25 @@
+@startuml
+actor User
+participant PianoGUI
+participant Client
+participant ChordDB
+activate User
+activate PianoGUI
+User -> PianoGUI: mouseEvent/MidiEvent/KeyboardEvent
+activate Client
+PianoGUI -> Client: playNote(keyCode)
+Client -> PianoGUI: key.ClassList.add("playing")
+alt if keys.playing > 2
+alt if chordEQ(chordEq(chords.intervals, intervals))
+Client -> PianoGUI: display(chordName)
+PianoGUI -> User: chord name
+else else
+Client -> PianoGUI: display(noMatch)
+PianoGUI -> User: no match
+end
+Client -> PianoGUI: display(noMatch)
+PianoGUI -> User: show no match
+end
+deactivate PianoGUI
+deactivate User
+@enduml

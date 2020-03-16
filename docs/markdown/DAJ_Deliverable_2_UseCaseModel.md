@@ -15,15 +15,14 @@
 Play Keyboard:
 
 - Use Case ID: 1
-
 - Relevant User Story IDs: 1,2
-
 - Actors:  User
-
+- Related Use Cases: 
+  - Extended by 2. View Note
+  - Extended by 3. View Chord
+  - Extended by 4. View Chord Progression
 - Preconditions: None
-
 - Post-conditions: None
-
 - Exceptions handled: None
 
 **Steps:**
@@ -35,75 +34,59 @@ Play Keyboard:
 **View Note**:
 
 - Use Case ID: 2
-
 - Relevant User Story IDs: 31
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: User Plays Piano
-
-- Post-conditions: None
-
+- Success Post-conditions: System displays each note as it is played
 - Exceptions handled: None
 
 **Steps:**
 
 | ### User Actions                                             | ### System Responses                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| - User plays notes on the Piano<br />- User views notes as they play | - System plays the corresponding sounds for the notes<br />- System displays each note as it is played |
+| - User plays notes on the Piano<br /><br />- User views notes as they play | <br />- System plays the corresponding sounds for the notes<br />- System displays each note as it is played<br /> |
 
 **View Chord**:
 
 - Use Case ID: 3
-
 - Relevant User Story IDs: 1, 4
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: User Plays Piano, notes played form a valid chord
-
-- Post-conditions: None
-
+- Success Post-conditions: Chord being played is displayed
 - Exceptions handled: If the notes aren't a chord, nothing is displayed 
 
 **Steps:**
 
 | ### User Actions                                             | ### System Responses                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| - User plays notes on the Piano<br />- User views chords as they play | - System plays the corresponding sounds for the notes<br />- System displays the chord name |
+| 1. User plays notes on the Piano<br /><br />4. User views chords as they play | <br />2. System plays the corresponding sounds for the notes<br />3. System displays the chord name<br /> |
 
 **View Chord Progression**:
 
 - Use Case ID: 4
-
 - Relevant User Story IDs: 28, 30
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: User Plays Piano, notes played form valid chord
-
-- Post-conditions: None
-
+- Success Post-conditions: System displays chord progression as it is played
 - Exceptions handled: If the notes aren't a chord, nothing is displayed
 
 **Steps:**
 
 | ### User Actions                                             | ### System Responses                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| - User plays notes on the Piano<br />- User views notes as they play | - System plays the corresponding sounds for the notes<br />- System displays chord progression suggestion |
+| 1. User plays notes on the Piano<br />3. User views notes as they play<br /> | <br />2. System plays the corresponding sounds for the notes<br />4. System displays chord progression suggestion |
 
 **Change Synth Sound**:
 
 - Use Case ID: 5
-
 - Relevant User Story IDs: 9, 22
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: None
-
-- Post-conditions: None
-
+- Success Post-conditions: System uses selected synth sound
 - Exceptions handled: None
 
 **Steps:**
@@ -115,15 +98,11 @@ Play Keyboard:
 **Change octave**:
 
 - Use Case ID: 6
-
 - Relevant User Story IDs: 17
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: None
-
-- Post-conditions: None
-
+- Success Post-conditions: System outputs synthesized audio in selected octave
 - Exceptions handled: None
 
 **Steps:**
@@ -135,15 +114,12 @@ Play Keyboard:
 **Change input method**:
 
 - Use Case ID: 7
-
 - Relevant User Story IDs: 7, 31
-
 - Actors: User
-
+- Related Use Cases:
+- Extended by 9. Setup Midi Device
 - Preconditions: In order for the Midi input to be selected, a Midi device must be set up
-
-- Post-conditions: None
-
+- Success Post-conditions: System uses selected input method
 - Exceptions handled: If no Midi device is set up, the system must prompt the user to set one up, or leave the input on 'keyboard'
 
 **Steps:**
@@ -155,15 +131,11 @@ Play Keyboard:
 **Choose Chord Progression Feel**:
 
 - Use Case ID: 8
-
 - Relevant User Story IDs: 16
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: None
-
-- Post-conditions: None
-
+- Success Post-conditions: System uses desired feel when selecting chords
 - Exceptions handled: None
 
 **Steps:**
@@ -175,15 +147,11 @@ Play Keyboard:
 ***Setup Midi device***:
 
 - Use Case ID: 9
-
 - Relevant User Story IDs: 7, 31
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: 
-
-- Post-conditions: Input can be changed to Midi
-
+- Success Post-conditions: Input can be changed to Midi
 - Exceptions handled: If no Midi device can be detected for setup, the system must present an error to the user
 
 **Steps:**
@@ -206,15 +174,11 @@ Play Keyboard:
 ***Select Chord***:
 
 - Use Case ID: 10
-
 - Relevant User Story IDs: 8
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: None.
-
-- Post-conditions: None.
-
+- Success Post-conditions: System plays back selected Chord
 - Exceptions handled: None
 
 **Steps:**
@@ -226,15 +190,11 @@ Play Keyboard:
 ***Select Chord Progression***:
 
 - Use Case ID: 11
-
 - Relevant User Story IDs: 8
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: None.
-
-- Post-conditions: None.
-
+- Success Post-conditions: System plays back selected Chord Progression
 - Exceptions handled: None
 
 **Steps:**
@@ -246,15 +206,11 @@ Play Keyboard:
 ***Change playback speed***:
 
 - Use Case ID: 12
-
 - Relevant User Story IDs: 8
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: None.
-
-- Post-conditions: None.
-
+- Success Post-conditions: System uses updated playback speed.
 - Exceptions handled: None
 
 **Steps:**
@@ -266,15 +222,11 @@ Play Keyboard:
 ***Change Playback View***:
 
 - Use Case ID: 13
-
 - Relevant User Story IDs: 8
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: None.
-
-- Post-conditions: None.
-
+- Success Post-conditions: System uses selected output view
 - Exceptions handled: None
 
 **Steps:**
@@ -285,16 +237,12 @@ Play Keyboard:
 
 ***Toggle Playback***:
 
-- Use Case ID: 13
-
+- Use Case ID: 14
 - Relevant User Story IDs: 8
-
 - Actors: User
-
+- Related Use Cases: None
 - Preconditions: None.
-
-- Post-conditions: None.
-
+- Success Post-conditions: System will playback selected Chords/Chord Progression
 - Exceptions handled: The user has not selected a chord or chord progression, the system will play a default C major chord.
 
 **Steps:**
@@ -302,3 +250,128 @@ Play Keyboard:
 | ### User Actions               | ### System Responses                                         |
 | ------------------------------ | ------------------------------------------------------------ |
 | - Toggle the play/pause button | - If the system was already playing, stop<br />- If the system was not playing, start playback |
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+### User Account management
+
+#### Use Case model:
+
+![Playback Interface User Case Model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/accountmanagementinterfaceUserCase.png)
+
+#### Use Case Descriptions:
+
+***Sign in with Google***:
+
+- Use Case ID: 19
+- Relevant User Story IDs: 
+- Actors: User
+- Related Use Cases: None
+- Preconditions: User has Google account
+- Success Post-conditions: User is signed into PolyChord with their Google account
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                                             | ### System Responses                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1. Click Sign in with Google<br /><br />3. Sign into Google account<br /><br /><br />6. User is signed in | <br />2. Redirect user to Google Sign-on<br /><br />4. Pass ID Token to backend to make cookie<br />5. Pass cookie to Client |
+
+***Sign out***:
+
+- Use Case ID: 20
+- Relevant User Story IDs: 
+- Actors: User
+- Related Use Cases: 
+  - Extended by Delete Account
+- Preconditions: User is signed in
+- Success Post-conditions: User is signed out
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                                          | ### System Responses                                         |
+| --------------------------------------------------------- | ------------------------------------------------------------ |
+| 1. User selects Sign Out<br /><br />4. User is signed out | <br />2. Sign out user through Google<br />3. Unset cookie<br /> |
+
+***Save Chord***:
+
+- Use Case ID: 21
+- Relevant User Story IDs: 
+- Actors: User
+- Related Use Cases: None
+- Preconditions: User is signed in, User has played chord
+- Success Post-conditions: User's chord is saved to their account
+- Exceptions handled: If User has not played a chord, they are given an error message
+
+**Steps:**
+
+| ### User Actions          | ### System Responses                         |
+| ------------------------- | -------------------------------------------- |
+| 1. User saves chord<br /> | <br />2. System saves chord to db under user |
+
+Play Saved Chord:
+
+- Use Case ID: 22
+- Relevant User Story IDs: 
+- Actors: User
+- Related Use Cases: None
+- Preconditions: User is signed in
+- Success Post-conditions: User's saved chord is played
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                                | ### System Responses                                 |
+| ----------------------------------------------- | ---------------------------------------------------- |
+| 1. User selects saved chord to play<br /><br /> | <br />2. Chord is retrieved <br />3. Chord is played |
+
+***Save Synth Profile***:
+
+- Use Case ID: 23
+- Relevant User Story IDs: 
+- Actors: User
+- Related Use Cases: None
+- Preconditions: User is signed in
+- Success Post-conditions: User's Synth profile is saved to their account
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions            | ### System Responses                                 |
+| --------------------------- | ---------------------------------------------------- |
+| 1. User saves synth profile | <br />2. System saves synth profile to db under user |
+
+***Use Stored Synth Profile***:
+
+- Use Case ID: 24
+- Relevant User Story IDs: 
+- Actors: User
+- Related Use Cases: None
+- Preconditions: User is signed in
+- Success Post-conditions: Synth uses save Profile
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                           | ### System Responses                              |
+| ------------------------------------------ | ------------------------------------------------- |
+| 1. User restores saved synth profile<br /> | <br />2. System retrieves and loads synth profile |
+
+***Delete Account***:
+
+- Use Case ID: 25
+- Relevant User Story IDs: 
+- Actors: User
+- Related Use Cases: Sign Out
+- Preconditions: User is signed in
+- Success Post-conditions:  User's data is removed, User is signed out
+- Exceptions handled: None
+
+**Steps:**
+
+| ### User Actions                                 | ### System Responses                                         |
+| ------------------------------------------------ | ------------------------------------------------------------ |
+| 1. User opts to delete their account<br /><br /> | <br />2. User's data is deleted from DB<br />3. User is signed out |
