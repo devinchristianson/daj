@@ -369,6 +369,40 @@ No business rules have been identified.
 
 There are currently no other requirements to be specified for the SRS of PolyChord.
 
-Appendix A: To Be Determined List
+# 7. Supporting Information
+
+## 7.1 Data Structures
+
+### timeSignature
+
+| ***Object***              | ***Title***                                |
+| ------------------------------- | ----------------------------------------------------- |
+| int | beatsPerMeasure |
+| int | beatNote |
+
+### note
+
+| ***Object***              | ***Title***                                |
+| ------------------------------- | ----------------------------------------------------- |
+| int | noteVal |
+| int | beatDuration |
+| double | startBeat |
+
+### chord
+
+| ***Object***              | ***Title***                                |
+| ------------------------------- | ----------------------------------------------------- |
+| str | name |
+| note[] | notes |
+
+### progression
+
+| ***Object***              | ***Title***                                |
+| ------------------------------- | ----------------------------------------------------- |
+| timeSignature | beatsPerMeasure |
+| int | measures |
+| note[] | progNotes |
+
+# Appendix A: To Be Determined List
 
 3. Surveymonkey embedded form - this is a tentative method for us to allow users of PolyChord to report bugs to our team, but our method of accepting forms has not yet been finalized.
