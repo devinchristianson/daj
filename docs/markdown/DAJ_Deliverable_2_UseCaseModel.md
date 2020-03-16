@@ -330,7 +330,7 @@ Play Keyboard:
 
 #### Use Case model:
 
-![Playback Interface User Case Model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/accountmanagementinterfaceUserCase.png)
+![Account Management Interface User Case Model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/accountmanagementinterfaceUserCase.png)
 
 #### Use Case Descriptions:
 

@@ -1,0 +1,13 @@
+@startuml
+left to right direction
+actor User
+rectangle PolyChord {
+User -- (19. Sign in with Google)
+User -- (20. Sign out)
+User -- (21. Save Chord)
+User -- (22. Play Saved Chord)
+User -- (23. Save Synth profile)
+User -- (24. Use stored Synth profile)
+(20. Sign out) <-- (25. Delete Account): <<extend>>
+}
+@enduml
