@@ -6,6 +6,8 @@
 
 ![Chord recognition Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/chordmatchSequenceAnalysis.png)
 
+<div style="page-break-after: always;"></div>
+
 ### Description
 
 | #     | Subject              | Subject Action | Parameters | Object acted upon |
@@ -30,27 +32,34 @@
 
 --------------------------------
 
+<div style="page-break-after: always;"></div>
+
 ## Sign in with Google
 
 ### Analysis Diagram
+
+![Sign in with Google Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/signinwgoogleSequenceAnalysis.png)
+
+<div style="page-break-after: always;"></div>
 
 ### Description
 
 | #     | Subject           | Subject Action | Parameters     | Object acted upon |
 | ----- | ----------------- | -------------- | -------------- | ----------------- |
 | 1     | User              | select         | Sign-in        | GUI               |
-| 1.1   | GUI               | sign-in        | Google         | Client            |
-| 2     | Client            | redirect to    | Google sign in | GoogleSSO         |
-| 2.1   | User              | Sign-in        | Google account | GoogleSSO         |
-| 4.    | GoogleSSO         | pass           | token          | Client            |
+| 1.1   | GUI               | sign-in        | Google         | GoogleSSO         |
+| 2.1   | User              | sign-in        | Google account | GoogleSSO         |
+| 4.    | GoogleSSO         | onSignOn       | googleUser     | Client            |
 | 4.1   | Client            | verify         | token          | Backend           |
 | 4.2   | If token is valid |                |                |                   |
 | 4.2.1 | Backend           | pass           | user-data      | Client            |
 | 4.2.2 | Client            | message        | login success  | GUI               |
-| 4.2.3 | GUI               | alert          | logged in!     | User              |
+| 4.2.3 | GUI               | message        | logged in      | User              |
 | 4.2   | else              |                |                |                   |
-| 4.2.1 | Backend           | pass           | user-data      | Client            |
+| 4.2.1 | Backend           | message        | token invalid  | Client            |
 | 4.2.2 | Client            | message        | login failure  | GUI               |
-| 4.2.3 | GUI               | alert          | login failed   | User              |
+| 4.2.3 | GUI               | message        | login failed   | User              |
 
 ### Design Diagram
+
+![Sign in with Google Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/signinwgoogleSequenceDesign.png)

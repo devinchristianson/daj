@@ -1,0 +1,31 @@
+@startuml
+actor User
+participant GUI
+participant GoogleSSO
+participant Client
+participant Backend
+activate User
+activate GUI
+User -> GUI: select Sign-in
+activate GoogleSSO
+GUI -> GoogleSSO: SignOn
+User -> GoogleSSO: Sign-in with Google Account
+activate Client
+GoogleSSO -> Client: onSignIn googleUser
+deactivate GoogleSSO
+Client -> Backend: verify token
+alt token is valid
+activate Backend
+Backend -> Client: pass user-data
+Client -> GUI: login success
+GUI -> User: login success!
+else token is invalid
+Backend -> Client: token invalid
+deactivate Backend
+Client -> GUI: login failure
+deactivate Client
+GUI -> User: login failed
+deactivate GUI
+deactivate User
+end
+@enduml
