@@ -33,5 +33,5 @@
 
 ### Scrum Review
 
- - Some people had busy schedules and didn't contribute much to the project during this sprint.
- - What needs improvement: Contribution to the codebase: not everyone on the development team had a contribution in this sprint, partially because of other workloads and partially because of unfamiliarity with website development. Getting everyone to have a general understanding of 
+ - Some group members didn't contribute much to the project during this sprint due to various reasons.
+ - What needs improvement: Contribution to the codebase: not everyone on the development team made a contribution in this sprint, partially because of other class workloads and partially because of unfamiliarity with website development. Getting everyone to have a general understanding of website programming and the current code would likely help out a lot.
