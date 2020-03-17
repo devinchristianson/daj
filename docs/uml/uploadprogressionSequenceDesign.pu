@@ -1,0 +1,19 @@
+@startuml
+actor User
+participant PianoGUI
+participant Client
+participant FileChecker
+activate User
+activate PianoGUI
+User -> PianoGUI: <<progression>>
+PianoGUI -> Client: uploadProgression(progression)
+Client -> FileChecker: verifyProgression(progression)
+activate Client
+alt if progression invalid
+FileChecker -> PianoGUI: <<msg>>
+else else
+FileChecker -> PianoGUI: <<progression>>
+end
+deactivate PianoGUI
+deactivate User
+@enduml

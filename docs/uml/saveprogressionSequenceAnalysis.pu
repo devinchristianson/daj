@@ -1,0 +1,21 @@
+@startuml
+actor User
+participant PianoGUI
+participant Client
+participant FileBuilder
+activate User
+activate PianoGUI
+User -> PianoGUI: select save progression
+PianoGUI -> Client: send progression
+activate Client
+alt if progression empty
+Client -> PianoGUI: display no progression
+else else
+Client -> FileBuilder: send progression
+FileBuilder -> Client: return progression file
+Client -> PianoGUI: return progression file
+PianoGUI -> User: download progression file
+end
+deactivate PianoGUI
+deactivate User
+@enduml

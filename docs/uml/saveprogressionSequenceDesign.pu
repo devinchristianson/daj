@@ -1,0 +1,19 @@
+@startuml
+actor User
+participant PianoGUI
+participant Client
+participant FileBuilder
+activate User
+activate PianoGUI
+User -> PianoGUI: <<progression>>
+PianoGUI -> Client: saveProgression(progression)
+activate Client
+alt if progression empty
+Client -> User: <<msg>>
+else else
+Client -> FileBuilder: buildProgressionFile(progression)
+FileBuilder -> User: <<file>>
+end
+deactivate PianoGUI
+deactivate User
+@enduml
