@@ -1,0 +1,20 @@
+@startuml
+User "1" - "1" SavedData : "has"
+User : SavedData userdata
+User : getUserData() : SavedData
+User : deleteUser() : boolean
+User : getSavedChords() : List of Chords
+Chord : getIntervals() : ListInts
+Chord : getName() : string
+ChordProgression "0..*" - "2..*" Chord : consists of
+ChordProgression : getName() : string
+ChordProgression : getChords() : List of Chords
+SavedData "1" -- "1..*" Chord : owns
+SavedData "1" -- "1..*" ChordProgression : owns
+SavedData : Chord [] chords
+SavedData : ChordProgression [] chordprogs
+SavedData : addData(Chord) : boolean
+SavedData : addData(ChordProgression) : boolean
+SavedData : removeData(Chord) : boolean
+SavedData : removeData(ChordProgression) : boolean
+@enduml
