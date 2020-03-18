@@ -73,3 +73,6 @@
  
  39 As a musician who wants to see how I am progressing, I need to see my accuracy in recognizing theory over time so that I can see how well I am improving my knowledge of theory.
 
+40 As a person who would like to be able to better interact with the app, I need mouse support so that I can interact using whatever means I want
+
+41 As a former user, I need to be able to delete my account so that I no longer need to worry about my account.
