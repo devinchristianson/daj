@@ -1,0 +1,12 @@
+@startuml
+Piano "1" -- "1..*" Key : "contains"
+Piano : Key[] keys
+Piano : Integer octave
+Piano : playNote(key) : boolean
+Piano : stopNote(key) : boolean
+Piano : upOctave() : void
+Piano : downOctave() : void
+Key : Boolean playing
+Key : Integer key
+Key : play() : void
+@enduml
