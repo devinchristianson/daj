@@ -63,3 +63,55 @@
 ### Design Diagram
 
 ![Sign in with Google Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/signinwgoogleSequenceDesign.png)
+
+--------------------------------
+
+<div style="page-break-after: always;"></div>
+
+## Upload Progression
+
+### Analysis Diagram
+
+![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/uploadprogressionSequenceAnalysis.png)
+
+### Description
+
+| #     | Subject           | Subject Action | Parameters     | Object acted upon |
+| ----- | ----------------- | -------------- | -------------- | ----------------- |
+| 1     | User              | upload         | Progression        | GUI               |
+| 2   | GUI               | send        | Progression         | Client         |
+| 3   | Client              | send        | Progression | FileChecker         |
+| 4.1    | If progression is valid         |        |      |             |
+| 4.1.1| FileChecker           | returns           | message      | client            |
+| 4.1.2 | Client            | displays        | message  | GUI               |
+| 4.2   | else              |                |                |                   |
+| 4.2.1| FileChecker           | returns           | message      | client            |
+| 4.2.2 | Client            | displays        | message  | GUI               |
+
+### Design Diagram
+
+![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/uploadprogressionSequenceDesign.png)
+
+## Download Progression
+
+### Analysis Diagram
+
+![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/saveprogressionSequenceAnalysis.png)
+
+### Description
+
+| #     | Subject           | Subject Action | Parameters     | Object acted upon |
+| ----- | ----------------- | -------------- | -------------- | ----------------- |
+| 1     | User              | save         | Progression        | GUI               |
+| 2   | GUI               | send        | Progression         | Client         |
+| 3.1    | If progression is valid         |        |      |             |
+| 3.1.1| Client           | displays           | message      | GUI            |
+| 3.2   | else              |                |                |                   |
+| 3.2.1| Client           | sends           | Progression      | FileBuilder            |
+| 3.2.2 | FileBuilder            | returns        | file  | Client               |
+| 3.2.3 | Client            | returns        | file  | GUI               |
+| 3.2.4 | GUI            | sends        | file  | User               |
+
+### Design Diagram
+
+![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/saveprogressionSequenceDesign.png)
