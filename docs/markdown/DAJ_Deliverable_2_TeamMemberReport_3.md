@@ -287,19 +287,22 @@ User stories had issues with duplicates and wording after Deliverable 0
  
 #### Work Done
 
- - 
+ - Refactored chord recognition logic
+ - Added slash chord recognition
  
 #### Work to be Done
 
- - 
+ - Improve chord recognition logic further
+ - Implement touch screen support
+ - More code refactoring
  
 #### Issues Encountered
 
- - 
+ - There is still cases of ambiguity which is innate to chords changing based on contextual perception. Right now we take the first match which is generally the most likely to be the chord. The ideal solution is to take all matches, display the first and allow the user to cycle through the rest.
  
 #### Issues Resolved
 
- - 
+ - Fixed the difficulty of slash chord recognition encountered with our previous implementation of chord recognition.
  
 #### Deliverable Percentage
 
@@ -460,15 +463,18 @@ User stories had issues with duplicates and wording after Deliverable 0
  
 #### Work to be Done
 
- - 
+ - Still need to work on what I had listed as to do in sprint 2 since I wasn't on the development team this sprint. For posterity I have still listed them here.
+ - Further improve chord recognition logic
+ - Add touchscreen support
+ - General code refactoring
  
 #### Issues Encountered
 
- - 
+ - The closing of the university, and consequentially the leaving of most people we planned to have in the focus group, made the logistics of arranging the focus group very difficult.
  
 #### Issues Resolved
 
- - 
+ - Preformed the focus group online due to the issues layed out in the issues encountered section.
  
 #### Deliverable Percentage
 
