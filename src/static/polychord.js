@@ -17,6 +17,8 @@ for (i = 0; i < temp.length; i++) {
 	pianoKeycodes[temp[i].dataset.keycode.toString()] = temp[i].dataset.note.toString();
 }
 
+var context = new AudioContext();
+context.resume();
 
 var midiAccess = null;
 
