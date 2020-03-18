@@ -373,6 +373,7 @@ User stories had issues with duplicates and wording after Deliverable 0
  
 #### Work Done
 
+ - Facilitated & planned meetings.
  - Basic Flask integration
  - Production Docker container
  - Production version deployment workflow created
