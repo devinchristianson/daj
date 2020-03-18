@@ -179,7 +179,7 @@ User stories had issues with duplicates and wording after Deliverable 0
  
 #### Work to be Done
 
- - Sequence Diagrmas
+ - Sequence Diagrams
  - Update MIDI support
  
 #### Issues Encountered
