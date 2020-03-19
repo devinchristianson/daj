@@ -1,16 +1,24 @@
 @startuml
-User "1" - "1" SavedData : "has"
+User "1" *- "1" SavedData : has > 
 User : SavedData userdata
+User : token : GoogleSigninToken
 User : getUserData() : SavedData
 User : deleteUser() : boolean
-User : getSavedChords() : List of Chords
-Chord : getIntervals() : ListInts
+User : getSavedChords() : Chord[]
+Chord : Integer[] Intervals
+Chord : Character tonic
+Chord : Integer octave
+Chord : getIntervals() : Integer[]
+Chord : getTonic() : character
+Chord : getOctave() : integer
 Chord : getName() : string
-ChordProgression "0..*" - "2..*" Chord : consists of
+ChordProgression : Chord [] chords
+ChordProgression : Integer numChords
+ChordProgression "0..*" - "2..*" Chord : consists of >
 ChordProgression : getName() : string
 ChordProgression : getChords() : List of Chords
-SavedData "1" -- "1..*" Chord : owns
-SavedData "1" -- "1..*" ChordProgression : owns
+SavedData "1" -- "0..*" Chord : contains >
+SavedData "1" -- "0..*" ChordProgression : contains >
 SavedData : Chord [] chords
 SavedData : ChordProgression [] chordprogs
 SavedData : addData(Chord) : boolean

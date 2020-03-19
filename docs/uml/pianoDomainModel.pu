@@ -1,5 +1,5 @@
 @startuml
-Piano "1" -- "1..*" Key : "contains"
+Piano "1" o-- "1..*" Key : "contains"
 Piano : Key[] keys
 Piano : Integer octave
 Piano : playNote(key) : boolean
