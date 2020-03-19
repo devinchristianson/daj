@@ -2,7 +2,7 @@
 COS420 Group project
 ## Quickstart:
 Pull and run from Docker Hub:
-`docker run -p 8000:80 devinchristianson/polychord:latest`
+`docker run -p 8000:80 devinchristianson/polychord:v.0.0.2`
 ## Develop
 Pull down the repo:  
 `git clone https://github.com/devinchristianson/daj.git`
