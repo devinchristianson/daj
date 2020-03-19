@@ -263,7 +263,7 @@ Play Keyboard:
 ***Learn Theory***:
 
 - Use Case ID: 15
-- Relevant User Story IDs: TODO
+- Relevant User Story IDs: 37
 - Actors: User
 - Related Use Cases: None
 - Preconditions: None.
@@ -279,7 +279,7 @@ Play Keyboard:
 ***Practice Theory***:
 
 - Use Case ID: 16
-- Relevant User Story IDs: TODO
+- Relevant User Story IDs: 24
 - Actors: User
 - Related Use Cases: None
 - Preconditions: None.
@@ -295,7 +295,7 @@ Play Keyboard:
 ***Download Progression***:
 
 - Use Case ID: 17
-- Relevant User Story IDs: TODO
+- Relevant User Story IDs: 6,21,39
 - Actors: User
 - Related Use Cases: None
 - Preconditions: Selected progression is not empty
@@ -311,7 +311,7 @@ Play Keyboard:
 ***Upload Progression***:
 
 - Use Case ID: 18
-- Relevant User Story IDs: TODO
+- Relevant User Story IDs: 6,21
 - Actors: User
 - Related Use Cases: None
 - Preconditions: None.
@@ -337,7 +337,7 @@ Play Keyboard:
 ***Sign in with Google***:
 
 - Use Case ID: 19
-- Relevant User Story IDs: 
+- Relevant User Story IDs: 21, 37, 39
 - Actors: User
 - Related Use Cases: None
 - Preconditions: User has Google account
@@ -353,7 +353,7 @@ Play Keyboard:
 ***Sign out***:
 
 - Use Case ID: 20
-- Relevant User Story IDs: 
+- Relevant User Story IDs: 41
 - Actors: User
 - Related Use Cases: 
   - Extended by Delete Account
@@ -370,7 +370,7 @@ Play Keyboard:
 ***Save Chord***:
 
 - Use Case ID: 21
-- Relevant User Story IDs: 
+- Relevant User Story IDs: 6
 - Actors: User
 - Related Use Cases: None
 - Preconditions: User is signed in, User has played chord
@@ -386,7 +386,7 @@ Play Keyboard:
 Play Saved Chord:
 
 - Use Case ID: 22
-- Relevant User Story IDs: 
+- Relevant User Story IDs: 8, 13
 - Actors: User
 - Related Use Cases: None
 - Preconditions: User is signed in
@@ -402,7 +402,7 @@ Play Saved Chord:
 ***Save Synth Profile***:
 
 - Use Case ID: 23
-- Relevant User Story IDs: 
+- Relevant User Story IDs: 9
 - Actors: User
 - Related Use Cases: None
 - Preconditions: User is signed in
@@ -418,7 +418,7 @@ Play Saved Chord:
 ***Use Stored Synth Profile***:
 
 - Use Case ID: 24
-- Relevant User Story IDs: 
+- Relevant User Story IDs: 9
 - Actors: User
 - Related Use Cases: None
 - Preconditions: User is signed in
@@ -434,7 +434,7 @@ Play Saved Chord:
 ***Delete Account***:
 
 - Use Case ID: 25
-- Relevant User Story IDs: 
+- Relevant User Story IDs: 41
 - Actors: User
 - Related Use Cases: Sign Out
 - Preconditions: User is signed in

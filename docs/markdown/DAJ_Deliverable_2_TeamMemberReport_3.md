@@ -374,6 +374,7 @@
  
 #### Work Done
 
+ - Facilitated & planned meetings.
  - Basic Flask integration
  - Production Docker container
  - Production version deployment workflow created
