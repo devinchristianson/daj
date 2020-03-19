@@ -317,11 +317,12 @@
  
 #### Work Done
 
- - 
+ - Created blank documents
+ - Participated in meetings
  
 #### Work to be Done
 
- - 
+ - Work with Focus group team to facilitate focus group
  
 #### Issues Encountered
 
@@ -490,7 +491,7 @@
  
 #### Work Done
 
- - Focus Group
+ - Participated in a meeting
  
 #### Work to be Done
 
