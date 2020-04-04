@@ -52,6 +52,8 @@ RUN apt-get update \
 ENV DEBIAN_FRONTEND=dialog
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+RUN pip install pipreqs
+ENV PATH="/home/vscode/.local/bin:${PATH}"
 USER $USERNAME
 
 
