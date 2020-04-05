@@ -22,11 +22,11 @@ ARG USER_GID=$USER_UID
 # COPY requirements.txt /tmp/pip-tmp/
 
 # Configure apt and install packages
-RUN apt-get update \
+RUN apt-get update && apt-get upgrade -y \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
-    && apt-get -y install git openssh-client iproute2 procps lsb-release \
+    && apt-get -y install git openssh-client iproute2 procps lsb-release nodejs npm \
     #
     # Install pylint
     && pip --disable-pip-version-check --no-cache-dir install pylint \
