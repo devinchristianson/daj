@@ -30,7 +30,7 @@ const keysPressed = [];
 //create array to hold chord information
 const chords = [];
 //begin parse of the chord file
-Papa.parse("chords.csv", {
+Papa.parse( csvPath, {
   delimiter: ",",
   header: true,
   download: true,
@@ -68,7 +68,6 @@ Papa.parse("chords.csv", {
 //add listener for key presses to trigger notes
 document.addEventListener("keydown", e => playNote(pianoKeycodes[e.keyCode.toString()]));
 //add listener for key releases to release notes
-//<<<<<<< HEAD:src/static/polychord.js
 document.addEventListener("keyup", e => stopNote(e.keyCode.toString()));
 //global var to hold state of mouse
 var mouseDown = false;
@@ -110,10 +109,8 @@ document.addEventListener("touchstart", e => startNote(e.target.getAttribute('da
 document.addEventListener("touchend", e => stopNote(e.target.getAttribute('data-note').toString()));
 //document.addEventListener("touchstart", e => startNote(pianoKeycodes[e.target.getAttribute('data-note').toString()]));
 //document.addEventListener("touchend", e => stopNote(pianoKeycodes[e.target.getAttribute('data-note').toString()]));
-//=======
 document.addEventListener("keyup", e => stopNote(pianoKeycodes[e.keyCode.toString()]));
 
-//>>>>>>> midiSupport:src/polychord.js
 //plays the note corresponding  to the keycode of e
 function playNote(keycode) {
   //only trigger on valid keys
@@ -147,6 +144,7 @@ function playNote(keycode) {
 		octaveDown()
 
   }
+  return temp;
 }
 
 //releases the note to corresponding the keycode of e
@@ -168,43 +166,8 @@ function stopNote(keycode) {
     //display note/chord being played
     document.querySelector(".currentNote").innerHTML = getChord();
   }
+  return temp
 }
-/*
-function octaveUp(){
-	//decrement octave using "-" if in a reasonable range
-	if (parseInt(document.querySelector(".key[data-keycode=\"" + pianoKeycodes[0] + "\"]").dataset.octave) < 8){
-		for (i = 0; i < pianoKeycodes.length; i++){
-			//get data for respective note
-			temp = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
-			//decrement octave if in a reasonable range
-			temp.dataset.octave = String(parseInt(temp.dataset.octave) + 1);
-		}
-		for (i = 0; i < pianoKeycodes.length; i++){
-			keysPressed.splice(keysPressed.indexOf(pianoKeycodes[i]), 1);
-			var key = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
-			key.classList.remove("playing");
-			poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) - 1));
-		}
-	}
-}
-
-function octaveDown(){
-	//decrement octave using "-" if in a reasonable range
-	if (parseInt(document.querySelector(".key[data-keycode=\"" + pianoKeycodes[0] + "\"]").dataset.octave) > 0){
-		for (i = 0; i < pianoKeycodes.length; i++){
-			//get data for respective note
-			temp = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
-			//decrement octave if in a reasonable range
-			temp.dataset.octave = String(parseInt(temp.dataset.octave) - 1);
-		}
-		for (i = 0; i < pianoKeycodes.length; i++){
-			keysPressed.splice(keysPressed.indexOf(pianoKeycodes[i]), 1);
-			var key = document.querySelector(".key[data-keycode=\"" + pianoKeycodes[i] + "\"]");
-			key.classList.remove("playing");
-			poly.triggerRelease(key.dataset.note + String(parseInt(key.dataset.octave) + 1));
-		}
-	}
-}*/
 
 function octaveUp(){
 	octave = octave + 1;
@@ -248,7 +211,10 @@ function octaveDown(){
 function getChord() {
   //get all playing keys
   var keys = document.querySelectorAll(".key.playing");
-  console.log(keys);
+  console.log(".key.playing")
+  for(var value of keys.values()) { 
+    console.log(value); 
+  }
 
   //if less than 2 keys there is no chord, return blank
   if (keys.length < 2) {
@@ -326,7 +292,7 @@ function _connect() {
         window.navigator.requestMIDIAccess().then(onMidiInit, onMidiReject);
 		console.log("connected to midi");
     } else {
-        throw 'No Web MIDI support';
+        console.log('No Web MIDI support'); //moved away from throwing exception
     }
 }
 
