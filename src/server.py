@@ -11,7 +11,6 @@ from google.oauth2 import id_token
 from google.auth.transport import requests
 app = Flask(__name__)
 GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
-# '272012235744-verfdijdvkae2vkk07qajavei8ud1c58.apps.googleusercontent.com'
 @app.route('/')
 def index():
     return redirect("./static/index.html")
