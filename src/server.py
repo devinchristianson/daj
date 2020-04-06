@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, redirect
 app = Flask(__name__)
+GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
 @app.route('/')
 def index():
     return redirect("./static/index.html")
