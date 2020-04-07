@@ -69,7 +69,7 @@ External constraints placed on the SCMP
 Incorporation of items developed outside the project environment into the project CIs.
 ### 3.7 Release Management and Delivery
 Description of the formal control of build, release and delivery of software products.
-## 4 Schedules
+## 4. Schedules
 
 - Sequence and coordination of SCM activities.
 - Relationship of key SCM activities to project milestones or events, such as:
@@ -79,14 +79,14 @@ Description of the formal control of build, release and delivery of software pro
 - Schedule either as absolute dates, relative to SCM or project milestones or as sequence of events.
 - Graphical representations can be used here.
 
-## Resources
+## 5. Resources
 
 - Identifies environment, infrastructure, software tools, techniques, equipment, personnel, and training.
 - Key factors for infrastructure:
   - Functionality, performance, safety, security, availability, space requirements, equipment, costs, and time constraints.
 - Identify which tools are used in which activity
 
-## Plan Maintenance
+## 6. Plan Maintenance
 
 - Who is responsible for monitoring the plan?
 - How frequently updates are to be performed?
