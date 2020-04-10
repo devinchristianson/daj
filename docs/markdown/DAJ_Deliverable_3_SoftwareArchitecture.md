@@ -2,7 +2,7 @@
 
 ## Diagram
 
-<UML diagram showing system architecture, where classes/system entities are located, and associations.>
+![alt text](docs/assets/uml/mvc1.png)
 
 ## Description of Architecture
 
