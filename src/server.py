@@ -14,7 +14,7 @@ GOOGLE_CLIENT_ID = os.environ.get("GOOGLE_CLIENT_ID", None)
 @app.route('/')
 def index():
     return redirect("./static/index.html")
-@app.route('idtoken', methods=['POST'])
+@app.route('/idtoken', methods=['POST'])
 def signOn():
     try:
         # Specify the CLIENT_ID of the app that accesses the backend:
