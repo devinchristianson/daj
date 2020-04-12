@@ -40,7 +40,13 @@ Organizational context (technical and managerial) within which the configuration
 
 ### 2.2 Responsibilities
 
-List name or job title of people how perform activities.
+#### Configuration manager
+
+#### Project director
+
+#### Project Owner
+
+
 
 For each board, list:
 
@@ -90,6 +96,8 @@ Not sure what this would be in our case...
 ### 3.5 Interface control
 
 - Coordination of changes to CIs with changes to interfacing items outside of the scope of the Plan.
+
+  The majority of configuration items that are effected by changes outside the scope of the plan are the supporting software, which may receive updates and function changes over time. If possible, such updates should be taken care of within the normal software development cycle, though the software release reason should be taken into consideration when determining the urgency of the update: for example, feature updates should generally be considered low priority unless the new feature is needed for further software development, while security patches should be treated as high priority and incorporated in the very next development cycle, or even out of cycle if the security issue is major.
 ### 3.6. Subcontractor/vendor control
 Incorporation of items developed outside the project environment into the project CIs.
 ### 3.7 Release Management and Delivery
@@ -118,3 +126,5 @@ Description of the formal control of build, release and delivery of software pro
 - How changes to the Plan are to be evaluated and approved?
 - How changes to the Plan are to be made and communicated?
 - Also includes history of changes made to the plan.
+
+The Configuration Manager is responsible for monitoring the plan, and updates to the plan should be performed as necessary, at a minimum once for every major Software release. Changes to the plan can be evaluated and approved through the same GitHub Issue and Pull Request mechanism as is used for Configuration Items, though these artifacts should be tagged as SCM, so that a history of the changes made to the plan can more easily be tracked.
