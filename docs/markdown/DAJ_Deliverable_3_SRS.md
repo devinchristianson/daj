@@ -169,10 +169,36 @@ There will also be a separate menu which allows for swapping between various sam
 
 ![Current user interface](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/polyChordUI0.png)
 
+## 3.1.1 User Interface Requirements
+
+UI-1: The system shall react to input from a MIDI keyboard
+
+UI-2: The system shall react to input from a computer keybaord
+
+UI-3: The system shall contain music theory tutorials
+
+UI-4: The system shall contain a chord explorer interface
+
+UI-5: The system shall allow saving of a chord progression
+
+UI-6: The system shall allow viewing of saved chord progressions
+
+UI-7: The system shall allow the changing of the music sample by mouse
+
+UI-8: The system shall allow the changing of the music sample by keyboard
+
+UI-9: The system shall allow the changing of the octave with a clickable button
+
 ## 3.2 Hardware Interfaces
 
 Supported Devices: MIDI Controller, primarily MIDI Keyboards and computer keyboards using keys from the top 2 rows (" a " to " ' " and " q " to " \ " to simulate a MIDI Controller. The top row will represent the black keys on a piano while the lower row will represent the white keys.
 PolyChord will accept input from a MIDI Keyboard or computer keyboard using the https://github.com/djipco/webmidi webmidi API. Once the input has been interpreted PolyChord will display the notes on an on-screen keyboard and play the corresponding note through the user's computer.
+
+## 3.2.1 Hardware Interface Requirements
+
+HW-1: The system shall map keys from a computer keyboard to piano keyboard
+
+HW-2: The system shall use the webmidi API
 
 ## 3.3 Software Interfaces
 
@@ -180,9 +206,25 @@ PolyChord will be using the most recent tone.js (https://tonejs.github.io/) to p
 The most recent webmidi.js (https://github.com/djipco/webmidi) will be used for the receiving of midi input. It works natively in Chrome, Opera, and Android, but can also work in Internet Explorer, Firefox ≤ v51, and Safari with some plugins from https://jazz-soft.net/ and https://cwilso.github.io/WebMIDIAPIShim/. This will allow for the use of any MIDI Controllers that a user may want to utilize.
 Polychord will also be utilizing the Hooktheory database of chord progressions that is documented at https://www.hooktheory.com/api/trends/docs to recognize what chords are likely to follow given a chord within the database and the preceding chords.
 
+## 3.3.1 Software Interfaces Requirements
+
+SOFT-1: The system shall use the tone.js library to play notes
+
+SOFT-2: The system shall use the jazz-soft plugin to make the webmidi API work on web browsers that do not natively support it
+
+SOFT-3: The system shall use the hooktheory chord progression database
+
 ## 3.4 Communications Interfaces
 
 Polychord will work over http and https as it is a web application, and these are the standard protocols for websites at the time of this specification. As of now will not need to communicate in any way other than the connection between the user and the server. We will have an embedded survey on the website to submit bug reports so that we can improve PolyChord with help from our users. As of now, data synchronization and transfer speeds are of low priority since most of PolyChord's functionality will not require much active interaction between the user and server, and there are no large files to be loaded in with the website.
+
+## 3.4.1 Communications Interface Requirements
+
+COMM-1: The system shall support http communications
+
+COMM-2: The system shall support https communications
+
+COMM-3: The system shall provide a method for user feedback
 
 # 4. System Features
 
