@@ -6,12 +6,31 @@ tl;dr Describe the plan’s purpose, scope of application, key terms, and
 references.
 
 - Overview description of the software project
-- Identification of the software configuration items (CIs) to which SCM will be applied.
-- Identification of other software to be included as part of the plan (e.g., support or test software).
 - Relationship of SCM to the hardware or system configuration management activities for the project.
 - The degree of formality, depth of control, and portion of the software life cycle for applying SCM on this project.
+
+### 1.1 Identification
+
+- Identification of the software configuration items (CIs) to which SCM will be applied.
+
+- Identification of other software to be included as part of the plan (e.g., support or test software).
+
+The SCM plan is for the PolyChord application's development, and the related testing, version control,  continuous integration, and deployment software. For testing, Mocha, Chia, and Karma are used. For version control, Git and Github are used. For Continuous integration, Drone CI is used. For deployment, Docker and Docker Hub are used.
+
+### 1.2 Purpose
+
+​	The Configuration Management Plan lays out in detail how the DAJ team will manage the control of configuration items being developed in each phase. It defines both the policies and procedures for configuration management, and the infrastructure necessary to implement them throughout the phases of the project.
+
+### 1.3 Scope
+
+​	This version of the Configuration Management Plan is applicable to the Initial Design and Development phases of the PolyChord project. It may be modified for the following phases depending on the Configuration Management requirements for such phases. All PolyChord team members, while working on the PolyChord Project, will adhere to the approach outlined in this project.
+
+### 1.4 Limitations and Assumptions
+
 - Limitations, such as time constraints, that apply to the plan.
 - Assumptions that might have an impact on the cost, schedule, or ability to perform defined SCM activities (e.g., assumptions of the degree of customer participation in SCM activities or the availability of automated aids). 
+
+
 
 ## 2. Management
 
@@ -33,6 +52,7 @@ For each board, list:
 ### 2.3 Applicable policies, directives and procedures
 
 External constraints placed on the SCMP
+Not sure what this would be in our case...
 
 ## 3. Activities
 
@@ -42,14 +62,19 @@ External constraints placed on the SCMP
 
 - Identify configuration items (events, items, procedures)
 - Name configuration items (unique identifiers)
-- Acquiring configuration items (physical procedures)
+- Acquiring configuration items (physical procedures) - Not sure what this would be.
 
 ### 3.2. Configuration control
 
 - Requesting changes
+
 - Evaluating changes
+
 - Approving or disapproving changes
+
 - Implementing changes
+
+  Configuration control is taken care of within GitHub issues and pull requests: Change requests, evaluation, and approval or rejection all takes place within the GitHub issue representing the proposed change, and once the change has been implemented, it's implementation is contained within a pull request (or series of pull requests), so that the changes' impact can be evaluated before it is merged.
 
 ### 3.3. Configuration status accounting
 
