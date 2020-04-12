@@ -67,8 +67,12 @@ Not sure what this would be in our case...
 ### 3.1 Configuration identification
 
 - Identify configuration items (events, items, procedures)
+
 - Name configuration items (unique identifiers)
+
 - Acquiring configuration items (physical procedures) - Not sure what this would be.
+
+  
 
 ### 3.2. Configuration control
 
@@ -102,6 +106,9 @@ Not sure what this would be in our case...
 Incorporation of items developed outside the project environment into the project CIs.
 ### 3.7 Release Management and Delivery
 Description of the formal control of build, release and delivery of software products.
+
+
+
 ## 4. Schedules
 
 - Sequence and coordination of SCM activities.
