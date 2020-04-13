@@ -34,14 +34,16 @@ const keysPressed = [];
 const chords = [];
 //begin parse of the chord file
 Papa.parse( csvPath, {
-	delimiter: ",",
-	header: true,
-	download: true,
-	comments: "#",
 
-	//processing for each line
-	step: function(results) {
-	  //- interval processing -
+  delimiter: ",",
+  header: true,
+  download: true,
+  comments: "#",
+
+  //processing for each line
+  step: function(results) {
+    //- interval processing -
+
     //parse intervals into an array
     var intervals = Papa.parse(results.data.intervals, {
       delimiter: "-"
@@ -85,6 +87,7 @@ window.addEventListener("keydown", function(event) {
 });
 
 //add listener for key releases to release notes
+
 window.addEventListener("keyup", function(event) {
 	var temp = document.querySelectorAll(".key");
 	temp.forEach(function (item, index){
@@ -153,10 +156,12 @@ document.addEventListener("touchend", e => stopNote(e.target.getAttribute('data-
 //document.addEventListener("touchstart", e => startNote(pianoKeycodes[e.target.getAttribute('data-note').toString()]));
 //document.addEventListener("touchend", e => stopNote(pianoKeycodes[e.target.getAttribute('data-note').toString()]));
 
+
 //plays the note corresponding  to the keycode of e
 function playNote(keycode) {
   //only trigger on valid keys
 	
+
 	var noteName = keycode.substring(0, keycode.length - 1);
 	noteName += parseInt(keycode.substring(keycode.length - 1, keycode.length)) + octave;
 	
@@ -174,10 +179,12 @@ function playNote(keycode) {
 		document.querySelector(".currentNote").innerHTML = getChord();
 	}
   return noteName;
+
 }
 
 //releases the note to corresponding the keycode of e
 function stopNote(keycode) {
+
 	if (!sus){
 		keycode = keycode.toString()
 
@@ -230,12 +237,7 @@ function stopAll(){
 function getChord() {
   //get all playing keys
   var keys = document.querySelectorAll(".key.playing");
-  //console.log(".key.playing")
-  /*
-	for(var value of keys.values()) { 
-    console.log(value); 
-  }
-	*/
+
   //if less than 2 keys there is no chord, return blank
   if (keys.length < 2) {
     return "";

@@ -1,6 +1,10 @@
 # Add 'code' to any changes within 'src' folder or any subfolders
 code:
   - src/**/*
+tests:
+  - src/tests/**/*
+frontend:
+  - src/static/**/*
 dev:
   - src/.devcontainer/**/*
  # Add 'code' to any changes docs 'example' folder or any subfolders

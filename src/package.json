@@ -1,0 +1,9 @@
+{
+    "name": "polychord",
+    "version": "0.0.2",
+    "devDependencies": {
+    },
+    "scripts": {
+      "test": "karma start --single-run --browsers FirefoxHeadless karma.conf.js" 
+    }
+  }

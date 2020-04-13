@@ -76,3 +76,19 @@
 40 As a person who would like to be able to better interact with the app, I need mouse support so that I can interact using whatever means I want
 
 41 As a former user, I need to be able to delete my account so that I no longer need to worry about my account.
+
+42 As a frequent PolyChord user, I need to be able to have an account for PolyChord so that I can save my progress more easily.
+
+43 As a registered polychord user, I need to have independant volume control so that I can have more control over my experience.
+
+44 As a person with a nonconventional keyboard, I need to be able to rebind keys so that I can more easily enjoy the app.
+
+45 As a user who has been doing work outside of PolyChord, I need an option to upload progressions so that I do not lose that other work.
+
+46 As a user confused about how to use PolyChord, I need to have a help menu so that I can better understand the app.
+
+47 As a user who wants more customization options, I need to have an option to toggle the musical note names over the on-screen keyboard so that I can remove some clutter from the screen.
+
+48 As a user with a computer keyboard that does not support n-key rollover, I need a sustain key so that I can more easily use the app.
+
+49 As a user who wants more content, I need keyboard skins so that I can customize my account more.

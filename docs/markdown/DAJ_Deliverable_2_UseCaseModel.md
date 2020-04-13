@@ -263,7 +263,7 @@ Play Keyboard:
 ***Learn Theory***:
 
 - Use Case ID: 15
-- Relevant User Story IDs: TODO
+- Relevant User Story IDs: 37
 - Actors: User
 - Related Use Cases: None
 - Preconditions: None.
@@ -279,7 +279,7 @@ Play Keyboard:
 ***Practice Theory***:
 
 - Use Case ID: 16
-- Relevant User Story IDs: TODO
+- Relevant User Story IDs: 24
 - Actors: User
 - Related Use Cases: None
 - Preconditions: None.
@@ -295,7 +295,7 @@ Play Keyboard:
 ***Download Progression***:
 
 - Use Case ID: 17
-- Relevant User Story IDs: TODO
+- Relevant User Story IDs: 6,21,39
 - Actors: User
 - Related Use Cases: None
 - Preconditions: Selected progression is not empty
@@ -311,7 +311,7 @@ Play Keyboard:
 ***Upload Progression***:
 
 - Use Case ID: 18
-- Relevant User Story IDs: TODO
+- Relevant User Story IDs: 6,21
 - Actors: User
 - Related Use Cases: None
 - Preconditions: None.

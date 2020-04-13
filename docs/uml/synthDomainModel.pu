@@ -1,0 +1,21 @@
+@startuml
+Piano "1" -- "1" Synthesizer : for
+Piano : Synthesizer
+Piano : getSynthesizer() : Synthesizer
+Synthesizer "1" -- "0..*" Sample : has
+Synthesizer "1" -- "1..*" Waveform : has
+Synthesizer : Sample [] samples
+Synthesizer : Waveform [] waveforms
+Synthesizer : incrementReverb(int) : boolean
+Synthesizer : decrementReverb(int) : boolean
+Synthesizer : useSample(int) : boolean
+Synthesizer : addSample(Sample) : int
+Synthesizer : removeSample(Sample) : int
+Sample : Integer Length
+Sample : File audioRecording
+Sample : shiftSample(int offset) : Sample
+Waveform : Shape shape
+Waveform : Integer amplitude
+Waveform : Integer frequency
+Waveform : Integer period
+@enduml

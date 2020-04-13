@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See https://go.microsoft.com/fwlink/?linkid=2090316 for license information.
 #-------------------------------------------------------------------------------------------------------------
 
-FROM python:3
+FROM python:3-buster
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -22,11 +22,11 @@ ARG USER_GID=$USER_UID
 # COPY requirements.txt /tmp/pip-tmp/
 
 # Configure apt and install packages
-RUN apt-get update \
+RUN apt-get update && apt-get upgrade -y \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
     #
     # Verify git, process tools, lsb-release (common in install instructions for CLIs) installed
-    && apt-get -y install git openssh-client iproute2 procps lsb-release \
+    && apt-get -y install git openssh-client iproute2 procps lsb-release nodejs npm firefox-esr \
     #
     # Install pylint
     && pip --disable-pip-version-check --no-cache-dir install pylint \
@@ -52,6 +52,10 @@ RUN apt-get update \
 ENV DEBIAN_FRONTEND=dialog
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+RUN pip install pipreqs
+ENV PATH="/home/vscode/.local/bin:${PATH}"
 USER $USERNAME
-
-
+RUN curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - && sudo apt-get install -y nodejs && sudo npm install npm@latest -g
+RUN sudo npm i --save-dev karma karma-mocha karma-chai \
+    && sudo npm i --save-dev karma-firefox-launcher \
+    && sudo npm i --save-dev mocha chai
