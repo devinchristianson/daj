@@ -5,36 +5,27 @@ const poly = new Tone.PolySynth(10, Tone.Synth, {
   }
 }).toMaster();
 
-
-var octave = 0;			//keep track of any octave shifts that have occurred.
-var sus = false;		//keep track of if sustain (shift) is being held.
-
-var pianoKeycodes = {};
 //get all keys
 var temp = document.querySelectorAll(".key");
 //create array of valid key inputs
+var pianoKeycodes = [];
 for (i = 0; i < temp.length; i++) {
-	pianoKeycodes[temp[i].dataset.keycode.toString()] = temp[i].dataset.note.toString();
-	//console.log(pianoKeycodes[temp[i].dataset.keycode.toString()])
+  pianoKeycodes.push(temp[i].dataset.keycode);
 }
-
-var hotkeys = ["Minus", "Equal", "Shift"]
-
-var context = new AudioContext();
-context.resume();
-
-var midiAccess = null;
 
 //-- keyboard controller logic --
 //keeps track of which keys are currently pressed
 const keysPressed = [];
+//keeps track of if sustain is held
+var sustain = false
+//keeps track of sustained keys
+const sustainKeys = []
 
 //-- parse chords csv --
 //create array to hold chord information
 const chords = [];
 //begin parse of the chord file
-Papa.parse( csvPath, {
-
+Papa.parse(csvPath, {
   delimiter: ",",
   header: true,
   download: true,
@@ -43,7 +34,6 @@ Papa.parse( csvPath, {
   //processing for each line
   step: function(results) {
     //- interval processing -
-
     //parse intervals into an array
     var intervals = Papa.parse(results.data.intervals, {
       delimiter: "-"
@@ -70,169 +60,70 @@ Papa.parse( csvPath, {
   }
 });
 
-//add listener for key presses to trigger notes
-window.addEventListener("keydown", function(event) {
-	var temp = document.querySelectorAll(".key");
-	temp.forEach(function (item, index){
-		//if there is a note to the key
-		if (event.code == item.dataset.keycode){
-			//play the key
-			playNote(item.dataset.note);
-		}
-		if (event.code == "ShiftLeft"){
-			sus = true;
-		}
-	});
-	str = event.code;
-});
-
-//add listener for key releases to release notes
-
-window.addEventListener("keyup", function(event) {
-	var temp = document.querySelectorAll(".key");
-	temp.forEach(function (item, index){
-		//if there is a note to the key
-		if (event.code == item.dataset.keycode){
-			//play the key
-			stopNote(item.dataset.note);
-		}
-		else if (event.code == "ShiftLeft"){
-			sus = false;
-			for (var i = 0; i < keysPressed.length; i++){
-				poly.triggerRelease(keysPressed[i]);
-			}
-			stopAll();
-		}
-		else if (event.code == "Minus"){
-			octaveDown();
-		}
-		else if (event.code == "Equal"){
-			octaveUp();
-		}
-	});
-	str = event.code;
-});
-
-//global var to hold state of mouse
-var mouseDown = false;
-//add listener for mouseup that sets mousedown=up and stops play
-document.addEventListener("mouseup", function(e) {
-  mouseDown = false;
-  mouseHandlerStop(e);
-});
-//add listener for mousedown that sets mousedown=true and starts play
-document.addEventListener("mousedown", function(e) {
-  mouseDown = true;
-  mouseHandlerPlay(e);
-});
-//add listener for mouseover and mouseout
-document.addEventListener("mouseover", e => mouseHandlerPlay(e));
-document.addEventListener("mouseout", e => mouseHandlerStop(e));
-
-
-//wrapper for playNote to check for mouseDown and null condition
-function mouseHandlerPlay(mouseEvent) {
-  if(mouseDown && mouseEvent.target.getAttribute('data-note') != null) {
-    playNote(mouseEvent.target.getAttribute('data-note').toString());
+//add listener for key presses
+document.addEventListener("keydown", e => {
+  //if key is a piano key code play the note
+  if (pianoKeycodes.includes(e.code.toString())) {
+    playNote(e.code.toString())
   }
-	else if (mouseDown){
-		if (mouseEvent.target.textContent == "Octave Up"){
-			octaveUp()
-		}
-		else if (mouseEvent.target.textContent == "Octave Down"){
-			octaveDown()
-		}
-	}
-}
-//wrapper for stopNote to check for null condition
-function mouseHandlerStop(mouseEvent) {
-  if(mouseEvent.target.getAttribute('data-note') != null) {
-    stopNote(mouseEvent.target.getAttribute('data-note').toString());
+  //if key is space set sustain to true
+  else if (e.code.toString() == "Space") {
+    sustain = true
   }
-}
-//touch support
-document.addEventListener("touchstart", e => startNote(e.target.getAttribute('data-note').toString()));
-document.addEventListener("touchend", e => stopNote(e.target.getAttribute('data-note').toString()));
-//document.addEventListener("touchstart", e => startNote(pianoKeycodes[e.target.getAttribute('data-note').toString()]));
-//document.addEventListener("touchend", e => stopNote(pianoKeycodes[e.target.getAttribute('data-note').toString()]));
+});
 
+//add listener for key releases
+document.addEventListener("keyup", e => {
+  //if key is a piano key code stop the note
+  if (pianoKeycodes.includes(e.code.toString())) {
+    stopNote(e.code.toString())
+  }
+  //if key is space set sustain to false and release sustained keys
+  else if (e.code.toString() == "Space") {
+    sustain = false
+    sustainKeys.forEach(stopNote)
+    sustainKeys.length = 0
+  }
+});
 
-//plays the note corresponding  to the keycode of e
+//plays the note corresponding to the keycode of e
 function playNote(keycode) {
-  //only trigger on valid keys
-	
-
-	var noteName = keycode.substring(0, keycode.length - 1);
-	noteName += parseInt(keycode.substring(keycode.length - 1, keycode.length)) + octave;
-	
-	//dont trigger if key is already pressed
-	if (!keysPressed.includes(noteName)) {
-		//push keycode to pressed
-		keysPressed.push(noteName);
-		//get respective key from keycode
-		var key = document.querySelector(".key[data-note=\"" + keycode + "\"]");
-		//add playing transform to respective note
-		key.classList.add("playing");
-		//play note
-		poly.triggerAttack(noteName);
-		//display note/chord being played
-		document.querySelector(".currentNote").innerHTML = getChord();
-	}
-  return noteName;
-
+  //dont trigger if key is already pressed
+  if (!keysPressed.includes(keycode)) {
+    //push keycode to pressed
+    keysPressed.push(keycode);
+    //get respective key from keycode
+    var key = document.querySelector(".key[data-keycode=\"" + keycode + "\"]");
+    //add playing transform to respective note
+    key.classList.add("playing");
+    //play note
+    poly.triggerAttack(key.dataset.note + key.dataset.octave);
+    //display note/chord being played
+    document.querySelector(".currentNote").innerHTML = getChord();
+  }
 }
 
 //releases the note to corresponding the keycode of e
 function stopNote(keycode) {
-
-	if (!sus){
-		keycode = keycode.toString()
-
-		var noteName = keycode.substring(0, keycode.length - 1);
-		noteName += parseInt(keycode.substring(keycode.length - 1, keycode.length)) + octave;
-		//remove key from pressed
-		keysPressed.splice(keysPressed.indexOf(noteName), 1);
-		//get respective key from keycode
-		var key = document.querySelector(".key[data-note=\"" + keycode + "\"]");
-		//remove playing transform from respective key
-		key.classList.remove("playing");
-		//release note
-		poly.triggerRelease(noteName);
-		//display note/chord being played
-		document.querySelector(".currentNote").innerHTML = getChord();
-		return noteName;
-	}
+  //remove key from pressed
+  keysPressed.splice(keysPressed.indexOf(keycode), 1);
+  //if sustain isn't held stop playing note
+  if(!sustain) {
+    //get respective key from keycode
+    var key = document.querySelector(".key[data-keycode=\"" + keycode + "\"]");
+    //remove playing transform from respective key
+    key.classList.remove("playing");
+    //release note
+    poly.triggerRelease(key.dataset.note + key.dataset.octave);
+  }
+  //sustain is held; store note in sustain keys
+  else {
+    sustainKeys.push(keycode);
+  }
+  //display note/chord being played
+  document.querySelector(".currentNote").innerHTML = getChord();
 }
 
-function octaveUp(){
-	//decrement octave using "-" if in a reasonable range (0-8)
-	if (octave < 5){
-		var temp = document.querySelectorAll(".key");
-		if (!sus){
-			stopAll();
-		}
-
-		octave = octave + 1;
-	}
-}
-
-function octaveDown(){
-	if (octave > -5){
-		var temp = document.querySelectorAll(".key");
-		if (!sus){
-			stopAll()
-		}
-		octave = octave - 1;
-	}
-}
-
-function stopAll(){
-	//lower and upper should be -5 and 5 by default
-	console.log(keysPressed);
-	for (var i = 0; i < keysPressed.length; i++){
-		stopNote(keysPressed[i]);
-	}
-}
 //gets the currently playing chord; returns blank on no match
 function getChord() {
   //get all playing keys
@@ -309,6 +200,84 @@ function chordEq(set1, set2) {
   return true;
 }
 
+//stops playing all keys and increments the octave for all keys one up
+function octaveUp() {
+  //remove all playing notes
+  for (var i = 0, len = keysPressed.length; i < len; i++) {
+    stopNote(keysPressed[0]);
+  }
+
+  //get all keys in the html
+  var keys = document.querySelectorAll(".key")
+  //increment their octave up
+  keys.forEach(key => key.dataset.octave = String(parseInt(key.dataset.octave) + 1))
+}
+
+//stops playing all keys and increments the octave for all keys one down
+function octaveDown() {
+  //remove all playing notes
+  for (var i = 0, len = keysPressed.length; i < len; i++) {
+    stopNote(keysPressed[0]);
+  }
+
+  //get all keys in the html
+  var keys = document.querySelectorAll(".key");
+  //increment their octave up
+  keys.forEach(key => key.dataset.octave = String(parseInt(key.dataset.octave) - 1));
+}
+
+
+
+//--- mouse handler ---
+//global var to hold state of mouse
+var mouseDown = false;
+//on mouse down set mousedown to true and trigger the mouse event handler play
+document.addEventListener("mousedown", e => {
+  mouseDown = true;
+  mouseHandlerPlay(e.target);
+});
+//on mouse up set mousedown to false and trigger the mouse event handler stop
+document.addEventListener("mouseup", e => {
+  mouseDown = false;
+  mouseHandlerStop(e.target);
+});
+//on mouse over trigger the mouse event handler play
+document.addEventListener("mouseover", e => mouseHandlerPlay(e.target));
+//on mouse out tigger the mouse event handler stop
+document.addEventListener("mouseout", e => mouseHandlerStop(e.target));
+
+//wrapper for playNote to check for mouseDown and null condition
+function mouseHandlerPlay(mouseEvent) {
+  if(mouseDown && mouseEvent.getAttribute('data-keycode') != null) {
+    //trigger note
+    poly.triggerAttack(mouseEvent.dataset.note + mouseEvent.dataset.octave);
+    //set the key to playing
+    mouseEvent.classList.add("playing");
+    //update chord
+    document.querySelector(".currentNote").innerHTML = getChord();
+  }
+}
+
+//wrapper for stopNote to check for null condition
+function mouseHandlerStop(mouseEvent) {
+  if(mouseEvent.getAttribute('data-keycode') != null) {
+    //release note
+    poly.triggerRelease(mouseEvent.dataset.note + mouseEvent.dataset.octave);
+    //remove playing from key
+    mouseEvent.classList.remove("playing");
+    //update chord
+    document.querySelector(".currentNote").innerHTML = getChord();
+  }
+}
+
+
+
+//--- Midi ---
+var context = new AudioContext();
+context.resume();
+
+var midiAccess = null;
+
 function _connect() {
     if(window.navigator && 'function' === typeof window.navigator.requestMIDIAccess) {
         window.navigator.requestMIDIAccess().then(onMidiInit, onMidiReject);
@@ -357,6 +326,13 @@ function onMidiReject(){
 	console.log("no midi");
 }
 
+_connect();
+
+
+
+
+//--- google sign on ---
+/*
 function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
   var xhr = new XMLHttpRequest();
@@ -367,6 +343,4 @@ function onSignIn(googleUser) {
   };
   xhr.send('idtoken=' + id_token);
 }
-
-_connect();
-
+*/

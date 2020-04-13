@@ -36,15 +36,17 @@ h2 {
   margin: 0 0 30px;
 }
 
-.button {
-  background: rgba(255, 255, 255, .8);    
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+/* octave buttons */
+.buttons {
+  padding-top: 15px;
+  padding-left: 560px;
+}
+
+buttons {
+  font-family: sans-serif;
+  background: #eee;
+  border-radius: .3rem;
+  
 }
 
 /* note display */
@@ -53,7 +55,7 @@ h2 {
   font-size: 60px;
   font-family: sans-serif;
   line-height: 1;
-  color: #eee;
+  color: rgba(255, 255, 255, .8);
   transition: all .07s ease;
   min-height: 120px;
 }
@@ -66,7 +68,6 @@ h2 {
   max-width: 880px;
   position: relative;
   margin: 40px auto 0;
-  cursor: none;
 }
 
 /* applies to all keys */
@@ -78,7 +79,6 @@ h2 {
   display: block;
   box-sizing: border-box;
   z-index: 2;
-  cursor: default;
 }
 
 /* applies to white keys */  
@@ -139,6 +139,7 @@ h2 {
   bottom: 7px;
   transition: opacity .3s;
   font-size: 20px;
+
   /*Ignore mouse events over this*/
   pointer-events: none;
   /*to stop legend from getting highlighted on click/drag*/

@@ -3,37 +3,40 @@
 
 <!-- boiler plate -->
 <head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js" defer></script>
-	<!-- tone.js import -->
+  <!-- tone.js import -->
   <script src="https://unpkg.com/tone" defer></script>
+  <!-- csv parser import -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.1.0/papaparse.min.js" defer></script>
+
   <!-- GoogleAPI import -->
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="272012235744-verfdijdvkae2vkk07qajavei8ud1c58.apps.googleusercontent.com ">
-	<script src="polychord.js" defer></script>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<title>PolyChord</title>
+  <!-- script src="https://apis.google.com/js/platform.js" async defer></script -->
+  <!-- meta name="google-signin-client_id" content="272012235744-verfdijdvkae2vkk07qajavei8ud1c58.apps.googleusercontent.com " -->
+
+  <script src="polychord.js" defer></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>PolyChord</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script>
     var csvPath = "/static/chords.csv";
   </script>
 </head>
-<div align="right">
-<button class="button">Octave Up</button>
-<button class="button">Octave Down</button>
-</div>
-<div>
-  <div align="left" class="g-signin2" data-onsuccess="onSignIn"></div>
-</div>
+
 <section id="wrapper">
+  <!-- div>
+    <div align="left" class="g-signin2" data-onsuccess="onSignIn"></div>
+  </div -->
+
 	<header>
 		<!-- title -->
 		<h1>PolyChord</h1>
 		<h2></h2>
 	</header>
+
 	<section id="main">
 		<!-- Displays the current chord being played-->
 		<div class="currentNote"></div>
+
 		<!-- Piano Display -->
 		<!-- data-keycode is the keycode of the trigger key-->
 		<!-- data-note is the note to be played-->
@@ -41,75 +44,79 @@
     <!-- data-pos is the position of the note in order from left to right-->
 		<div class="piano">
 			<!-- a : C4 -->
-			<div data-keycode="KeyA" data-note="C4" data-octave="4" data-pos="0" class="key">
+			<div data-keycode="KeyA" data-note="C" data-octave="4" data-pos="0" class="key">
 				<span class="legend">A</span>
       </div>
       <!-- w : C#4 -->
-      <div data-keycode="KeyW" data-note="C#4" data-octave="4" data-pos="1" class="key sharp">
+      <div data-keycode="KeyW" data-note="C#" data-octave="4" data-pos="1" class="key sharp">
         <span class="legend">W</span>
       </div>
       <!-- s : D4 -->
-      <div data-keycode="KeyS" data-note="D4" data-octave="4" data-pos="2" class="key">
+      <div data-keycode="KeyS" data-note="D" data-octave="4" data-pos="2" class="key">
         <span class="legend">S</span>
       </div>
       <!-- e : D#4 -->
-      <div data-keycode="KeyE" data-note="D#4" data-octave="4" data-pos="3" class="key sharp">
+      <div data-keycode="KeyE" data-note="D#" data-octave="4" data-pos="3" class="key sharp">
         <span class="legend">E</span>
       </div>
       <!-- d : E4 -->
-      <div data-keycode="KeyD" data-note="E4" data-octave="4" data-pos="4" class="key">
+      <div data-keycode="KeyD" data-note="E" data-octave="4" data-pos="4" class="key">
         <span class="legend">D</span>
       </div>
       <!-- f : F4 -->
-      <div data-keycode="KeyF" data-note="F4" data-octave="4" data-pos="5" class="key">
+      <div data-keycode="KeyF" data-note="F" data-octave="4" data-pos="5" class="key">
         <span class="legend">F</span>
       </div>
       <!-- t : F#4 -->
-      <div data-keycode="KeyT" data-note="F#4" data-octave="4" data-pos="6" class="key sharp">
+      <div data-keycode="KeyT" data-note="F#" data-octave="4" data-pos="6" class="key sharp">
         <span class="legend">T</span>
       </div>
       <!-- g : G4 -->
-      <div data-keycode="KeyG" data-note="G4" data-octave="4" data-pos="7" class="key">
+      <div data-keycode="KeyG" data-note="G" data-octave="4" data-pos="7" class="key">
         <span class="legend">G</span>
       </div>
       <!-- y : G#4 -->
-      <div data-keycode="KeyY" data-note="G#4" data-octave="4" data-pos="8" class="key sharp">
+      <div data-keycode="KeyY" data-note="G#" data-octave="4" data-pos="8" class="key sharp">
         <span class="legend">Y</span>
       </div>
       <!-- h : A4 -->
-      <div data-keycode="KeyH" data-note="A4" data-octave="4" data-pos="9" class="key">
+      <div data-keycode="KeyH" data-note="A" data-octave="4" data-pos="9" class="key">
         <span class="legend">H</span>
       </div>
       <!-- u : A#4 -->
-      <div data-keycode="KeyU" data-note="A#4" data-octave="4" data-pos="10" class="key sharp">
+      <div data-keycode="KeyU" data-note="A#" data-octave="4" data-pos="10" class="key sharp">
         <span class="legend">U</span>
       </div>
       <!-- j : B4 -->
-      <div data-keycode="KeyJ" data-note="B4" data-octave="4" data-pos="11" class="key">
+      <div data-keycode="KeyJ" data-note="B" data-octave="4" data-pos="11" class="key">
         <span class="legend">J</span>
       </div>
       <!-- k : C5 -->
-      <div data-keycode="KeyK" data-note="C5" data-octave="5" data-pos="12" class="key">
+      <div data-keycode="KeyK" data-note="C" data-octave="5" data-pos="12" class="key">
         <span class="legend">K</span>
       </div>
       <!-- o : C#5 -->
-      <div data-keycode="KeyO" data-note="C#5" data-octave="5" data-pos="13" class="key sharp">
+      <div data-keycode="KeyO" data-note="C#" data-octave="5" data-pos="13" class="key sharp">
         <span class="legend">O</span>
       </div>
       <!-- l : D4 -->
-      <div data-keycode="KeyL" data-note="D5" data-octave="5" data-pos="14" class="key">
+      <div data-keycode="KeyL" data-note="D" data-octave="5" data-pos="14" class="key">
         <span class="legend">L</span>
       </div>
       <!-- p : D#5 -->
-      <div data-keycode="KeyP" data-note="D#5" data-octave="5" data-pos="15" class="key sharp">
+      <div data-keycode="KeyP" data-note="D#" data-octave="5" data-pos="15" class="key sharp">
         <span class="legend">P</span>
       </div>
       <!-- ; : E5 -->
-      <div  data-keycode="Semicolon" data-note="E5" data-octave="5" data-pos="16" class="key">
+      <div  data-keycode="Semicolon" data-note="E" data-octave="5" data-pos="16" class="key">
         <span class="legend">;</span>
       </div>
     </div>
   </section>
+  <!-- octave switching buttons-->
+  <div class="buttons" align="center">
+    <button class="button" onclick="octaveUp()">Octave Up</button>
+    <button class="button" onclick="octaveDown()">Octave Down</button>
+  </div>
 </section>
-
 </html>
