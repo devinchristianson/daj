@@ -19,11 +19,11 @@ The SCM plan is for the PolyChord application's development, and the related tes
 
 ### 1.2 Purpose
 
-​	The Configuration Management Plan lays out in detail how the DAJ team will manage the control of configuration items being developed in each phase. It defines both the policies and procedures for configuration management, and the infrastructure necessary to implement them throughout the phases of the project.
+The Configuration Management Plan lays out in detail how the DAJ team will manage the control of configuration items being developed in each phase. It defines both the policies and procedures for configuration management, and the infrastructure necessary to implement them throughout the phases of the project.
 
 ### 1.3 Scope
 
-​	This version of the Configuration Management Plan is applicable to the Initial Design and Development phases of the PolyChord project. It may be modified for the following phases depending on the Configuration Management requirements for such phases. All PolyChord team members, while working on the PolyChord Project, will adhere to the approach outlined in this project.
+This version of the Configuration Management Plan is applicable to the Initial Design and Development phases of the PolyChord project. It may be modified for the following phases depending on the Configuration Management requirements for such phases. All PolyChord team members, while working on the PolyChord Project, will adhere to the approach outlined in this project.
 
 ### 1.4 Limitations and Assumptions
 
@@ -39,14 +39,6 @@ The SCM plan is for the PolyChord application's development, and the related tes
 Organizational context (technical and managerial) within which the configuration management activities are implemented. 
 
 ### 2.2 Responsibilities
-
-#### Configuration manager
-
-#### Project director
-
-#### Project Owner
-
-
 
 For each board, list:
 
@@ -72,7 +64,61 @@ Not sure what this would be in our case...
 
 - Acquiring configuration items (physical procedures) - Not sure what this would be.
 
+  P100 PolyChord System
   
+  ​	P110 PolyChord Frontend
+  
+  ​		P111 Tone.js (External Synthesizer Library)
+  
+  ​		P112 PapParse (External Parsing Library)
+  
+  ​		P113 Google Sign-on API
+  
+  ​	P120 PolyChord Backend
+  
+  ​		P121 Flask (Python Web Framework)
+  
+  ​		P122 Redis User Database
+  
+  P200 PolyChord Development System
+  
+  ​	P210 Testing stack
+  
+  ​		P211 Karma (Javascript Test Runner)
+  
+  ​		P212 Mocha (Javascript Testing Framework)
+  
+  ​		P213 Chai (BDD/TDD Assertion Framework)
+  
+  ​	P220 Distribution System
+  
+  ​		P221 Docker Hub (Distribution Image Builder and Distribution Mechanism)
+  
+  ​		P222 Python Alpine Docker Image (Distribution Base Image)
+  
+  ​		P223 Gunicorn (Python WSGI HTTP Server)
+  
+  ​	P230 Version Control & Integration
+  
+  ​		P231 GitHub (Version Control)
+  
+  ​		P232 Drone CI (Continuous Integration Pipeline)
+  
+  ​	P300 Documentation System
+  
+  ​		P310 Drone CI (Continuous Integration Pipleine)
+  
+  ​		P311 Bash Scripts
+  
+  ​		P320  Markdown to PDF conversion
+  
+  ​			P321 Gotenberg API (Docker image thecodingmachine/gotenberg)
+  
+  ​		P330 PlantUML to PNG conversion
+  
+  ​			P331 Kroki API (Docker image yuzutech/kroki)
+  
+  ​		
 
 ### 3.2. Configuration control
 
@@ -84,7 +130,7 @@ Not sure what this would be in our case...
 
 - Implementing changes
 
-  Configuration control is taken care of within GitHub issues and pull requests: Change requests, evaluation, and approval or rejection all takes place within the GitHub issue representing the proposed change, and once the change has been implemented, it's implementation is contained within a pull request (or series of pull requests), so that the changes' impact can be evaluated before it is merged.
+Configuration control is taken care of within GitHub issues and pull requests: Change requests, evaluation, and approval or rejection all takes place within the GitHub issue representing the proposed change, and once the change has been implemented, it's implementation is contained within a pull request (or series of pull requests), so that the changes' impact can be evaluated before it is merged.
 
 ### 3.3. Configuration status accounting
 
@@ -97,11 +143,13 @@ Not sure what this would be in our case...
 
 - Defines objective, schedule, procedures, participants, approval criteria etc.
 
+Configuration evaluation happens when the change is being discussed in it's related GitHub issue, and once an implementation is fleshed out, the review of the implementation is performed by the Product Owner on the Configuration change Pull Request. At least one of these steps (Evaluation and Review) occurs during each sprint per configuration change, though in some cases both may occur within the same sprint if the change is small in size.
+
 ### 3.5 Interface control
 
 - Coordination of changes to CIs with changes to interfacing items outside of the scope of the Plan.
 
-  The majority of configuration items that are effected by changes outside the scope of the plan are the supporting software, which may receive updates and function changes over time. If possible, such updates should be taken care of within the normal software development cycle, though the software release reason should be taken into consideration when determining the urgency of the update: for example, feature updates should generally be considered low priority unless the new feature is needed for further software development, while security patches should be treated as high priority and incorporated in the very next development cycle, or even out of cycle if the security issue is major.
+The majority of configuration items that are effected by changes outside the scope of the plan are the supporting software, which may receive updates and function changes over time. If possible, such updates should be taken care of within the normal software development cycle, though the software release reason should be taken into consideration when determining the urgency of the update: for example, feature updates should generally be considered low priority unless the new feature is needed for further software development, while security patches should be treated as high priority and incorporated in the very next development cycle, or even out of cycle if the security issue is major.
 ### 3.6. Subcontractor/vendor control
 Incorporation of items developed outside the project environment into the project CIs.
 ### 3.7 Release Management and Delivery
