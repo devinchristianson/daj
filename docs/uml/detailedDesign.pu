@@ -1,0 +1,53 @@
+Progression "1" *-- "1" TimeSignature
+Progression "1" *-- "*" Note
+Chord "1" *-- "*" Note
+User "1" *-- "*" Progression : owns
+User "1" *-- "*" Excercise : completes
+Excercise <|-- ChordExcercise
+Excercise <|-- TheoryExcercise
+ChordExcercise "1" *-- "1" Chord
+TheoryExcercise "1" *-- "1" Progression
+ExcerciseDatabase "1" -- "*" Excercise : contains
+UserDatabase "1" -- "*" User : contains
+
+
+TimeSignature : int beatsPerMeasure
+TimeSignature : int beatNote
+
+Note : int noteVal
+Note : int beatDuration
+Note : double startBeat
+
+Chord : str name
+
+Progression : int measures
+
+class User
+
+User : int id
+User : downloadProgression(int id):Progression
+User : uploadProgression(Progression prog):void
+User : login():int
+User : logout():int
+User : reportBug():int
+
+Excercise : int id
+Excercise : bool complete
+Excercise : double score
+
+ChordExcercise : bool nameChord
+ChordExcercise : correctName(str answer):bool
+ChordExcercise : correctNotes(Note[] answer):bool
+
+TheoryExcercise : measureAccuracy(Progression prog):double
+TheoryExcercise : restartRecord():int
+TheoryExcercise : stopRecord():int
+TheoryExcercise : startRecord():int
+
+ExcerciseDatabase : addExcercise(Excercise ex)
+ExcerciseDatabase : removeExcercise(Excercise ex)
+ExcerciseDatabase : removeExcercise(int id)
+
+UserDatabase : addUser(User u)
+UserDatabase : removeUser(User u)
+UserDatabase : removeUser(int id)
