@@ -1,0 +1,21 @@
+@startuml
+actor User
+participant PianoGUI
+participant Client
+participant ExcerciseDB
+activate User
+activate PianoGUI
+User -> PianoGUI: <<progression excercise id>>
+PianoGUI -> Client: findProgressionExcercise(id)
+Client -> ExcerciseDB: retrieveProgressionExcercise(id)
+User -> PianoGUI: <<progression>>
+PianoGUI -> Client: measureAccuracy(progression)
+Client -> PianoGUI: <<result>>
+alt if not satisfied with answer
+User -> PianoGUI: <<progression>>
+else else
+User -> PianoGUI: <<excercise id>>
+end
+deactivate PianoGUI
+deactivate User
+@enduml

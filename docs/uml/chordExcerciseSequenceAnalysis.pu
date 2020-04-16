@@ -18,7 +18,7 @@ end
 User -> PianoGUI: answer
 PianoGUI -> Client: check answer
 Client -> PianoGUI: display result
-alt if satisfied with answer
+alt if not satisfied with answer
 User -> PianoGUI: retry
 else else
 User -> PianoGUI: next excercise

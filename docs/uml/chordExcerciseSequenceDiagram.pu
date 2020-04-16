@@ -1,0 +1,27 @@
+@startuml
+actor User
+participant PianoGUI
+participant Client
+participant ExcerciseDB
+activate User
+activate PianoGUI
+User -> PianoGUI: <<chord excercise id>>
+PianoGUI -> Client: findChordExcercise(id)
+Client -> ExcerciseDB: retrieveChordExcercise(id)
+activate Client
+alt if name excercise
+Client -> PianoGUI: <<name form>>
+else else
+Client -> PianoGUI: <<chord form>>
+end
+User -> PianoGUI: <<answer>>
+PianoGUI -> Client: checkAnswer(answer)
+Client -> PianoGUI: <<result>>
+alt if not satisfied with answer
+User -> PianoGUI: <<new answer>>
+else else
+User -> PianoGUI: <<excercise id>>
+end
+deactivate PianoGUI
+deactivate User
+@enduml

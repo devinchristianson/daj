@@ -13,7 +13,7 @@ Client -> PianoGUI: display progression form
 User -> PianoGUI: answer
 PianoGUI -> Client: measure accuracy
 Client -> PianoGUI: display result
-alt if satisfied with answer
+alt if not satisfied with answer
 User -> PianoGUI: retry
 else else
 User -> PianoGUI: next excercise
