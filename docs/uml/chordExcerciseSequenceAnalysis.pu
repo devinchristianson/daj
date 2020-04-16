@@ -1,0 +1,28 @@
+@startuml
+actor User
+participant PianoGUI
+participant Client
+participant ExcerciseDB
+activate User
+activate PianoGUI
+User -> PianoGUI: select chord excercise
+PianoGUI -> Client: find excercise
+Client -> ExcerciseDB: retrieve excercise
+ExcerciseDB -> Client: return excercise
+activate Client
+alt if name excercise
+Client -> PianoGUI: display name form
+else else
+Client -> PianoGUI: display chord form
+end
+User -> PianoGUI: answer
+PianoGUI -> Client: check answer
+Client -> PianoGUI: display result
+alt if satisfied with answer
+User -> PianoGUI: retry
+else else
+User -> PianoGUI: next excercise
+end
+deactivate PianoGUI
+deactivate User
+@enduml
