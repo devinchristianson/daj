@@ -115,3 +115,60 @@
 ### Design Diagram
 
 ![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/saveprogressionSequenceDesign.png)
+
+## Chord Excercise
+
+### Analysis Diagram
+
+![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/chordExcerciseSequenceAnalysis.png)
+
+### Description
+
+| #     | Subject           | Subject Action | Parameters     | Object acted upon |
+| ----- | ----------------- | -------------- | -------------- | ----------------- |
+| 1     | User              | selects         | chord excercise id        | GUI               |
+| 2   | GUI               | send        | excercise         | Client         |
+| 3   | Client               | retrieves        | excercise         | ExcerciseDB         |
+| 4   | ExcerciseDB               | returns        | excercise         |  Client        |
+| 5.1    | If name chord excercise         |        |      |             |
+| 5.1.1  | Client         | displays       | name form     | GUI            |
+| 5.2   | else              |                |                |                   |
+| 5.2.1  | Client         | displays       | chord form     | GUI            |
+| 6 | User           | sends           | answer      | GUI            |
+| 7 | GUI           | checks           | answer      | Client            |
+| 8 | Client           | returns           | result      | GUI            |
+| 9.1   | If user not satisfied with answer             |                |                |                   |
+| 9.1.1| Client           | sends           | answer      | GUI            |
+| 9.2   | Else      |                |                |                   |
+| 9.2.1| Client           | sends           | next excercise id      | GUI            |
+
+### Design Diagram
+
+![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/chordExcerciseSequenceDiagram.png)
+
+## Progression Excercise
+
+### Analysis Diagram
+
+![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/progressionExcerciseSequenceAnalysis.png)
+
+### Description
+
+| #     | Subject           | Subject Action | Parameters     | Object acted upon |
+| ----- | ----------------- | -------------- | -------------- | ----------------- |
+| 1     | User              | selects         | progression excercise id        | GUI               |
+| 2   | GUI               | send        | excercise         | Client         |
+| 3   | Client               | retrieves        | excercise         | ExcerciseDB         |
+| 4   | ExcerciseDB               | returns        | excercise         |  Client        |
+| 5  | Client         | displays       | progression form     | GUI            |
+| 6 | User           | sends           | answer      | GUI            |
+| 7 | GUI           | measures accuracy           | answer      | Client            |
+| 8 | Client           | returns           | result      | GUI            |
+| 9.1   | If user not satisfied with answer             |                |                |                   |
+| 9.1.1| Client           | sends           | answer      | GUI            |
+| 9.2   | Else      |                |                |                   |
+| 9.2.1| Client           | sends           | next excercise id      | GUI            |
+
+### Design Diagram
+
+![Upload Progression Analysis Sequence model](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/progressionExcerciseSequenceDiagram.png)
