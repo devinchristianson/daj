@@ -10,10 +10,15 @@ activate Client
 PianoGUI -> Client: play key
 Client -> PianoGUI: highlight key
 alt if keys playing > 2
+activate ChordDB
+Client -> ChordDB : lookup notes
 alt if chord match found
+ChordDB -> Client : Chord
 Client -> PianoGUI: display chord
 PianoGUI -> User: chord name
 else else
+ChordDB -> Client : No Chord Found
+deactivate ChordDB
 Client -> PianoGUI: display no match
 PianoGUI -> User: no match
 end

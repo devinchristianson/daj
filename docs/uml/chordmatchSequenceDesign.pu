@@ -10,6 +10,11 @@ activate Client
 PianoGUI -> Client: playNote(keyCode)
 Client -> PianoGUI: key.ClassList.add("playing")
 alt if keys.playing > 2
+
+activate ChordDB
+Client -> ChordDB : nextChord()
+ChordDB -> Client : Chord
+loop chordDB.hasChord
 alt if chordEQ(chordEq(chords.intervals, intervals))
 Client -> PianoGUI: display(chordName)
 PianoGUI -> User: chord name
@@ -19,6 +24,10 @@ PianoGUI -> User: no match
 end
 Client -> PianoGUI: display(noMatch)
 PianoGUI -> User: show no match
+end
+Client -> ChordDB : nextChord()
+ChordDB -> Client : Chord
+deactivate ChordDB
 end
 deactivate PianoGUI
 deactivate User
