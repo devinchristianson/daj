@@ -2,7 +2,7 @@
 
 ## Diagram
 
-![alt text](https://github.com/devinchristianson/daj/blob/master/docs/assets/uml/mvc1.png)
+![alt text](https://github.com/devinchristianson/daj/blob/master/docs/assets/uml/architecture.png)
 
 ## Description of Architecture
 
