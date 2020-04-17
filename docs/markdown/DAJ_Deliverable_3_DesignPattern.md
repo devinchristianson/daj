@@ -1,12 +1,13 @@
-# Detailed Design Model and Design Patter
+# Detailed Design Models and Design Patterns
 
-## Class Diagrams
+## Design Patterns
 
-![alt text](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/detailedDesign.png)
+![alt text](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/dcd1.png)
 
-- UML class diagrams for detailed design with their attributes, associations, and methods that 
-  would be representative of the system under development and the user stories.
-- UML class diagrams for design patterns with their detailed descriptions, attributes, methods, 
-  associations e
-  
-  
+![alt text](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/dcd2.png)
+
+## Design Class Diagrams
+
+![alt text](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/detailed_design.png)
+
+![alt text](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/detailedDesign.png)  
