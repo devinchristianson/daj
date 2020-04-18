@@ -74,59 +74,55 @@ There are no relevant policies, directives or procedures pertaining to Polychord
 
   P100 PolyChord System
   
-  ​	P110 PolyChord Frontend
+        P110 PolyChord Frontend
   
-  ​		P111 Tone.js (External Synthesizer Library)
+            P111 Tone.js (External Synthesizer Library)
   
-  ​		P112 PapParse (External Parsing Library)
+            P112 PapParse (External Parsing Library)
   
-  ​		P113 Google Sign-on API
+            P113 Google Sign-on API
+      P120 PolyChord Backend
   
-  ​	P120 PolyChord Backend
+            P121 Flask (Python Web Framework)
   
-  ​		P121 Flask (Python Web Framework)
-  
-  ​		P122 Redis User Database
+            P122 Redis User Database
   
   P200 PolyChord Development System
   
-  ​	P210 Testing stack
+      P210 Testing stack
   
-  ​		P211 Karma (Javascript Test Runner)
+          P211 Karma (Javascript Test Runner)
   
-  ​		P212 Mocha (Javascript Testing Framework)
+          P212 Mocha (Javascript Testing Framework)
   
-  ​		P213 Chai (BDD/TDD Assertion Framework)
+          P213 Chai (BDD/TDD Assertion Framework)
   
-  ​	P220 Distribution System
+      P220 Distribution System
   
-  ​		P221 Docker Hub (Distribution Image Builder and Distribution Mechanism)
+          P221 Docker Hub (Distribution Image Builder and Distribution Mechanism)
   
-  ​		P222 Python Alpine Docker Image (Distribution Base Image)
+          P222 Python Alpine Docker Image (Distribution Base Image)
   
-  ​		P223 Gunicorn (Python WSGI HTTP Server)
+          P223 Gunicorn (Python WSGI HTTP Server)
   
-  ​	P230 Version Control & Integration
+      P230 Version Control & Integration
   
-  ​		P231 GitHub (Version Control)
+          P231 GitHub (Version Control)
   
-  ​		P232 Drone CI (Continuous Integration Pipeline)
+          P232 Drone CI (Continuous Integration Pipeline)
   
-  ​	P300 Documentation System
+  P300 Documentation System
   
-  ​		P310 Drone CI (Continuous Integration Pipleine)
+      P310 Drone CI (Continuous Integration Pipleine)
   
-  ​		P311 Bash Scripts
+          P311 Bash Scripts
   
-  ​		P320  Markdown to PDF conversion
+      P320  Markdown to PDF conversion
   
-  ​			P321 Gotenberg API (Docker image thecodingmachine/gotenberg)
+          P321 Gotenberg API (Docker image thecodingmachine/gotenberg)
   
-  ​		P330 PlantUML to PNG conversion
-  
-  ​			P331 Kroki API (Docker image yuzutech/kroki)
-  
-  ​		
+      P330 PlantUML to PNG conversion
+          P331 Kroki API (Docker image yuzutech/kroki)
 
 ### 3.2. Configuration control
 
