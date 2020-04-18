@@ -172,6 +172,11 @@ Description of the formal control of build, release and delivery of software pro
 - Identifies environment, infrastructure, software tools, techniques, equipment, personnel, and training.
 - Key factors for infrastructure:
   - Functionality, performance, safety, security, availability, space requirements, equipment, costs, and time constraints.
+  
+  Environment: Flask (web framework); Redis (database)
+  
+  Personnel: Devin Christianson, Dawsin Blanchard, Jeremy Thiboutot, Alexander Revello, Alex Feren, Devin Merrow
+  
 - Identify which tools are used in which activity
 
 ## 6. Plan Maintenance
