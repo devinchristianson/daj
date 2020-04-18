@@ -10,6 +10,7 @@
 | 2.          | Check that an Octave Up event results in output of one octave higher. | 4 -> 5    |
 | 3.          | Check than an Octave Down event results in output of one octave lower. | 5 -> 4    |
 | 4.          | Check chord played corresponds to chord recognized.<br />(need to test one of each type of chord, and a few non-chords) | too many  |
+| 5.          | Check that a midi device has been added | midi != null  |
 |             |                                                              |           |
 
 ### Proof:
@@ -68,11 +69,24 @@
 
 **Main Scenario**:
 
+1. User plugs in MIDI device 
+
 **Alternatives**:
+
+1a. User does not add MIDI device
+1a1. System allows use with keyboard
 
 **Test Situations**:
 
+1. User plays note on MIDI device
+
 **Test Coverage**:
+
+	Situations: 1
+	
+	Tests: 1
+	
+	Coverage: 100%
 
 #### Sustain Key
 
