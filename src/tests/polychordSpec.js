@@ -15,4 +15,9 @@ describe('main', function () {
             assert.equal(stopNote("C5"), "C5");
         });
     });
+	describe('onMidiInit()', function () {
+        it('should prove have midi access', function () {
+            assert.notEqual(midi, null);
+        });
+    });
 })
