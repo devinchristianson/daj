@@ -2,18 +2,8 @@
 
 ## 1. Introduction
 
-tl;dr Describe the plan’s purpose, scope of application, key terms, and 
-references.
-
-- Overview description of the software project
-- Relationship of SCM to the hardware or system configuration management activities for the project.
-- The degree of formality, depth of control, and portion of the software life cycle for applying SCM on this project.
 
 ### 1.1 Identification
-
-- Identification of the software configuration items (CIs) to which SCM will be applied.
-
-- Identification of other software to be included as part of the plan (e.g., support or test software).
 
 The SCM plan is for the PolyChord application's development, and the related testing, version control,  continuous integration, and deployment software. For testing, Mocha, Chia, and Karma are used. For version control, Git and Github are used. For Continuous integration, Drone CI is used. For deployment, Docker and Docker Hub are used.
 
@@ -27,8 +17,7 @@ This version of the Configuration Management Plan is applicable to the Initial D
 
 ### 1.4 Limitations and Assumptions
 
-- Limitations, such as time constraints, that apply to the plan.
-- Assumptions that might have an impact on the cost, schedule, or ability to perform defined SCM activities (e.g., assumptions of the degree of customer participation in SCM activities or the availability of automated aids). 
+The major limitation in this project is having the person-hours to complete all tasks, and finding the time to perform the required meetings, as the members of DAJ are all part-time, and have other jobs. This means that configuration management tasks must be completed as efficiently as possible, and all schedules and timed tasks must be made flexible to accommodate the team's constantly changing schedule. The other limitation is that the team has access to limited resources, so most paid tools and libraries are not an option. For this reason, the team must rely on free and open source projects for most of their support software and development tooling.
 
 
 
@@ -53,8 +42,6 @@ External constraints placed on the SCMP
 Not sure what this would be in our case...
 
 ## 3. Activities
-
-(What?) – Identify all activities to be performed in applying to the project.
 
 ### 3.1 Configuration identification
 
@@ -122,40 +109,21 @@ Not sure what this would be in our case...
 
 ### 3.2. Configuration control
 
-- Requesting changes
-
-- Evaluating changes
-
-- Approving or disapproving changes
-
-- Implementing changes
-
 Configuration control is taken care of within GitHub issues and pull requests: Change requests, evaluation, and approval or rejection all takes place within the GitHub issue representing the proposed change, and once the change has been implemented, it's implementation is contained within a pull request (or series of pull requests), so that the changes' impact can be evaluated before it is merged.
 
 ### 3.3. Configuration status accounting
 
-- Metrics to be tracked and reported and type of report.
-- Storage and access control of status data.
+While there is currently no automated Configuration status account mechanism that tracks configuration metrics, such a system is planned, and will track the status of the Continuous Integration pipeline, by both performing a health check on it, and collecting logs from it, to enable easier troubleshooting. In order to keep the source code clean and functional, automatic unit tests and integration tests shall be built into the Continuous Integration pipeline, so all source code changes must undergo an automated testing processes before they reach the repository. Finally, all Pull Requests for the Master branch will require manual review by team members who were not involved in forming the Pull Request, so that further issues with the Configuration items can be monitored and prevented.
 
 ### 3.4. Configuration evaluation and reviews
-
-- At minimum an audit on a CI prior to its release.
-
-- Defines objective, schedule, procedures, participants, approval criteria etc.
 
 Configuration evaluation happens when the change is being discussed in it's related GitHub issue, and once an implementation is fleshed out, the review of the implementation is performed by the Product Owner on the Configuration change Pull Request. At least one of these steps (Evaluation and Review) occurs during each sprint per configuration change, though in some cases both may occur within the same sprint if the change is small in size.
 
 ### 3.5 Interface control
 
-- Coordination of changes to CIs with changes to interfacing items outside of the scope of the Plan.
-
 The majority of configuration items that are effected by changes outside the scope of the plan are the supporting software, which may receive updates and function changes over time. If possible, such updates should be taken care of within the normal software development cycle, though the software release reason should be taken into consideration when determining the urgency of the update: for example, feature updates should generally be considered low priority unless the new feature is needed for further software development, while security patches should be treated as high priority and incorporated in the very next development cycle, or even out of cycle if the security issue is major.
-### 3.6. Subcontractor/vendor control
-Incorporation of items developed outside the project environment into the project CIs.
-### 3.7 Release Management and Delivery
-Description of the formal control of build, release and delivery of software products.
-
-
+### 3.6 Release Management and Delivery
+Releases are performed via the GitHub "Release" functionality, and typically happen once every two sprints. A release is a tagged commit on the master branch of the git repo, and the release includes both a zip of the source code, as well as a Docker image, which is auto-built when the release is tagged, and released on Docker Hub, which is the primary mechanism for delivery of the software. Docker Hub and Github both keep previous releases, and allow the releases to be tagged with a version number, which allows the releases to be tracked over time.
 
 ## 4. Schedules
 
@@ -176,10 +144,4 @@ Description of the formal control of build, release and delivery of software pro
 
 ## 6. Plan Maintenance
 
-- Who is responsible for monitoring the plan?
-- How frequently updates are to be performed?
-- How changes to the Plan are to be evaluated and approved?
-- How changes to the Plan are to be made and communicated?
-- Also includes history of changes made to the plan.
-
-The Configuration Manager is responsible for monitoring the plan, and updates to the plan should be performed as necessary, at a minimum once for every major Software release. Changes to the plan can be evaluated and approved through the same GitHub Issue and Pull Request mechanism as is used for Configuration Items, though these artifacts should be tagged as SCM, so that a history of the changes made to the plan can more easily be tracked.
+The Configuration Manager is responsible for monitoring the plan, and updates to the plan should be performed as necessary, at a minimum once for every major Software release. Changes to the plan can be evaluated and approved through the same GitHub Issue and Pull Request mechanism as is used for Configuration Items (Described in Section 3.4), though these artifacts should be tagged as SCM, so that a history of the changes made to the plan can more easily be tracked.
