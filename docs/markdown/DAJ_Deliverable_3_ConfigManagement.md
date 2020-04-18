@@ -66,12 +66,6 @@ There are no relevant policies, directives or procedures pertaining to Polychord
 
 ### 3.1 Configuration identification
 
-- Identify configuration items (events, items, procedures)
-
-- Name configuration items (unique identifiers)
-
-- Acquiring configuration items (physical procedures) - Not sure what this would be.
-
   P100 PolyChord System
   
         P110 PolyChord Frontend
