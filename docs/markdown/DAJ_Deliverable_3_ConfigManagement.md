@@ -191,16 +191,33 @@ This section is concerning the management of expected and actual release times. 
 - The log shall similarly be maintained for any major changes or removal of bugs and features.
 
 ## 5. Resources
-
 - Identifies environment, infrastructure, software tools, techniques, equipment, personnel, and training.
+
+### 5.1 - Tools and Libraries
+
 - Key factors for infrastructure:
-  - Functionality, performance, safety, security, availability, space requirements, equipment, costs, and time constraints.
+  - Functionality
+  - Performance
+  - Safety
+  - Security
+  - Availability
+  - Space requirements
+  - Equipment
+  - Costs
+  - Time constraints.
   
   Environment: Flask (web framework); Redis (database)
   
-  Personnel: Devin Christianson, Dawsin Blanchard, Jeremy Thiboutot, Alexander Revello, Alex Feren, Devin Merrow
+  Team Members: Devin Christianson, Dawsin Blanchard, Jeremy Thiboutot, Alexander Revello, Alex Feren, Devin Merrow
   
-- Identify which tools are used in which activity
+### 5.2 - Version Control
+
+the development team for Polychord uses GitHub for version control and project management. This section outlines what regulations are used internally to deal with updates to the code.
+
+- Changes must be approved by another member of the team before merging to master
+- Modifications to the code will be allocated modularly, so each part will have only one member working on it at any given time.
+- When modifying the source code, the team member must comment on the relevant issue that they will be working on when starting work and when finishing work on that section.
+- Roles for what will be modified in the code may be assigned by the Product Leader.
 
 ## 6. Plan Maintenance
 
