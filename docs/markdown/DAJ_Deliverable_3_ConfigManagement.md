@@ -25,21 +25,42 @@ The major limitation in this project is having the person-hours to complete all 
 
 ### 2.1 Organization
 
-Organizational context (technical and managerial) within which the configuration management activities are implemented. 
+Outline of the organizational context (technical and managerial) within which the configuration management activities are implemented.
 
-### 2.2 Responsibilities
+#### 2.1.1 Configuration Manager
+There will be one member assigned to heading the management of the configuration control for Polychord. Their responsibilities will include:
+- Heading the maitenence of the Polychord documentation
+- Approving or denying significant changes to the intended course of the program
+- Allocating work on revisions of documents when needed
+Appointment of the Product leader will be based on their understanding of the underlying goals of the application and tenure.
 
-For each board, list:
+#### 2.1.2 Product Leader
+There will be a single member of the development team whose responsiblities include:
+- Maintaining the overall direction of feature implementation
+- Referencing the relevant documents to projected features
+- Allocating work to the development team
+- Approving or denying significant changes to the source code
+Appointment of the Product leader will be based on their understanding of the underlying application and tenure.
 
-- Purpose and objectives
-- Membership and affiliations
-- Period of effectivity
-- Scope of authority
-- Operational procedures
+### 2.2 Responsibilities/Configuration Control Board
+
+The leaders in section 2.1 shall head relevant control boards, which whill simply be composed of any developer or leader of Polychord who cares to give their input on the direction that the leader is taking the project. 
+
+#### 2.2.1 Configuration Management Board
+
+The Configuration Management Board shall be headed by the Configuration Manager, and the goal is much the same as outlined in section 2.1.1.
+- When changes are in question, they must be approved by either 50% of participating members including the Configuration Manager or by 2/3 of the participating members if not approved by the Configuration Manager.
+- A meeting of the board is to be called whenever major changes to the direction of Polychord is in question, including removal or addition of features, and changes to general guidelines and regulations.
+
+#### 2.2.2 Product Management Board
+
+The Product Management Board shall be headed by the Product Leader, and the goal is much the same as outlined in section 2.1.2.
+- When changes are in question, they must be approved by either 50% of participating members including the Product Leader or by 2/3 of the participating members if not approved by the Product Leader.
+- A meeting of the board is to be called whenever major changes to the codebase of Polychord is in question, including removal or addition of features.
+
 ### 2.3 Applicable policies, directives and procedures
 
-External constraints placed on the SCMP
-Not sure what this would be in our case...
+There are no relevant policies, directives or procedures pertaining to Polychord on the management of the Product Board.
 
 ## 3. Activities
 
@@ -135,13 +156,26 @@ Releases are performed via the GitHub "Release" functionality, and typically hap
 - Schedule either as absolute dates, relative to SCM or project milestones or as sequence of events.
 - Graphical representations can be used here.
 
+### 4.1 - Coordination
+
+### 4.2 - Milestones
+
+### 4.3 - 
+
+
 ## 5. Resources
 
 - Identifies environment, infrastructure, software tools, techniques, equipment, personnel, and training.
 - Key factors for infrastructure:
   - Functionality, performance, safety, security, availability, space requirements, equipment, costs, and time constraints.
+  
+  Environment: Flask (web framework); Redis (database)
+  
+  Personnel: Devin Christianson, Dawsin Blanchard, Jeremy Thiboutot, Alexander Revello, Alex Feren, Devin Merrow
+  
 - Identify which tools are used in which activity
 
 ## 6. Plan Maintenance
 
-The Configuration Manager is responsible for monitoring the plan, and updates to the plan should be performed as necessary, at a minimum once for every major Software release. Changes to the plan can be evaluated and approved through the same GitHub Issue and Pull Request mechanism as is used for Configuration Items (Described in Section 3.4), though these artifacts should be tagged as SCM, so that a history of the changes made to the plan can more easily be tracked.
+The Configuration Manager is responsible for monitoring the plan, and updates to the plan should be performed as necessary, at a minimum once for every major Software release. Changes to the plan can be evaluated and approved through the same GitHub Issue and Pull Request mechanism as is used for Configuration Items, though these artifacts should be tagged as SCM, so that a history of the changes made to the plan can more easily be tracked.
+
