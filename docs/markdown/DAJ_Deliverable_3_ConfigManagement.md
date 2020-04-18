@@ -36,21 +36,42 @@ This version of the Configuration Management Plan is applicable to the Initial D
 
 ### 2.1 Organization
 
-Organizational context (technical and managerial) within which the configuration management activities are implemented. 
+Outline of the organizational context (technical and managerial) within which the configuration management activities are implemented.
 
-### 2.2 Responsibilities
+#### 2.1.1 Configuration Manager
+There will be one member assigned to heading the management of the configuration control for Polychord. Their responsibilities will include:
+- Heading the maitenence of the Polychord documentation
+- Approving or denying significant changes to the intended course of the program
+- Allocating work on revisions of documents when needed
+Appointment of the Product leader will be based on their understanding of the underlying goals of the application and tenure.
 
-For each board, list:
+#### 2.1.2 Product Leader
+There will be a single member of the development team whose responsiblities include:
+- Maintaining the overall direction of feature implementation
+- Referencing the relevant documents to projected features
+- Allocating work to the development team
+- Approving or denying significant changes to the source code
+Appointment of the Product leader will be based on their understanding of the underlying application and tenure.
 
-- Purpose and objectives
-- Membership and affiliations
-- Period of effectivity
-- Scope of authority
-- Operational procedures
+### 2.2 Responsibilities/Configuration Control Board
+
+The leaders in section 2.1 shall head relevant control boards, which whill simply be composed of any developer or leader of Polychord who cares to give their input on the direction that the leader is taking the project. 
+
+#### 2.2.1 Configuration Management Board
+
+The Configuration Management Board shall be headed by the Configuration Manager, and the goal is much the same as outlined in section 2.1.1.
+- When changes are in question, they must be approved by either 50% of participating members including the Configuration Manager or by 2/3 of the participating members if not approved by the Configuration Manager.
+- A meeting of the board is to be called whenever major changes to the direction of Polychord is in question, including removal or addition of features, and changes to general guidelines and regulations.
+
+#### 2.2.2 Product Management Board
+
+The Product Management Board shall be headed by the Product Leader, and the goal is much the same as outlined in section 2.1.2.
+- When changes are in question, they must be approved by either 50% of participating members including the Product Leader or by 2/3 of the participating members if not approved by the Product Leader.
+- A meeting of the board is to be called whenever major changes to the codebase of Polychord is in question, including removal or addition of features.
+
 ### 2.3 Applicable policies, directives and procedures
 
-External constraints placed on the SCMP
-Not sure what this would be in our case...
+There are no relevant policies, directives or procedures pertaining to Polychord on the management of the Product Board.
 
 ## 3. Activities
 
@@ -166,6 +187,13 @@ Description of the formal control of build, release and delivery of software pro
   - Start and completion dates for a configuration audit
 - Schedule either as absolute dates, relative to SCM or project milestones or as sequence of events.
 - Graphical representations can be used here.
+
+### 4.1 - Coordination
+
+### 4.2 - Milestones
+
+### 4.3 - 
+
 
 ## 5. Resources
 
