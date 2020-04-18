@@ -149,7 +149,8 @@ Releases are performed via the GitHub "Release" functionality, and typically hap
 ### 4.1 - Configuration
 
 #### 4.1.1 - Browser Specifications
-Currently there are no Browser specific dependencies, however this section will outline what to do in the case that standalone releases are required for different browsers
+this section will outline what to do in the case that standalone releases are required for different browsers. Currently the differences between browsers are keycodes on firefox and MIDI support only works with Google Chrome. Currently these are still a single release though, so there is no need for browser dependan naming schemes yet.
+
 - Each of the distinct browser specific versions shall have a unique version number
   - This number will be the base version of <Polychord_version>.<browser-name>, where browser name will be determined in this and the SRS documents when required.
 - All browser dependent versions shall be updated concurrently (each feature added or removed will be added or removed from all independent versions) with the exception of major security issues.
@@ -157,7 +158,7 @@ Currently there are no Browser specific dependencies, however this section will 
 - Where applicable, there will be seperate sections in the specification documents where behavior is unique between browsers
 
 #### 4.1.2 - OS Specifications
-This section of the Configuration Management Plan outlines configuration for operating system specific releases
+There are currently no OS dependent releases, but this section of the Configuration Management Plan outlines configuration for operating system specific releases.
 
 - Each distinct version shall have a unique version number
   - the unique version number will be related to the operating system with a name of <Polychord_version>.<OS_Name>, and the used Operating System name will be determined in this and the SRS documents when required.
