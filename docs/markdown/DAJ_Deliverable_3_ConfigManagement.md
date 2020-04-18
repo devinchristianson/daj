@@ -188,12 +188,48 @@ Description of the formal control of build, release and delivery of software pro
 - Schedule either as absolute dates, relative to SCM or project milestones or as sequence of events.
 - Graphical representations can be used here.
 
-### 4.1 - Coordination
+### 4.1 - Configuration
 
-### 4.2 - Milestones
+#### 4.1.1 - Browser Specifications
+Currently there are no Browser specific dependencies, however this section will outline what to do in the case that standalone releases are required for different browsers
+- Each of the distinct browser specific versions shall have a unique version number
+  - This number will be the base version of <Polychord_version>.<browser-name>, where browser name will be determined in this and the SRS documents when required.
+- All browser dependent versions shall be updated concurrently (each feature added or removed will be added or removed from all independent versions) with the exception of major security issues.
+- Major security issue updates will follow the format <Polychord_version>.<browser-name>.x where x is the number of updates to security on that version in between polychord version releases.
+- Where applicable, there will be seperate sections in the specification documents where behavior is unique between browsers
 
-### 4.3 - 
+#### 4.1.2 - OS Specifications
+This section of the Configuration Management Plan outlines configuration for operating system specific releases
 
+- Each distinct version shall have a unique version number
+  - the unique version number will be related to the operating system with a name of <Polychord_version>.<OS_Name>, and the used Operating System name will be determined in this and the SRS documents when required.
+- All system dependent versions shall be updated concurrently (each feature added or removed will be added or removed from all independent versions) with the exception of major security issues.
+- Major security issue updates will follow the format <Polychord_version>.<OS_Name>.x where x is the number of updates to security on that version in between polychord version releases.
+- Where applicable, there will be seperate sections in the specification documents where behavior is unique between Operating Systems
+
+### 4.2 - Source Change Control
+This section outlines protocol for major changes to the source code of Polychord that have not been previously approved.
+
+- Requests for changes must be submitted to the Product Leader, who will then hold a meeting regarding the requests if deemed necessary.
+- When a change is accepted by the Product Management Board, it is to be added to the backlog of the project at an appropriate priority as determined at the meeting of the Product Management Board.
+- Changes may only be approved if it is determined by the Product Management Board that the change will be beneficial.
+- User-visible changes must be global ie) where a change will directly affect a user, it must affect all users across all platforms equally.
+
+### 4.3 - Document Change Control
+This section outlines protocol for major changes to the goal of the Polychord app and documentation outside of previously approved modifications. This is relevant to all documents that outline the general goals for PolyChord such as the SRS and Sequence Flow documents.
+
+- Requests for changes must be submitted to the Configuration Manager, who will then hold a meeting regarding the requests if deemed necessary.
+- When a change is accepted by the Configuration Management Board, it is to be added to the backlog of the project at an appropriate priority as determined at the meeting of the Configuration Product Management Board.
+- Changes may only be approved if it is determined by the Configuration Management Board that the change will be beneficial.
+- Changes must be reflected across all documentation ie) if a user story is changed then all documents which reference this story must also reflect the change.
+
+### 4.4 - Update Statuses
+This section is concerning the management of expected and actual release times. Status must be maintained and updated after every sprint. This is relevant to all of the review and backlog documents as well as the User Story doc.
+
+- Any change that are proposed to be implemented and/or implemented over the course of a sprint must be reflected in all review and backlog documents pertaining to that sprint. This change shall include:
+  - Proposed date of implementation of feature
+  - Actual date of implementation of feature
+- The log shall similarly be maintained for any major changes or removal of bugs and features.
 
 ## 5. Resources
 
