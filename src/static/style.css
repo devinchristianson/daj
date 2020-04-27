@@ -27,6 +27,10 @@ h1 {
   margin: 0;
 }
 
+label {
+	color: white;
+}
+
 /* subtitle (not in use) */
 h2 {
   color: #fff;

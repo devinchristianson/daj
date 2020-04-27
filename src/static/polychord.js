@@ -5,6 +5,45 @@ const poly = new Tone.PolySynth(10, Tone.Synth, {
   }
 }).toMaster();
 
+var metronomeToggle = false;
+var bpm = 88;
+var audio = new Audio(metronomeSoundPath);
+var metronomeTimeout;
+
+function toggleBPM(){
+	console.log("test");
+	var parseBpm = document.getElementById("metroNum").value;
+	console.log(parseBpm);
+	if(parseBpm != bpm){
+		bpm = parseBpm;
+		metronomeToggle = false;
+	}
+	if(metronomeToggle == false){
+		metronomeToggle = true;
+		startMetronome();
+	}
+	else{
+		metronomeToggle = false;
+		stopMetronome();
+	}
+}
+
+function startMetronome(){
+	var rate = 60000/bpm;
+	console.log(rate);
+	metronomeTimeout = setTimeout(playMetronomeSound, rate);
+}
+
+function stopMetronome(){
+	clearTimeout(metronomeTimeout);
+}
+
+function playMetronomeSound(){
+	console.log("in play");
+	audio.play();
+	startMetronome();
+}
+
 //get all keys
 var temp = document.querySelectorAll(".key");
 //create array of valid key inputs

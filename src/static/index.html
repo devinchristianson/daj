@@ -16,6 +16,7 @@
   <link href="style.css" rel="stylesheet" type="text/css" />
   <script>
     var csvPath = "/static/chords.csv";
+	var metronomeSoundPath = "/static/metronome.mp3";
   </script>
 </head>
 
@@ -26,6 +27,10 @@
 		<h1>PolyChord</h1>
 		<h2></h2>
 	</header>
+	
+	<label for="metro">Metronome bpm:</label>
+	<input id="metroNum" type="number" value="88">
+	<button onclick="toggleBPM()">Toggle Metronome</button>
 
 	<section id="main">
 		<!-- Displays the current chord being played-->
