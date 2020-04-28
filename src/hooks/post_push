@@ -16,7 +16,7 @@ repoName=${IMAGE_NAME:0:tagStart-1}
 
 # Tag and push image for each additional tag
 
-for tag in {latest}; do
+for tag in { latest }; do
 
     docker tag $IMAGE_NAME ${repoName}:${tag}
 
