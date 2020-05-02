@@ -1,0 +1,23 @@
+PolyChordGUI : displayChord(string Chord):void
+
+Controller : bool sustain
+Controller : playNote(string keycode):void
+Controller : releaseNote(string keycode):void
+
+class ChordDB <<singleton>>
+ChordDB : findChords(string[] notes):string[]
+
+Chord : int[] intervals
+Chord : string name
+Chord : string notation
+
+Key : string note
+Key : int octave
+Key : string keycode
+Key : string state
+Key : playAnimation():void
+
+PolyChordGUI "1" *-- "1" Controller
+ChordDB "1" -- "*" Chord : "contains"
+Controller "1" *-- "88" Key : "plays"
+Controller "1" *-- "1" ChordDB : "looks up"

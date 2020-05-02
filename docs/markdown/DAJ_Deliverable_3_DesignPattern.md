@@ -12,6 +12,10 @@ The State behavioral pattern is useful for our application becuase each key has 
 
 ## Design Class Diagrams
 
+### Detailed Design: Playing the Piano
+
 ![alt text](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/detailed_design.png)
+
+### Detailed Design: Users and Progression
 
 ![alt text](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/uml/detailedDesign.png)  
