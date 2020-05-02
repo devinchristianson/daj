@@ -1,9 +1,15 @@
 {
-    "name": "polychord",
-    "version": "0.0.2",
-    "devDependencies": {
-    },
-    "scripts": {
-      "test": "karma start --single-run --browsers FirefoxHeadless karma.conf.js" 
-    }
+  "name": "polychord",
+  "version": "0.0.2",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "karma": "^5.0.4",
+    "karma-chai": "^0.1.0",
+    "karma-firefox-launcher": "^1.3.0",
+    "karma-mocha": "^2.0.1",
+    "mocha": "^7.1.2"
+  },
+  "scripts": {
+    "test": "karma start --single-run --browsers FirefoxHeadless karma.conf.js"
   }
+}

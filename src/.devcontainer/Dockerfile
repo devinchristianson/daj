@@ -56,6 +56,5 @@ RUN pip install pipreqs
 ENV PATH="/home/vscode/.local/bin:${PATH}"
 USER $USERNAME
 RUN curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash - && sudo apt-get install -y nodejs && sudo npm install npm@latest -g
-RUN sudo npm i --save-dev karma karma-mocha karma-chai \
-    && sudo npm i --save-dev karma-firefox-launcher \
-    && sudo npm i --save-dev mocha chai
+WORKDIR /workspaces/daj/src
+RUN npm install
