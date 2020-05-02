@@ -27,7 +27,7 @@ Progression : int measures
 
 class User
 
-User : int id
+User : int id2
 User : downloadProgression(int id):Progression
 User : uploadProgression(Progression prog):void
 User : login():int
