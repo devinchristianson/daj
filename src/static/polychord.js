@@ -139,6 +139,7 @@ function playNote(keycode) {
     poly.triggerAttack(key.dataset.note + key.dataset.octave);
     //display note/chord being played
     document.querySelector(".currentNote").innerHTML = getChord();
+    return key.dataset.note + key.dataset.octave;
   }
 }
 
@@ -154,6 +155,7 @@ function stopNote(keycode) {
     key.classList.remove("playing");
     //release note
     poly.triggerRelease(key.dataset.note + key.dataset.octave);
+    return key.dataset.note + key.dataset.octave;
   }
   //sustain is held; store note in sustain keys
   else {
