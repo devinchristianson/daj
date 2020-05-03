@@ -29,14 +29,14 @@ Play Keyboard:
 
 | ***User Actions***              | ***System Responses***                                |
 | ------------------------------- | ----------------------------------------------------- |
-| - User plays notes on the piano | - System plays the corresponding sounds for the notes |
+| - User selects notes on the piano | - System plays the corresponding sounds for the notes |
 
 **View Note**:
 
 - Use Case ID: 2
 - Relevant User Story IDs: 31
 - Actors: User
-- Related Use Cases: None
+- Related Use Cases: Play Keyboard
 - Preconditions: User Plays Piano
 - Success Post-conditions: System displays each note as it is played
 - Exceptions handled: None
@@ -52,7 +52,7 @@ Play Keyboard:
 - Use Case ID: 3
 - Relevant User Story IDs: 1, 4
 - Actors: User
-- Related Use Cases: None
+- Related Use Cases: Play Keyboard
 - Preconditions: User Plays Piano, notes played form a valid chord
 - Success Post-conditions: Chord being played is displayed
 - Exceptions handled: If the notes aren't a chord, nothing is displayed 
@@ -68,7 +68,7 @@ Play Keyboard:
 - Use Case ID: 4
 - Relevant User Story IDs: 28, 30
 - Actors: User
-- Related Use Cases: None
+- Related Use Cases: Play Keyboard
 - Preconditions: User Plays Piano, notes played form valid chord
 - Success Post-conditions: System displays chord progression as it is played
 - Exceptions handled: If the notes aren't a chord, nothing is displayed
@@ -93,7 +93,7 @@ Play Keyboard:
 
 | ### User Actions                     | ### System Responses                                       |
 | ------------------------------------ | ---------------------------------------------------------- |
-| - User changes Synth sound selection | - System changes the sound profile that is played by piano |
+| - User selects change Synth sound<br /><br /> - User changes synth sound | <br />- System shows synth sound menu<br /> - System changes sound profile that is played by piano |
 
 **Change octave**:
 
@@ -109,7 +109,7 @@ Play Keyboard:
 
 | ### User Actions      | ### System Responses                                |
 | --------------------- | --------------------------------------------------- |
-| - User changes octave | - System changes the octave that is played by piano |
+| - User selects change octave<br /><br /> - User sees updated octave | - System changes the octave that is played by piano<br /> - System updates octave |
 
 **Change input method**:
 
@@ -158,7 +158,7 @@ Play Keyboard:
 
 | ### User Actions           | ### System Responses                                         |
 | -------------------------- | ------------------------------------------------------------ |
-| - User sets up Midi device | - System attempts to detect Midi device<br />- System sets up detected Midi device |
+| - User plugs in MIDI device <br /><br />- User sets up Midi device | <br />- System attempts to detect Midi device<br /><br />- System sets up detected Midi device |
 
 
 
