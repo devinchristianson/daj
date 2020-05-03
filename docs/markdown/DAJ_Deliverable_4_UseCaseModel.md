@@ -45,7 +45,7 @@ Play Keyboard:
 
 | ### User Actions                                             | ### System Responses                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| - User plays notes on the Piano<br /><br />- User views notes as they play | <br />- System plays the corresponding sounds for the notes<br />- System displays each note as it is played<br /> |
+| - User plays notes on the Piano<br /><br />- User views notes as they play | <br />- System plays the corresponding sounds for the notes<br /><br />- System displays each note as it is played |
 
 **View Chord**:
 
@@ -93,7 +93,7 @@ Play Keyboard:
 
 | ### User Actions                     | ### System Responses                                       |
 | ------------------------------------ | ---------------------------------------------------------- |
-| - User selects change Synth sound<br /><br /> - User changes synth sound | <br />- System shows synth sound menu<br /> - System changes sound profile that is played by piano |
+| - User selects change Synth sound<br /><br /> - User changes synth sound | <br />- System shows synth sound menu<br /><br /> - System changes sound profile that is played by piano |
 
 **Change octave**:
 
