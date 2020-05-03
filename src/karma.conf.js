@@ -11,11 +11,11 @@ module.exports = function (config) {
             './static/**/*.js',
             './tests/**/*.js'
         ],
-        reporters: ['progress'],
+        reporters: ['progress', 'spec'],
         port: 9876,  // karma web server port
         colors: true,
         logLevel: config.LOG_DEBUG,
-        browsers: ['FirefoxHeadless'], //dont forget to turn ON ChromeHeadless and IE
+        browsers: ['FirefoxHeadless', 'Chrome'],
         autoWatch: false,
         concurrency: Infinity,
         customLaunchers: {

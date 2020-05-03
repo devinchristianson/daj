@@ -139,6 +139,7 @@ function playNote(keycode) {
     poly.triggerAttack(key.dataset.note + key.dataset.octave);
     //display note/chord being played
     document.querySelector(".currentNote").innerHTML = getChord();
+    return key.dataset.note + key.dataset.octave;
   }
 }
 
@@ -154,6 +155,7 @@ function stopNote(keycode) {
     key.classList.remove("playing");
     //release note
     poly.triggerRelease(key.dataset.note + key.dataset.octave);
+    return key.dataset.note + key.dataset.octave;
   }
   //sustain is held; store note in sustain keys
   else {
@@ -318,6 +320,7 @@ context.resume();
 var midiAccess = null;
 
 function _connect() {
+	midiAccess = false;
     if(window.navigator && 'function' === typeof window.navigator.requestMIDIAccess) {
         window.navigator.requestMIDIAccess().then(onMidiInit, onMidiReject);
 		console.log("connected to midi");
@@ -362,6 +365,7 @@ function getMIDIMessage(message) {
 		}
 
 function onMidiReject(){
+	midiAccess = false;
 	console.log("no midi");
 }
 
