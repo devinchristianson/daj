@@ -436,7 +436,7 @@ Play Saved Chord:
 - Use Case ID: 25
 - Relevant User Story IDs: 41
 - Actors: User
-- Related Use Cases: Sign Out
+- Related Use Cases: None
 - Preconditions: User is signed in
 - Success Post-conditions:  User's data is removed, User is signed out
 - Exceptions handled: None
