@@ -320,6 +320,7 @@ context.resume();
 var midiAccess = null;
 
 function _connect() {
+	midiAccess = false;
     if(window.navigator && 'function' === typeof window.navigator.requestMIDIAccess) {
         window.navigator.requestMIDIAccess().then(onMidiInit, onMidiReject);
 		console.log("connected to midi");
@@ -364,6 +365,7 @@ function getMIDIMessage(message) {
 		}
 
 function onMidiReject(){
+	midiAccess = false;
 	console.log("no midi");
 }
 

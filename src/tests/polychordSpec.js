@@ -15,9 +15,14 @@ describe('main', function () {
             assert.equal(stopNote("KeyK"), "C5");
         });
     });
-	describe('onMidiInit()', function () {
+	describe('onMidiReject()', function () {
         it('should prove have midi access', function () {
-            assert.notEqual(midi, null);
+            assert.notEqual(midiAccess, null);
+        });
+    });
+	describe('startMetronome()', function () {
+        it('should prove have midi access', function () {
+            assert.equal(true, (bpm > 0) && (bpm < 1000));
         });
     });
 })
