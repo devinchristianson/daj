@@ -1,19 +1,16 @@
 # Software Architecture
 
 ## Systems
-### Controller
-- Javascript
+### Controller - Javascript
 - Defines event listeners
 - Capture inputs
 - Modify keys
 
-### Model
-- HTML
+### Model - HTML
 - Keyboard
 - Keys
 
-### View
-- CSS
+### View - CSS
 - Notes on keyboard
 - Chord recognition
 
