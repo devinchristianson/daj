@@ -1,5 +1,22 @@
 # Software Architecture
 
+## Systems
+### Controller
+- Javascript
+- Defines event listeners
+- Capture inputs
+- Modify keys
+
+### Model
+- HTML
+- Keyboard
+- Keys
+
+### View
+- CSS
+- Notes on keyboard
+- Chord recognition
+
 ## Diagram
 
 ![alt text](https://raw.githubusercontent.com/devinchristianson/daj/master/docs/assets/architecture.png)
