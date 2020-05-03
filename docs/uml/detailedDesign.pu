@@ -1,3 +1,6 @@
+class ExcerciseDatabase <<singleton>>
+class UserDatabase <<singleton>>
+
 Progression "1" *-- "1" TimeSignature
 Progression "1" *-- "*" Note
 Chord "1" *-- "*" Note

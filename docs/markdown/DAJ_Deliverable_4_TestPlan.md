@@ -88,6 +88,39 @@
 	
 	Coverage: 100%
 
+#### Metronome
+
+**Actor**: User
+
+**Requirements**: User has toggled the metronome on.
+
+**Main Scenario**:
+
+1. User inputs a bpm value
+2. User turns metronome on
+3. User hears metronome sound
+4. User turns metronome off
+
+**Alternatives**:
+
+1a. User does not input a value
+1a1. System cannot play metronome
+1b. User inputs an invalid value
+1b1. System behaves incorrectly
+
+**Test Situations**:
+
+1. User does not enter a value
+1. User inputs an invalid value
+
+**Test Coverage**:
+
+	Situations: 2
+	
+	Tests: 2
+	
+	Coverage: 100%
+
 #### Sustain Key
 
 **Actor**: User
@@ -136,6 +169,8 @@
 
 ### Proof:
 
+Automated testing for the Use Case tests could not be properly put together due to issues even getting the testing framework we had chosen up and running.
+
 ## Acceptance Tests
 
 ### Test Cases:
@@ -143,8 +178,12 @@
 1. Test that the application functions as expected on all common* browsers, such as Chrome, Safari, Firefox, and IE. Note that because the MIDI features are browser dependent, a failure message is the expected behavior on other browsers when activating that feature.
 2. Test that application recognizes Major, Minor, Dominant, Augmented, Suspended, Half-Diminished, and Diminished chords, as well as their alternative variants.
 3. Test that the system accepts MIDI input as expected when using a supported browser.
-4. Test that the system's sustain key acts as expected, sustaining all notes played while it is pressed, and releasing all notes when it is released.
-5. Test that the application switches octaves as expected: the octave up button results in the system playing tones an octave higher (within the 5 octave maximum), and the octave down button results in the system playing tones an octave lower (within the 5 octave minimum).
+4. Test that the metronome can play at a default value.
+5. Test that the metronome does not accept in invalid bpm number.
+6. Test that the system's sustain key acts as expected, sustaining all notes played while it is pressed, and releasing all notes when it is released.
+7. Test that the application switches octaves as expected: the octave up button results in the system playing tones an octave higher (within the 5 octave maximum), and the octave down button results in the system playing tones an octave lower (within the 5 octave minimum).
 
 ### Proof:
+
+Automated testing for the Use Case tests could not be properly put together due to issues even getting the testing framework we had chosen up and running.
 
