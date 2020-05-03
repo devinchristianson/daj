@@ -50,7 +50,8 @@ Table of Contents
 | 5.1        Performance Requirements        |
 | 5.2        Safety Requirements        |
 | 5.3        Security Requirements        |
-| 5.4        Software Quality Attributes        |
+| 5.4        Software 
+Attributes        |
 |                 12|
 | 5.5        Business Rules        |
 |                 13|
@@ -241,13 +242,12 @@ Not applicable
 
 ### 4.1.3 Functional Requirements
 
-SITE-1: The system shall operate on major web browsers.
+SITE-1: The system shall have an option for users to log in to an account.
 
-SITE-2: The system shall be compatible with mobile devices.
+SITE-2: The system shall have a virtual keyboard that can be played by a user using their computer keyboard.
 
 SITE-3: The system shall adopt a color scheme that is easy to use in the dark.
 
-SITE-4: The system shall use flask 1.1.1 with Python 3.6+ to run.
 
 ## 4.2 Chords
 
@@ -398,10 +398,10 @@ SEC-2: The system shall not place identifying information into downloaded files.
 
 ## 5.4 Software Quality Attributes
 
-Availability: The system should be available during school hours, so teachers can use it and in the evening, so people home from work can use it.
-Correctness: The system should correctly identify chords.
-Portability: The system should be available on different popular operating systems and web browsers.
-Usability: The system should be fully functional to a user without extensive training.
+Availability: The system should be available for use at least 95% of the time.
+Correctness: The system should correctly identify chords from the chords.csv file at least 99% of the time.
+Portability: The system should be available on Firefox, Internet Explorer, Safari, and Google Chrome.
+Usability: A user should be able to understand the system within 5 minutes of use at least 95% of the time.
 
 ## 5.5 Business Rules
 
