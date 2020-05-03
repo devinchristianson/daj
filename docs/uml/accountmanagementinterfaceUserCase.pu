@@ -8,6 +8,6 @@ User -- (21. Save Chord)
 User -- (22. Play Saved Chord)
 User -- (23. Save Synth profile)
 User -- (24. Use stored Synth profile)
-(20. Sign out) <-- (25. Delete Account): <<extend>>
+User -- (25. Delete Account)
 }
 @enduml
