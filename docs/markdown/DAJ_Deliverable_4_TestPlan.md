@@ -87,7 +87,7 @@
 	Tests: 1
 	
 	Coverage: 100%
-	
+
 #### Metronome
 
 **Actor**: User
@@ -169,6 +169,8 @@
 
 ### Proof:
 
+Automated testing for the Use Case tests could not be properly put together due to issues even getting the testing framework we had chosen up and running.
+
 ## Acceptance Tests
 
 ### Test Cases:
@@ -182,4 +184,6 @@
 7. Test that the application switches octaves as expected: the octave up button results in the system playing tones an octave higher (within the 5 octave maximum), and the octave down button results in the system playing tones an octave lower (within the 5 octave minimum).
 
 ### Proof:
+
+Automated testing for the Use Case tests could not be properly put together due to issues even getting the testing framework we had chosen up and running.
 
