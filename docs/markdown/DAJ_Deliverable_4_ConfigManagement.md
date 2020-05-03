@@ -221,5 +221,4 @@ the development team for Polychord uses GitHub for version control and project m
 
 ## 6. Plan Maintenance
 
-The Configuration Manager is responsible for monitoring the plan, and updates to the plan should be performed as necessary, at a minimum once for every major Software release. Changes to the plan can be evaluated and approved through the same GitHub Issue and Pull Request mechanism as is used for Configuration Items, though these artifacts should be tagged as SCM, so that a history of the changes made to the plan can more easily be tracked.
-
+The Configuration Manager is responsible for monitoring the plan, and updates to the plan should be performed as necessary, at a minimum once for every major Software release. Changes to the plan can be evaluated and approved through the same GitHub Issue and Pull Request mechanism as is used for Configuration Items, though these artifacts should be tagged as SCM, so that a history of the changes made to the plan can more easily be tracked. For security maintenance we are doing a quick look into libraries to make sure none are compromised and if they are update them. For MIDI, system exclusive should be disabled which is by decault and accounts are through Google sign in and handled by Google security.
